@@ -3,11 +3,18 @@ $(document).ready(function () {
     let localHidden = true;
     let messagesHidden = true;
     let menuHidden = true;
+    let settingsHidden = true;
+    let scrollUserHidden = false;
+
     let searchLineAnimate = false;
     let locationAnimate = false;
     let localAnimate = false;
     let messagesAnimate = false;
     let menuAnimate = false;
+    let settingsAnimate = false;
+
+    let scrollBar;
+    let settingsPosition = "-808px";
 
     {
         $("#menu-btn").css("position", "absolute")
@@ -20,10 +27,32 @@ $(document).ready(function () {
         } else {
             $("#menu-btn div").css("left", "-40px");
         }
+
+        if (window.innerHeight === window.screen.height) {
+            $("#menu-top").css("margin-bottom", "489px");
+        } else {
+            $("#menu-top").css("margin-bottom", "420px");
+        }
+
+        if ($(window).width() >= 1440) {
+            if (window.innerHeight === window.screen.height) {
+                settingsPosition = "-877px";
+            } else {
+                settingsPosition = "-808px";
+            }
+        } else if ($(window).width() < 960) {
+            settingsPosition = "-782px";
+        } else {
+            settingsPosition = "-796px";
+        }
+
+        if (!settingsHidden) {
+            $(".settings-btn").css("top", settingsPosition);
+        }
     })
 
     $(document).mousemove(function () {
-        if (!$("#menu").is(":hover") && !menuHidden) {
+        if (!$("#menu").is(":hover") && !menuHidden && !$("#menu-btn").is(":hover")) {
             $($(".link")[6]).click();
         }
     })
@@ -37,9 +66,44 @@ $(document).ready(function () {
     })
 
     $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
-            autoHide: false
-        });
+        if ($(this).attr("id") === "menu") {
+            scrollBar = new SimpleBar($(".scroll")[index], {
+                autoHide: false
+            });
+            scrollBar.getScrollElement().addEventListener("scroll", function () {
+                if (!messagesAnimate && !settingsAnimate && messagesHidden && settingsHidden) {
+                    $("#menu-btn").finish();
+                    if (scrollBar.getScrollElement().scrollTop === 0) {
+                        if (scrollUserHidden) {
+                            scrollUserHidden = false;
+                            $("#user").find("img").animate({
+                                "top": "0"
+                            }, 100, "linear");
+                            $("#menu-btn").animate({
+                                "top": "5px"
+                            }, 100, "linear");
+                        }
+                    } else {
+                        if (!scrollUserHidden) {
+                            scrollUserHidden = true;
+                            $("#user").find("img").animate({
+                                "top": "-100px"
+                            }, 100, "linear");
+                            $("#menu-btn").animate({
+                                "top": "-100px"
+                            }, 100, "linear");
+                        }
+                    }
+
+                } else {
+                    scrollBar.getScrollElement().scrollTop = 0;
+                }
+            })
+        } else {
+            new SimpleBar($(".scroll")[index], {
+                autoHide: false
+            });
+        }
     });
 
     $(".menu-item").mouseenter(function () {
@@ -55,13 +119,14 @@ $(document).ready(function () {
     })
 
     $("#menu").mouseleave(function () {
-        if (!menuAnimate) {
+        if (!$("#menu-btn").is(":hover")) {
             $($(".link")[6]).click();
         }
     })
 
     $($(".link")[6]).click(function () {
-        if (!menuAnimate && !messagesAnimate) {
+        if (!menuAnimate && !messagesAnimate && !settingsAnimate) {
+            scrollBar.getScrollElement().scrollTop = 0;
             menuAnimate = true;
             if (menuHidden) {
                 let leftPosition = $(window).width() >= 1770 ? 40 : 20;
@@ -73,7 +138,9 @@ $(document).ready(function () {
                     $("#menu").find(".menu-item").each(function (index) {
                         let wait = 100 * ($("#menu").find(".menu-item").length +
                             $("#menu").find(".line-between").length -
-                            $("#messages").find(".line-between").length);
+                            $("#messages").find(".line-between").length -
+                            $("#settings").find(".line-between").length -
+                            $("#settings").find(".menu-item").length);
                         let waiting = index * 100;
 
                         setTimeout(function () {
@@ -150,9 +217,35 @@ $(document).ready(function () {
                     messagesHidden = true;
                 });
 
+                $("#settings").animate({
+                    "right": "-320px"
+                }, 1000, "easeInOutQuint", function () {
+                    $("#settings").find(".line-between").css("opacity", "0");
+
+                    $("#settings").find(".menu-item").css("opacity", "0");
+
+                    $(".settings-btn").css({
+                        "position": "",
+                        "top": ""
+                    });
+
+                    $("#menu").find(".menu-item").each(function () {
+                        if (!$(this).hasClass("settings-btn")) {
+                            $(this).css("opacity", "1");
+                        }
+                    });
+
+                    $("#menu").find(".line-between").css("opacity", "1");
+
+                    $("#user").find("img").css("top", "");
+
+                    settingsAnimate = false;
+                    settingsHidden = true;
+                });
+
                 $("#menu-btn").animate({
                     "font-size": $("#current-cinema").css("font-size"),
-                    "top": "0"
+                    "top": "5px"
                 }, 1000, "easeInOutQuint", function () {
                     $("#menu").find(".menu-item").css("opacity", "0");
                     $("#menu").find(".line-between").css("opacity", "0");
@@ -167,6 +260,8 @@ $(document).ready(function () {
                 });
 
                 $("#menu-btn .triangle").css("transform", "rotate(-90deg)");
+
+                scrollBar.getScrollElement().scrollTop = 0;
             }
         }
     })
@@ -388,11 +483,11 @@ $(document).ready(function () {
         })
     })
 
-    //animation from invision
     $(".messages-btn").click(function () {
         if (messagesHidden) {
-            if (!messagesAnimate && !menuAnimate) {
+            if (!messagesAnimate && !menuAnimate && !settingsAnimate) {
                 messagesAnimate = true;
+                $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
 
                 $("#user").find("img").animate({
                     "top": "-100px"
@@ -444,10 +539,12 @@ $(document).ready(function () {
                                 }, 300, "linear", function () {
                                     messagesHidden = false;
                                     messagesAnimate = false;
+                                    // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                                 });
                             } else {
                                 messagesHidden = false;
                                 messagesAnimate = false;
+                                // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                             }
                         }, 200);
                     }, 200);
@@ -514,8 +611,9 @@ $(document).ready(function () {
                         }, 500, "easeInOutQuint", function () {
                             messagesAnimate = false;
                             messagesHidden = true;
+                            $($("#menu .simplebar-vertical")[1]).css("opacity", "1");
+                            scrollUserHidden = false;
                         });
-                        // console.log(messagesAnimate);
                     }, 200);
                 }, 900);
             }
@@ -536,5 +634,169 @@ $(document).ready(function () {
             messagesAnimate = false;
         }
         // console.log(messagesAnimate);
+    })
+
+    $(".settings-btn").click(function () {
+        if (settingsHidden) {
+            if (!settingsAnimate && !menuAnimate && !messagesAnimate) {
+                settingsAnimate = true;
+                $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
+                $(window).resize();
+
+                $("#user").find("img").animate({
+                    "top": "-100px"
+                }, 500, "easeInOutQuint");
+
+                setTimeout(function () {
+                    $("#menu-btn").animate({
+                        "top": "-100px"
+                    }, 500, "easeInOutQuint");
+                }, 200);
+
+                $("#menu").find(".line-between").animate({
+                    "opacity": "0"
+                }, 600, "linear");
+
+                $("#menu").find(".menu-item").each(function () {
+                    if (!$(this).hasClass("settings-btn")) {
+                        $(this).animate({
+                            "opacity": "0"
+                        }, 700, "linear");
+                    }
+                })
+
+                setTimeout(function () {
+                    let elem = $(".settings-btn");
+                    // let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
+                    elem.css({
+                        "position": "absolute",
+                        "top": "-10px"
+                    }).animate({
+                        "top": settingsPosition
+                    }, 500, "easeInOutQuint");
+                }, 800);
+
+                setTimeout(function () {
+                    $("#settings").animate({
+                        "right": "0"
+                    }, 300, "easeInOutQuint", function () {
+                        $("#settings").find(".menu-item").each(function (index) {
+                            let wait = 100 * ($("#settings").find(".menu-item").length +
+                                $("#settings").find(".line-between").length);
+                            let waiting = index * 100;
+
+                            setTimeout(function () {
+                                $($("#settings").find(".menu-item")[index]).animate({
+                                    "opacity": "1"
+                                }, 100, "linear");
+                            }, waiting);
+
+                            setTimeout(function () {
+                                settingsAnimate = false;
+                                settingsHidden = false;
+                                // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
+                            }, wait);
+                        });
+
+                        setTimeout(function () {
+                            $("#settings").find(".line-between").each(function (index) {
+                                let waiting = index * 100;
+
+                                setTimeout(function () {
+                                    $($("#settings").find(".line-between")[index]).animate({
+                                        "opacity": "1"
+                                    }, 100, "linear");
+                                }, waiting);
+                            })
+                        }, 50);
+                    });
+
+                }, 900);
+            }
+        }
+    })
+
+    $("#settings .title").click(function () {
+        if (!settingsHidden) {
+            if (!settingsAnimate) {
+                settingsAnimate = true;
+
+                $("#settings").find(".menu-item").get().reverse().forEach(function (elem, index) {
+                    let waiting = index * 100;
+
+                    setTimeout(function () {
+                        // $($("#settings").find(".menu-item")[index]).animate({
+                        //     "opacity": "0"
+                        // }, 100, "linear");
+                        $(elem).animate({
+                            "opacity": "0"
+                        }, 100, "linear");
+                    }, waiting);
+
+                });
+
+                setTimeout(function () {
+                    $("#settings").find(".line-between").get().reverse().forEach(function (elem, index) {
+                        let waiting = index * 100;
+
+                        setTimeout(function () {
+                            $(elem).animate({
+                                "opacity": "0"
+                            }, 100, "linear");
+                        }, waiting);
+                    })
+                }, 50);
+
+                setTimeout(function () {
+                    let elem = $(".settings-btn");
+                    // let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
+                    elem.animate({
+                        "top": "-10px"
+                    }, 500, "easeInOutQuint", function () {
+                        $(this).css({
+                            "position": "",
+                            "top": ""
+                        });
+                    });
+                }, 300);
+
+                setTimeout(function () {
+                    $("#settings").animate({
+                        "right": "-320px"
+                    }, 300, "easeInOutQuint");
+                }, 400);
+
+                setTimeout(function () {
+                    $("#menu").find(".menu-item").each(function () {
+                        if (!$(this).hasClass("settings-btn")) {
+                            $(this).animate({
+                                "opacity": "1"
+                            }, 700, "linear");
+                        }
+                    });
+
+                    $("#menu-btn").animate({
+                        "top": "5px"
+                    }, 500, "easeInOutQuint");
+
+                    setTimeout(function () {
+                        $("#menu").find(".line-between").animate({
+                            "opacity": "1"
+                        }, 600, "linear");
+                    }, 100);
+
+                    setTimeout(function () {
+                        $("#user").find("img").animate({
+                            "top": ""
+                        }, 500, "easeInOutQuint", function () {
+                            settingsAnimate = false;
+                            settingsHidden = true;
+                            $($("#menu .simplebar-vertical")[1]).css("opacity", "1");
+                            scrollUserHidden = false;
+                        });
+                    }, 200);
+                }, 800);
+            }
+        }
     })
 })
