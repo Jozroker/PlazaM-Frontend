@@ -41,7 +41,7 @@ $(document).ready(function () {
                 settingsPosition = "-808px";
             }
         } else if ($(window).width() < 960) {
-            settingsPosition = "-782px";
+            settingsPosition = "-788px";
         } else {
             settingsPosition = "-796px";
         }
@@ -245,7 +245,7 @@ $(document).ready(function () {
 
                 $("#menu-btn").animate({
                     "font-size": $("#current-cinema").css("font-size"),
-                    "top": "5px"
+                    "top": ""
                 }, 1000, "easeInOutQuint", function () {
                     $("#menu").find(".menu-item").css("opacity", "0");
                     $("#menu").find(".line-between").css("opacity", "0");
@@ -539,12 +539,10 @@ $(document).ready(function () {
                                 }, 300, "linear", function () {
                                     messagesHidden = false;
                                     messagesAnimate = false;
-                                    // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                                 });
                             } else {
                                 messagesHidden = false;
                                 messagesAnimate = false;
-                                // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                             }
                         }, 200);
                     }, 200);
@@ -621,7 +619,6 @@ $(document).ready(function () {
     })
 
     $(".cross").click(function () {
-        // console.log(messagesAnimate);
         if (!messagesAnimate) {
             messagesAnimate = true;
             let elem = $(this).parent();
@@ -633,7 +630,6 @@ $(document).ready(function () {
             elem.remove();
             messagesAnimate = false;
         }
-        // console.log(messagesAnimate);
     })
 
     $(".settings-btn").click(function () {
@@ -667,7 +663,6 @@ $(document).ready(function () {
 
                 setTimeout(function () {
                     let elem = $(".settings-btn");
-                    // let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
                     elem.css({
                         "position": "absolute",
                         "top": "-10px"
@@ -694,7 +689,6 @@ $(document).ready(function () {
                             setTimeout(function () {
                                 settingsAnimate = false;
                                 settingsHidden = false;
-                                // $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                             }, wait);
                         });
 
@@ -725,9 +719,6 @@ $(document).ready(function () {
                     let waiting = index * 100;
 
                     setTimeout(function () {
-                        // $($("#settings").find(".menu-item")[index]).animate({
-                        //     "opacity": "0"
-                        // }, 100, "linear");
                         $(elem).animate({
                             "opacity": "0"
                         }, 100, "linear");
@@ -749,7 +740,6 @@ $(document).ready(function () {
 
                 setTimeout(function () {
                     let elem = $(".settings-btn");
-                    // let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
                     elem.animate({
                         "top": "-10px"
                     }, 500, "easeInOutQuint", function () {

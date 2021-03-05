@@ -37,8 +37,8 @@ $maroon-light: #CB3F5D;
 body {
   display: block;
   position: static;
-  font-family: "BauhausC", "Arial", sans-serif;
-  font-weight: 300;
+  font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+  font-weight: 500;
   font-size: 18px;
   color: $gray-light;
   overflow: hidden;
@@ -51,4 +51,5 @@ ul, ol {
 a, a:hover, a:visited, a:active {
   text-decoration: none;
   color: inherit;
+  outline: none;
 }
