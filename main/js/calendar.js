@@ -1,13 +1,16 @@
-$(document).ready(function () {
-    $("#calendar").calendar();
-});
+// $(document).ready(function () {
+//     $("#calendar").calendar(new Date());
+// });
 
 (function ($) {
-    let selectedDate = new Date();
 
     $.fn.calendar = function (opts) {
         let options = $.extend({
-            color: '#308B22',
+            selectedDate: opts,
+            // currentYear: null,
+            // currentMonth: null,
+            // currentDay: null,
+            // currentCalendar: null,
             months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             onSelect: function (event) {
@@ -22,8 +25,6 @@ $(document).ready(function () {
     };
 
     function initCalendar(wrapper, options) {
-        let color = options.color;
-
         wrapper.addClass('calendar').empty();
 
         let header = $('<header>').appendTo(wrapper);
@@ -37,8 +38,8 @@ $(document).ready(function () {
             selectMonth(false, options);
             let curMonth = options.months.indexOf($($(".header-label")[0]).text().split(" ")[0]);
             let curYear = parseInt($($(".header-label")[0]).text().split(" ")[1]);
-            if (curMonth === selectedDate.getMonth() && curYear === selectedDate.getFullYear()) {
-                let dayNumber = selectedDate.getDay();
+            if (curMonth === options.selectedDate.getMonth() && curYear === options.selectedDate.getFullYear()) {
+                let dayNumber = options.selectedDate.getDay();
                 if (dayNumber === 0) {
                     $($(".calendar table th")[6]).addClass("selected");
                 } else {
@@ -54,9 +55,9 @@ $(document).ready(function () {
         headerLabel.html(' Month Year ');
         headerLabel.bind('click', function () {
             currentCalendar = $(this).parents('.calendar');
-            selectMonth(null, options, new Date().getMonth(), new Date().getFullYear());
+            selectMonth(null, options, options.selectedDate.getMonth(), options.selectedDate.getFullYear());
 
-            currentDay = new Date().getDate();
+            currentDay = options.selectedDate.getDate();
             triggerSelectEvent(options.onSelect);
         });
 
@@ -68,8 +69,8 @@ $(document).ready(function () {
             selectMonth(true, options);
             let curMonth = options.months.indexOf($($(".header-label")[0]).text().split(" ")[0]);
             let curYear = parseInt($($(".header-label")[0]).text().split(" ")[1]);
-            if (curMonth === selectedDate.getMonth() && curYear === selectedDate.getFullYear()) {
-                let dayNumber = selectedDate.getDay();
+            if (curMonth === options.selectedDate.getMonth() && curYear === options.selectedDate.getFullYear()) {
+                let dayNumber = options.selectedDate.getDay();
                 if (dayNumber === 0) {
                     $($(".calendar table th")[6]).addClass("selected");
                 } else {
@@ -82,7 +83,7 @@ $(document).ready(function () {
 
         let dayNames = $('<table>').appendTo(wrapper);
         dayNames.append('<thead><th>' + options.days.join('</th><th>') + '</th></thead>');
-        let dayNumber = new Date().getDay();
+        let dayNumber = options.selectedDate.getDay();
         if (dayNumber === 0) {
             $($(".calendar table th")[6]).addClass("selected");
         } else {
@@ -127,7 +128,7 @@ $(document).ready(function () {
                 } else {
                     $($(".calendar table th")[curDate.getDay() - 1]).addClass("selected");
                 }
-                selectedDate = curDate;
+                options.selectedDate = curDate;
 
                 currentDay = $(this).text();
                 triggerSelectEvent(options.onSelect);
@@ -177,16 +178,18 @@ $(document).ready(function () {
 
             $.each(calendar[j], function (index, item) {
                 let frameItem = $('<td>').appendTo(frameRow);
-                if (typeof item !== "undefined") {
+                if (typeof item !== "undefined" && item !== "") {
                     frameItem.html("<span class='date'>" + item + "</span>");
+                } else {
+                    frameItem.addClass("disabled");
                 }
             });
         }
 
         $('td:empty', frame).addClass('disabled');
-        if (currentMonth === selectedDate.getMonth() && currentYear === selectedDate.getFullYear()) {
+        if (currentMonth === options.selectedDate.getMonth() && currentYear === options.selectedDate.getFullYear()) {
             $('td', frame).filter(function () {
-                return $(this).text() === selectedDate.getDate().toString();
+                return $(this).text() === options.selectedDate.getDate().toString();
             }).addClass('selected');
         }
 
@@ -209,19 +212,4 @@ $(document).ready(function () {
             event({date: date, label: label.join('.')});
         }
     }
-
-    function createContrast(color) {
-        if (color.length < 5) {
-            color += color.slice(1);
-        }
-
-        return (color.replace('#', '0x')) > (0xffffff) ? '#222' : '#fff';
-    }
-
-    function createAccent(color, percent) {
-        let num = parseInt(color.slice(1), 16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt,
-            G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
-        return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 + (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
-    }
-
 }(jQuery));
