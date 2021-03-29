@@ -3,8 +3,13 @@ $(document).ready(function () {
     let localHidden = true;
     let messagesHidden = true;
     let menuHidden = true;
-    let settingsHidden = true;
+    let settingsMenuHidden = true;
     let scrollUserHidden = false;
+    let settingsHidden = false;
+    let sexHidden = true;
+    let countryHidden = true;
+    let languageHidden = true;
+    let phoneCodeHidden = true;
 
     let searchLineAnimate = false;
     let locationAnimate = false;
@@ -12,13 +17,29 @@ $(document).ready(function () {
     let messagesAnimate = false;
     let menuAnimate = false;
     let settingsAnimate = false;
+    let sexAnimate = false;
+    let countryAnimate = false;
+    let languageAnimate = false;
+    let phoneCodeAnimate = false;
+    let settingsMenuAnimate = false;
 
     let scrollBar;
     let settingsPosition = "-808px";
+    let nextClickedElement = $();
 
     {
         $("#menu-btn").css("position", "absolute")
             .parent().css("width", $("#menu-btn").width());
+
+        $(".sex, .country, .language-settings").find(".list .selected").each(function () {
+            let width = $(this).find("div").first().width();
+            $(this).css("width", 26 + width + "px");
+        })
+
+        // $("").find(".list .selected").each(function () {
+        //     let width = $($(this).find("div")[1]).width();
+        //     $(this).css("width", 60 + width + "px");
+        // })
     }
 
     $(window).resize(function () {
@@ -46,13 +67,20 @@ $(document).ready(function () {
             settingsPosition = "-796px";
         }
 
-        if (!settingsHidden) {
+        if ($(window).width() >= 955) {
+            $(".language-settings").css("display", "none");
+        } else {
+            $(".language-settings").css("display", "block");
+        }
+
+        if (!settingsMenuHidden) {
             $(".settings-btn").css("top", settingsPosition);
         }
     })
 
     $(document).mousemove(function () {
-        if (!$("#menu").is(":hover") && !menuHidden && !$("#menu-btn").is(":hover")) {
+        if (!$("#menu").is(":hover") && !menuHidden && !$("#menu-btn").is(":hover") &&
+            !$("#settings-bar").is(":hover")) {
             $($(".link")[6]).click();
         }
     })
@@ -65,13 +93,52 @@ $(document).ready(function () {
         $("#menu-btn .triangle").css("border-bottom-color", "");
     })
 
+    $(".personal-btn, .site-btn, .security-btn").click(function () {
+        $("#settings .settings-menu .menu-item").removeClass("selected");
+        $(this).addClass("selected");
+
+        if (!settingsMenuHidden) {
+            if (!settingsMenuAnimate) {
+                settingsMenuAnimate = true;
+
+                // $("#settings .settings-menu .menu-item").removeClass("selected");
+                let position = $("#settings .settings-menu .menu-item").index($(this));
+                // $(this).addClass("selected");
+                $("#menu").css("background-color", "#0A0B0B");
+
+                $("#settings-bar").animate({
+                    "top": (position * -100) + "vh"
+                }, 1000, "easeInOutQuint");
+                if ($(this).is(".security-btn")) {
+                    $("#save-btn").animate({
+                        "bottom": "-35px"
+                    }, 500, "easeInOutQuint");
+                } else {
+                    $("#save-btn").animate({
+                        "bottom": "7.96vh"
+                    }, 500, "easeInOutQuint");
+                }
+                $("#background").animate({
+                    "top": "0"
+                }, 1000, "easeInOutQuint", function () {
+                    settingsMenuAnimate = false;
+                    nextClickedElement.click();
+                });
+                $("#save-btn").attr("data", $(this).attr("id"));
+                settingsHidden = false;
+            } else {
+                nextClickedElement = $(this);
+            }
+        }
+    })
+
     $(".scroll").each(function (index) {
         if ($(this).attr("id") === "menu") {
             scrollBar = new SimpleBar($(".scroll")[index], {
                 autoHide: false
             });
             scrollBar.getScrollElement().addEventListener("scroll", function () {
-                if (!messagesAnimate && !settingsAnimate && messagesHidden && settingsHidden) {
+                if (!messagesAnimate && !settingsAnimate && messagesHidden && settingsMenuHidden) {
                     $("#menu-btn").finish();
                     if (scrollBar.getScrollElement().scrollTop === 0) {
                         if (scrollUserHidden) {
@@ -79,9 +146,11 @@ $(document).ready(function () {
                             $("#user").find("img").animate({
                                 "top": "0"
                             }, 100, "linear");
-                            $("#menu-btn").animate({
-                                "top": "5px"
-                            }, 100, "linear");
+                            if (!menuHidden || menuAnimate) {
+                                $("#menu-btn").animate({
+                                    "top": "5px"
+                                }, 100, "linear");
+                            }
                         }
                     } else {
                         if (!scrollUserHidden) {
@@ -118,18 +187,32 @@ $(document).ready(function () {
         $($(".link")[6]).click();
     })
 
-    $("#menu").mouseleave(function () {
-        if (!$("#menu-btn").is(":hover")) {
-            $($(".link")[6]).click();
-        }
-    })
-
     $($(".link")[6]).click(function () {
-        if (!menuAnimate && !messagesAnimate && !settingsAnimate) {
-            scrollBar.getScrollElement().scrollTop = 0;
+        if (!menuAnimate && !messagesAnimate && !settingsAnimate && !settingsMenuAnimate) {
             menuAnimate = true;
+
+            if (!settingsHidden) {
+                $("#settings-bar").animate({
+                    "top": "100vh"
+                }, 1000, "easeInOutQuint");
+                $("#save-btn").animate({
+                    "bottom": "-35px"
+                }, 500, "easeInOutQuint");
+                $("#background").animate({
+                    "top": "100vh"
+                }, 1000, "easeInOutQuint");
+                settingsHidden = true;
+            }
+
+            if (!messagesHidden || !settingsMenuHidden || scrollUserHidden) {
+                $("#menu-btn").css("opacity", "0");
+            }
+            scrollUserHidden = false;
+
             if (menuHidden) {
                 let leftPosition = $(window).width() >= 1770 ? 40 : 20;
+
+                $(".simplebar-track").css("opacity", "1");
 
                 $("#menu").animate({
                     "right": "0"
@@ -152,6 +235,8 @@ $(document).ready(function () {
                         setTimeout(function () {
                             menuAnimate = false;
                             menuHidden = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         }, wait);
                     });
 
@@ -186,6 +271,8 @@ $(document).ready(function () {
                 $("#menu-btn .triangle").css("transform", "rotate(90deg)");
 
             } else {
+
+                $("#menu").css("background-color", "rgba(13, 14, 13, 0.95)");
 
                 $("#menu").animate({
                     "right": "-320px"
@@ -240,17 +327,26 @@ $(document).ready(function () {
                     $("#user").find("img").css("top", "");
 
                     settingsAnimate = false;
-                    settingsHidden = true;
+                    settingsMenuHidden = true;
                 });
 
                 $("#menu-btn").animate({
                     "font-size": $("#current-cinema").css("font-size"),
                     "top": ""
                 }, 1000, "easeInOutQuint", function () {
-                    $("#menu").find(".menu-item").css("opacity", "0");
-                    $("#menu").find(".line-between").css("opacity", "0");
-                    menuHidden = true;
-                    menuAnimate = false;
+                    $("#menu-btn").animate({
+                        "opacity": "1"
+                    }, 300, function () {
+                        $("#menu").find(".menu-item").css("opacity", "0");
+                        $("#menu").find(".line-between").css("opacity", "0");
+
+                        scrollBar.getScrollElement().scrollTop = 0;
+                        menuHidden = true;
+                        menuAnimate = false;
+                        $(".menu-item").removeClass("selected");
+                        nextClickedElement.click();
+                        nextClickedElement = $();
+                    });
                 });
 
                 $("#menu-btn div").animate({
@@ -260,8 +356,6 @@ $(document).ready(function () {
                 });
 
                 $("#menu-btn .triangle").css("transform", "rotate(-90deg)");
-
-                scrollBar.getScrollElement().scrollTop = 0;
             }
         }
     })
@@ -298,7 +392,11 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 searchLineAnimate = !searchLineAnimate;
+                nextClickedElement.click();
+                nextClickedElement = $();
             }, 1000);
+        } else {
+            nextClickedElement = $(this);
         }
     })
 
@@ -338,7 +436,11 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 locationAnimate = false;
+                nextClickedElement.click();
+                nextClickedElement = $();
             }, 500);
+        } else {
+            nextClickedElement = $(this);
         }
     })
 
@@ -416,7 +518,11 @@ $(document).ready(function () {
             }
             setTimeout(function () {
                 localAnimate = false;
+                nextClickedElement.click();
+                nextClickedElement = $();
             }, 500);
+        } else {
+            nextClickedElement = $(this);
         }
     })
 
@@ -520,6 +626,10 @@ $(document).ready(function () {
                     }).animate({
                         "top": "-102px"
                     }, 500, "easeInOutQuint");
+
+                    setTimeout(function () {
+                        scrollBar.getScrollElement().scrollTop = 0;
+                    }, 200);
                 }, 800);
 
                 setTimeout(function () {
@@ -539,14 +649,20 @@ $(document).ready(function () {
                                 }, 300, "linear", function () {
                                     messagesHidden = false;
                                     messagesAnimate = false;
+                                    nextClickedElement.click();
+                                    nextClickedElement = $();
                                 });
                             } else {
                                 messagesHidden = false;
                                 messagesAnimate = false;
+                                nextClickedElement.click();
+                                nextClickedElement = $();
                             }
                         }, 200);
                     }, 200);
                 }, 900);
+            } else {
+                nextClickedElement = $(this);
             }
         }
     })
@@ -611,9 +727,13 @@ $(document).ready(function () {
                             messagesHidden = true;
                             $($("#menu .simplebar-vertical")[1]).css("opacity", "1");
                             scrollUserHidden = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     }, 200);
                 }, 900);
+            } else {
+                nextClickedElement = $(this);
             }
         }
     })
@@ -629,13 +749,18 @@ $(document).ready(function () {
             }
             elem.remove();
             messagesAnimate = false;
+            nextClickedElement.click();
+            nextClickedElement = $();
+        } else {
+            nextClickedElement = $(this);
         }
     })
 
     $(".settings-btn").click(function () {
-        if (settingsHidden) {
+        if (settingsMenuHidden) {
             if (!settingsAnimate && !menuAnimate && !messagesAnimate) {
                 settingsAnimate = true;
+
                 $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
                 $(window).resize();
 
@@ -663,6 +788,7 @@ $(document).ready(function () {
 
                 setTimeout(function () {
                     let elem = $(".settings-btn");
+                    scrollBar.getScrollElement().scrollTop = 0;
                     elem.css({
                         "position": "absolute",
                         "top": "-10px"
@@ -688,7 +814,9 @@ $(document).ready(function () {
 
                             setTimeout(function () {
                                 settingsAnimate = false;
-                                settingsHidden = false;
+                                settingsMenuHidden = false;
+                                nextClickedElement.click();
+                                nextClickedElement = $();
                             }, wait);
                         });
 
@@ -706,17 +834,35 @@ $(document).ready(function () {
                     });
 
                 }, 900);
+            } else {
+                nextClickedElement = $(this);
             }
         }
     })
 
     $("#settings .title").click(function () {
-        if (!settingsHidden) {
-            if (!settingsAnimate) {
+        if (!settingsMenuHidden) {
+            if (!settingsAnimate && !settingsMenuAnimate) {
                 settingsAnimate = true;
+
+                if (!settingsHidden) {
+                    $("#settings-bar").animate({
+                        "top": "100vh"
+                    }, 1000, "easeInOutQuint");
+                    $("#save-btn").animate({
+                        "bottom": "-35px"
+                    }, 500, "easeInOutQuint");
+                    $("#background").animate({
+                        "top": "100vh"
+                    }, 1000, "easeInOutQuint");
+                    settingsHidden = true;
+                }
+
+                $("#menu").css("background-color", "rgba(13, 14, 13, 0.95)");
 
                 $("#settings").find(".menu-item").get().reverse().forEach(function (elem, index) {
                     let waiting = index * 100;
+                    $(elem).removeClass("selected");
 
                     setTimeout(function () {
                         $(elem).animate({
@@ -780,13 +926,246 @@ $(document).ready(function () {
                             "top": ""
                         }, 500, "easeInOutQuint", function () {
                             settingsAnimate = false;
-                            settingsHidden = true;
+                            settingsMenuHidden = true;
                             $($("#menu .simplebar-vertical")[1]).css("opacity", "1");
                             scrollUserHidden = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     }, 200);
                 }, 800);
+            } else {
+                nextClickedElement = $(this);
             }
         }
+    })
+
+    $(".sex").click(function () {
+        if (!settingsHidden) {
+            if (!sexAnimate) {
+                sexAnimate = true;
+                if (sexHidden) {
+                    $(this).find(".selected").animate({
+                        "width": "100%"
+                    }, 250, "easeInOutQuint");
+                    $(this).find(".list").animate({
+                        "background-position-x": "100%"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).find(".triangle").addClass("triangle-0");
+                        $(this).animate({
+                            "height": "120px"
+                        }, 250, "easeInOutQuint", function () {
+                            sexHidden = false;
+                            sexAnimate = false;
+                        });
+                    });
+                } else {
+                    let width = $(this).find(".selected > div").first().width();
+                    $(this).find(".triangle").removeClass("triangle-0");
+                    $(this).find(".list").animate({
+                        "height": "25px"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).animate({
+                            "background-position-x": "199%"
+                        }, 250, "easeInOutQuint");
+                        $(this).find(".selected").animate({
+                            "width": width + 26 + "px"
+                        }, 250, "easeInOutQuint", function () {
+                            sexHidden = true;
+                            sexAnimate = false;
+                        });
+                    })
+                }
+            } else {
+                nextClickedElement = $(this);
+            }
+
+        }
+    })
+
+    $(".country").click(function () {
+        if (!settingsHidden) {
+            if (!countryAnimate) {
+                countryAnimate = true;
+                if (countryHidden) {
+                    $(this).find(".selected").animate({
+                        "width": "100%"
+                    }, 250, "easeInOutQuint");
+                    $(this).find(".list").animate({
+                        "background-position-x": "100%"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).find(".triangle").addClass("triangle-0");
+                        $(this).animate({
+                            "height": "145px"
+                        }, 250, "easeInOutQuint", function () {
+                            countryHidden = false;
+                            countryAnimate = false;
+                        });
+                    });
+                } else {
+                    let width = $(this).find(".selected > div").first().width();
+                    $(this).find(".triangle").removeClass("triangle-0");
+                    $(this).find(".list").animate({
+                        "height": "25px"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).animate({
+                            "background-position-x": "199%"
+                        }, 250, "easeInOutQuint");
+                        $(this).find(".selected").animate({
+                            "width": width + 26 + "px"
+                        }, 250, "easeInOutQuint", function () {
+                            countryHidden = true;
+                            countryAnimate = false;
+                        });
+                    })
+                }
+            } else {
+                nextClickedElement = $(this);
+            }
+        }
+    })
+
+    $(".language-settings").click(function () {
+        if (!settingsHidden) {
+            if (!languageAnimate) {
+                languageAnimate = true;
+                if (languageHidden) {
+                    $(this).find(".selected").animate({
+                        "width": "100%"
+                    }, 250, "easeInOutQuint");
+                    $(this).find(".list").animate({
+                        "background-position-x": "100%"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).find(".triangle").addClass("triangle-0");
+                        $(this).animate({
+                            "height": "120px"
+                        }, 250, "easeInOutQuint", function () {
+                            languageHidden = false;
+                            languageAnimate = false;
+                        });
+                    });
+                } else {
+                    let width = $(this).find(".selected > div").first().width();
+                    $(this).find(".triangle").removeClass("triangle-0");
+                    $(this).find(".list").animate({
+                        "height": "25px"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).animate({
+                            "background-position-x": "199%"
+                        }, 250, "easeInOutQuint");
+                        $(this).find(".selected").animate({
+                            "width": width + 26 + "px"
+                        }, 250, "easeInOutQuint", function () {
+                            languageHidden = true;
+                            languageAnimate = false;
+                        });
+                    })
+                }
+            } else {
+                nextClickedElement = $(this);
+            }
+        }
+    })
+
+    $(".phone-code").click(function () {
+        if (!settingsHidden) {
+            if (!phoneCodeAnimate) {
+                phoneCodeAnimate = true;
+                if (phoneCodeHidden) {
+                    $(this).find(".selected").animate({
+                        "width": "100%"
+                    }, 250, "easeInOutQuint");
+                    $(this).find(".list").animate({
+                        "background-position-x": "100%"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).find(".triangle").addClass("triangle-0");
+                        $(this).animate({
+                            "height": "95px"
+                        }, 250, "easeInOutQuint", function () {
+                            phoneCodeHidden = false;
+                            phoneCodeAnimate = false;
+                        });
+                    });
+                } else {
+                    let width = $(this).find(".selected > div").first().width();
+                    $(this).find(".triangle").removeClass("triangle-0");
+                    $(this).find(".list").animate({
+                        "height": "25px"
+                    }, 250, "easeInOutQuint", function () {
+                        $(this).animate({
+                            "background-position-x": "199%"
+                        }, 250, "easeInOutQuint");
+                        $(this).find(".selected").animate({
+                            "width": width + 26 + "px"
+                        }, 250, "easeInOutQuint", function () {
+                            phoneCodeHidden = true;
+                            phoneCodeAnimate = false;
+                        });
+                    })
+                }
+            } else {
+                nextClickedElement = $(this);
+            }
+
+        }
+    })
+
+    $(".sex").mouseleave(function () {
+        if (!sexAnimate && !sexHidden) {
+            $(this).click();
+        }
+    })
+
+    $(".country").mouseleave(function () {
+        if (!countryAnimate && !countryHidden) {
+            $(this).click();
+        }
+    })
+
+    $(".language-settings").mouseleave(function () {
+        if (!languageAnimate && !languageHidden) {
+            $(this).click();
+        }
+    })
+
+    $(".phone-code").mouseleave(function () {
+        if (!phoneCodeAnimate && !phoneCodeHidden) {
+            $(this).click();
+        }
+    })
+
+    $(".sex, .country, .language-settings, .phone-code").find("li:not(.selected)").click(function () {
+        $(this).parents(".list").find(".selected > div").first().text($(this).text());
+    })
+
+    $("#personal-settings .change").click(function () {
+        $("#change-avatar").trigger("click");
+    })
+
+    $("#change-avatar").change(function () {
+        if (this.files && this.files[0]) {
+            if (this.files[0].size <= 1048576) {
+                let reader = new FileReader();
+                reader.addEventListener("load", function (e) {
+                    $("#personal-settings img").attr("src", e.target.result);
+                });
+                reader.readAsDataURL(this.files[0]);
+            } else {
+                alert("File is too large!");
+            }
+        }
+    });
+
+    $(".checkbox").click(function () {
+        if ($($(this).parents(".field")[0]).hasClass("checked")) {
+            $($(this).parents(".field")[0]).removeClass("checked");
+        } else {
+            $($(this).parents(".field")[0]).addClass("checked");
+        }
+    })
+
+    $(".radiobox").click(function () {
+        $($(this).parents(".personalisation")[0]).find(".checked").removeClass("checked");
+        $($(this).parents(".field")[0]).addClass("checked");
     })
 })

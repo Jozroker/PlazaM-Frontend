@@ -102,7 +102,7 @@
     }
 
     &.hall-button, &.time-button {
-      z-index: 5;
+      z-index: 4;
 
       @media screen and (max-width: 970px) {
         display: inline-block;
@@ -139,7 +139,7 @@
     }
 
     &.date {
-      z-index: 10;
+      z-index: 5;
 
       .content {
         height: 100%;

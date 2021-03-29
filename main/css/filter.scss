@@ -1,0 +1,187 @@
+@import "default";
+@import "fonts";
+
+body {
+  background-color: $gray-dark;
+}
+
+#filter {
+  display: block;
+  position: relative;
+  margin: 0 45px;
+  color: $gray-light;
+  user-select: none;
+
+  .top-line {
+    width: 100%;
+    height: 2px;
+    //background-image: linear-gradient(to right, $maroon,
+    //        $maroon 70%,
+    //        rgba($maroon, 0) 15%,
+    //        rgba($maroon, 0) 100%);
+    background-image: linear-gradient(to left, rgba($maroon, 0),
+            rgba($maroon, 0) 15%,
+            $maroon 70%,
+            $maroon 100%);
+  }
+
+  .bottom-line {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba($maroon, 0),
+            rgba($maroon, 0) 15%,
+            $maroon 70%,
+            $maroon 100%);
+  }
+
+  .content {
+    margin: 17px 60px 11px 60px;
+    display: flex;
+    align-items: flex-start;
+
+    & > div {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .title {
+      font-size: 22px;
+      line-height: 22px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 13px;
+      color: $white-dark;
+    }
+
+    .left-side {
+      width: 65%;
+
+      .title {
+        width: 89%;
+      }
+
+      .content {
+        width: 100%;
+        height: 68px;
+        //justify-content: center;
+        //justify-content: flex-start;
+        //justify-content: space-evenly;
+        padding: 0 2.16vw;
+        margin: 0;
+        flex-wrap: wrap;
+
+        & > div {
+          padding: 4px;
+
+          & > div {
+            display: inline-block;
+            //display: inline-flex;
+            //align-items: center;
+            width: 121px;
+            height: 27px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 27px;
+            //margin-bottom: 10px;
+            background-size: 201% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, $maroon,
+                    $maroon 50%,
+                    rgba($maroon, 0) 50%,
+                    rgba($maroon, 0));
+            transition: background-position 0.3s ease-in-out;
+
+            &:hover:not(.selected) {
+              cursor: pointer;
+              color: $maroon;
+            }
+          }
+        }
+      }
+    }
+
+    .right-side {
+      width: 35%;
+
+      .title {
+        width: 72%;
+      }
+
+      //.simplebar-vertical {
+      //  position: absolute;
+      //  right: -5px;
+      //}
+
+      .content {
+        width: 100%;
+        height: 34px;
+        //justify-content: space-evenly;
+        margin: 0;
+        flex-wrap: wrap;
+
+        & > div {
+          padding: 3px 5px;
+
+          & > div {
+            display: inline-block;
+            width: 76px;
+            height: 33px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 33px;
+            margin-bottom: 8px;
+            background-size: 201% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, $maroon,
+                    $maroon 50%,
+                    rgba($maroon, 0) 50%,
+                    rgba($maroon, 0));
+            transition: background-position 0.3s ease-in-out;
+
+            &:hover:not(.selected) {
+              cursor: pointer;
+              color: $maroon;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .selected {
+    background-position: 0 0 !important;
+    color: $gray-dark !important;
+    transition: background-position 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      color: $white-dark !important;
+    }
+  }
+
+  .simplebar-scrollbar {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      background-color: $maroon;
+      width: 6px;
+    }
+  }
+
+  .simplebar-content-wrapper {
+    //padding-right: 14px;
+    overflow: auto;
+  }
+
+  .simplebar-vertical {
+    position: absolute;
+    right: 10px;
+  }
+
+  .scroll {
+    height: 74px;
+  }
+}

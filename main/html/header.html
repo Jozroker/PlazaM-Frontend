@@ -100,8 +100,8 @@
                                     </div>
                                 </div>
                                 <div class="cinema-list">
-                                    <div>
-                                        <div class="triangle cinema-back"></div>
+                                    <div class="cinema-back">
+                                        <div class="triangle"></div>
                                     </div
                                     >
                                     <div class="scroll">
@@ -128,8 +128,8 @@
                                     </div>
                                 </div>
                                 <div class="cinema-list">
-                                    <div>
-                                        <div class="triangle cinema-back"></div>
+                                    <div class="cinema-back">
+                                        <div class="triangle"></div>
                                     </div>
                                     <div class="scroll">
                                         <ul>
@@ -151,8 +151,8 @@
                                     </div>
                                 </div>
                                 <div class="cinema-list">
-                                    <div>
-                                        <div class="triangle cinema-back"></div>
+                                    <div class="cinema-back">
+                                        <div class="triangle"></div>
                                     </div>
                                     <div class="scroll">
                                         <ul>
@@ -319,26 +319,204 @@
             </div>
             <div class="settings-menu">
                 <div class="menu-item personal-btn">
-                    <a href="#">
-                        Personal Information
-                    </a>
+                    Personal Information
                 </div>
                 <div class="line-between"></div>
                 <div class="menu-item site-btn">
-                    <a href="#">
-                        Site Settings
-                    </a>
+                    Site Settings
                 </div>
                 <div class="line-between"></div>
                 <div class="menu-item security-btn">
-                    <a href="#">
-                        Security
-                    </a>
+                    Security
                 </div>
             </div>
         </div>
     </div>
-    <div id="settings-bar"></div>
+    <div id="settings-bar">
+        <div class="settings-page" id="personal-settings">
+            <div class="scroll">
+                <div class="content">
+                    <div>
+                        <div class="avatar">
+                            <div class="title">Avatar</div>
+                            <div class="image">
+                                <img alt=""
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <div class="change">Change</div>
+                                <input accept="image/jpeg,image/png,image/gif" id="change-avatar" style="display: none"
+                                       type="file">
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="first-column">
+                                <div class="username">
+                                    <div class="title">Username</div>
+                                    <div class="field">
+                                        <input placeholder="Not Selected" type="text">
+                                    </div>
+                                </div>
+                                <div class="firstname">
+                                    <div class="title">First Name</div>
+                                    <div class="field">
+                                        <input placeholder="Not Selected" type="text">
+                                    </div>
+                                </div>
+                                <div class="lastname">
+                                    <div class="title">Last Name</div>
+                                    <div class="field">
+                                        <input placeholder="Not Selected" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="second-column">
+                                <div class="sex">
+                                    <div class="title">Sex</div>
+                                    <ul class="list">
+                                        <li class="selected">
+                                            <div>Not Selected</div>
+                                            <div class="triangle"></div>
+                                        </li>
+                                        <li>Not Selected</li>
+                                        <li>Male</li>
+                                        <li>Female</li>
+                                    </ul>
+                                </div>
+                                <div class="country">
+                                    <div class="title">Country</div>
+                                    <ul class="list">
+                                        <li class="selected">
+                                            <div>Not Selected</div>
+                                            <div class="triangle"></div>
+                                        </li>
+                                        <li>Not Selected</li>
+                                        <li>Ukraine</li>
+                                        <li>Poland</li>
+                                        <li>Great Britain</li>
+                                    </ul>
+                                </div>
+                                <div class="home-city">
+                                    <div class="title">City</div>
+                                    <div class="field">
+                                        <input placeholder="Not Selected" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about">
+                        <div class="title">About Me</div>
+                        <textarea class="field" placeholder="Text" spellcheck="false" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="settings-page" id="site-settings">
+            <div class="scroll">
+                <div class="content">
+                    <div class="movie-list">
+                        <div class="title">Movie list</div>
+                        <div class="checked field">
+                            <div class="checkbox">hide 18+ movies</div>
+                        </div>
+                    </div>
+                    <div class="personalisation">
+                        <div class="title">Personalisation</div>
+                        <div class="light-theme field">
+                            <div class="radiobox">use light theme</div>
+                        </div>
+                        <div class="dark-theme field checked">
+                            <div class="radiobox">use dark theme</div>
+                        </div>
+                    </div>
+                    <div class="language-settings">
+                        <div class="title">Language</div>
+                        <ul class="list">
+                            <li class="selected">
+                                <div>Ukrainian</div>
+                                <div class="triangle"></div>
+                            </li>
+                            <li>
+                                <div>Ukrainian</div>
+                            </li>
+                            <li>
+                                <div>Polish</div>
+                            </li>
+                            <li>
+                                <div>United Kingdom</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="settings-page" id="security">
+            <div class="scroll">
+                <div class="content">
+                    <div class="password">
+                        <div class="title">Change Password</div>
+                        <div class="fields">
+                            <div class="field">
+                                <input placeholder="old password" type="password">
+                            </div>
+                            <div class="field">
+                                <input placeholder="new password" type="password">
+                            </div>
+                            <div class="field">
+                                <input placeholder="confirm new password" type="password">
+                            </div>
+                            <div class="button">
+                                <div>save</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <div class="title">Change Email</div>
+                        <div class="fields">
+                            <div>Email:current@mail</div>
+                            <div>New email:</div>
+                            <div class="field">
+                                <input placeholder="new email" type="email">
+                            </div>
+                            <div class="button">
+                                <div>save</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone">
+                        <!--                        <div class="title">Change Phone</div>-->
+                        <div class="title">Add Phone</div>
+                        <div class="fields">
+                            <div>New phone:</div>
+                            <div class="phone-field">
+                                <div class="phone-code">
+                                    <ul class="list">
+                                        <li class="selected">
+                                            <div>+38</div>
+                                            <div class="triangle"></div>
+                                        </li>
+                                        <li>+38</li>
+                                        <li>+44</li>
+                                        <li>+49</li>
+                                    </ul>
+                                </div>
+                                <div class="field">
+                                    <input maxlength="10" placeholder="new phone" type="text">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <!--                                <div>change</div>-->
+                                <div>add</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="save-btn">
+            <div class="button">Save</div>
+        </div>
+        <div id="background"></div>
+    </div>
 </header>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
