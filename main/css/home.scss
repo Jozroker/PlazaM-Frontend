@@ -2,10 +2,19 @@
 @import "fonts";
 
 body {
+  margin: 0 auto;
   background-color: $gray-dark;
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 100vh;
+
+  @media screen and (min-width: 1920px) {
+    width: 1920px;
+  }
+
+  @media screen and (max-width: 1920px) {
+    width: 100vw;
+  }
 }
 
 #home-content {
@@ -28,6 +37,7 @@ body {
   }
 
   #slider {
+    //todo check z-index positions
 
     #coming-soon {
       width: 100vw;
@@ -47,10 +57,25 @@ body {
         height: 25.05vw;
         transition: width 0.2s linear 0.1s, height 0.2s linear 0.1s;
         color: $white-dark;
-        font-size: 16px;
-        line-height: 16px;
+        //font-size: 16px;
+        //line-height: 16px;
         font-weight: 500;
         overflow: hidden;
+
+        @media screen and (max-width: 757px) {
+          font-size: 10px;
+          line-height: 10px;
+        }
+
+        @media screen and (min-width: 757px) and (max-width: 1225px) {
+          font-size: 12px;
+          line-height: 14px;
+        }
+
+        @media screen and (min-width: 1225px) {
+          font-size: 14px;
+          line-height: 16px;
+        }
 
         &:hover {
           width: 19.95vw;
@@ -92,40 +117,72 @@ body {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 22.19%;
-          height: 5.65%;
-          min-width: 44px;
-          min-height: 16px;
+          width: 33%;
+          //height: 5.65%;
+          min-width: 35px;
+          max-width: 85px;
+          //min-height: 16px;
           text-align: center;
           border-radius: 0 50px 50px 0;
           background-color: $maroon;
           position: absolute;
           top: 3.36%;
-          left: -22.2%;
+          left: -100%;
           color: $gray-dark;
           font-weight: 700;
           z-index: 2;
           transition: left 0.2s ease-in-out;
+
+          @media screen and (max-width: 757px) {
+            height: 16px;
+            font-size: 10px;
+            line-height: 10px;
+          }
+
+          @media screen and (min-width: 757px) and (max-width: 1225px) {
+            height: 22px;
+            font-size: 14px;
+            line-height: 14px;
+          }
+
+          @media screen and (min-width: 1225px) {
+            height: 32px;
+            font-size: 16px;
+            line-height: 16px;
+          }
         }
 
         .user-rating {
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          width: 14.88%;
-          min-width: 46px;
-          min-height: 22px;
-          height: 3.71%;
+          width: 26%;
+          min-width: 35px;
+          max-width: 57px;
+          //min-height: 14px;
+          //height: 3.71%;
           text-align: left;
           padding-left: 5px;
           border-radius: 50px 0 0 50px;
           background-color: $maroon;
           position: absolute;
           top: 3.36%;
-          right: -15%;
+          right: -100%;
           color: $gray-dark;
           z-index: 2;
           transition: right 0.2s ease-in-out;
+
+          @media screen and (max-width: 757px) {
+            height: 14px;
+          }
+
+          @media screen and (min-width: 757px) and (max-width: 1225px) {
+            height: 18px;
+          }
+
+          @media screen and (min-width: 1225px) {
+            height: 22px;
+          }
 
           & > div {
             display: flex;
@@ -134,7 +191,18 @@ body {
             &::before {
               font-family: "icomoon" !important;
               content: "\f005";
-              margin-right: 5px;
+
+              @media screen and (max-width: 757px) {
+                margin-right: 1px;
+              }
+
+              @media screen and (min-width: 757px) and (max-width: 1225px) {
+                margin-right: 3px;
+              }
+
+              @media screen and (min-width: 1225px) {
+                margin-right: 5px;
+              }
             }
           }
         }
@@ -144,18 +212,32 @@ body {
           justify-content: flex-end;
           align-items: center;
           padding-right: 5%;
-          width: 45%;
-          height: 4.06%;
-          min-width: 120px;
-          min-height: 16px;
+          width: 70%;
+          //width: 7.6vw;
+          //height: 4.06%;
+          min-width: 86px;
+          max-width: 172px;
+          //min-height: 14px;
           text-align: right;
           border-radius: 0 50px 50px 0;
           background-color: rgba($gray-dark, 0.9);
           position: absolute;
           bottom: 1.41%;
-          left: -46%;
+          left: -150%;
           z-index: 2;
           transition: left 0.2s ease-in-out;
+
+          @media screen and (max-width: 757px) {
+            height: 14px;
+          }
+
+          @media screen and (min-width: 757px) and (max-width: 1225px) {
+            height: 18px;
+          }
+
+          @media screen and (min-width: 1225px) {
+            height: 22px;
+          }
         }
 
         .name {
@@ -172,14 +254,18 @@ body {
           box-shadow: 0 0 2px 0 rgba($gray-dark, 0.8);
 
           .first {
-            font-size: 44px;
-            line-height: 44px;
+            //font-size: 44px;
+            //line-height: 44px;
+            font-size: 2.29vw;
+            line-height: 2.29vw;
             font-weight: 700;
           }
 
           .second {
-            font-size: 32px;
-            line-height: 32px;
+            //font-size: 32px;
+            //line-height: 32px;
+            font-size: 1.67vw;
+            line-height: 1.67vw;
           }
         }
       }
@@ -240,12 +326,6 @@ body {
             background-color: $maroon;
             transform: scale(1.3);
             transition: background-color 0.3s linear, transform 0.2s linear;
-            //width: 1.1vw;
-            //height: 1.1vw;
-            //max-width: 20px;
-            //max-height: 20px;
-            //min-width: 15px;
-            //min-height: 15px;
           }
         }
       }
@@ -271,12 +351,10 @@ body {
         height: 0;
         position: relative;
         transition: height 1s ease-in-out;
-        //z-index: -2;
 
         img {
           width: 100%;
           height: 100%;
-          //box-shadow: inset 0 0 100px 25px $gray-dark;
         }
 
         .name {
@@ -297,16 +375,42 @@ body {
           }
 
           .first {
-            font-size: 80px;
-            line-height: 80px;
             font-weight: 700;
             text-shadow: 0 0 8px black;
+
+            @media screen and (max-width: 757px) {
+              font-size: 40px;
+              line-height: 40px;
+            }
+
+            @media screen and (min-width: 757px) and (max-width: 1225px) {
+              font-size: 60px;
+              line-height: 60px;
+            }
+
+            @media screen and (min-width: 1225px) {
+              font-size: 80px;
+              line-height: 80px;
+            }
           }
 
           .second {
-            font-size: 30px;
-            line-height: 30px;
             text-shadow: 0 0 4px black;
+
+            @media screen and (max-width: 757px) {
+              font-size: 15px;
+              line-height: 15px;
+            }
+
+            @media screen and (min-width: 757px) and (max-width: 1225px) {
+              font-size: 22px;
+              line-height: 22px;
+            }
+
+            @media screen and (min-width: 1225px) {
+              font-size: 30px;
+              line-height: 30px;
+            }
           }
         }
 
@@ -314,10 +418,6 @@ body {
 
       .selected {
         height: 100%;
-
-        //.name {
-        //  left: 9.38%;
-        //}
       }
     }
 
@@ -344,13 +444,37 @@ body {
         color: $white-dark;
 
         &:first-child {
-          font-size: 36px;
-          line-height: 36px;
+          @media screen and (max-width: 757px) {
+            font-size: 28px;
+            line-height: 28px;
+          }
+
+          @media screen and (min-width: 757px) and (max-width: 1225px) {
+            font-size: 32px;
+            line-height: 32px;
+          }
+
+          @media screen and (min-width: 1225px) {
+            font-size: 36px;
+            line-height: 36px;
+          }
         }
 
         &:nth-child(2) {
-          font-size: 18px;
-          line-height: 18px;
+          @media screen and (max-width: 757px) {
+            font-size: 14px;
+            line-height: 14px;
+          }
+
+          @media screen and (min-width: 757px) and (max-width: 1225px) {
+            font-size: 16px;
+            line-height: 16px;
+          }
+
+          @media screen and (min-width: 1225px) {
+            font-size: 18px;
+            line-height: 18px;
+          }
 
           &:hover {
             color: $maroon;
