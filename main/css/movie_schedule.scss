@@ -49,7 +49,7 @@
       background-color: rgba($gray-light, 0.04);
       position: relative;
 
-      @include triangle(5px, $gray-light, 180deg);
+      @include triangle(5px, $gray-light, 180deg, 0);
 
       .triangle {
         position: absolute;

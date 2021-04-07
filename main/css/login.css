@@ -1,0 +1,515 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: block;
+    position: static;
+    font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #A3A3A3;
+    min-width: 487px;
+    margin: 0 auto;
+    background-color: #0D0E0D;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        width: 1920px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 100vw;
+    }
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("../fonts/icomoon.eot?tth84l");
+    src: url("../fonts/icomoon.eot?tth84l#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tth84l") format("truetype"), url("../fonts/icomoon.woff?tth84l") format("woff"), url("../fonts/icomoon.svg?tth84l#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^=icon-], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-googleplay:before {
+    content: "";
+}
+
+.icon-search:before {
+    content: "";
+}
+
+.icon-edit:before {
+    content: "";
+}
+
+.icon-ticket:before {
+    content: "";
+}
+
+.icon-phone:before {
+    content: "";
+}
+
+.icon-clock:before {
+    content: "";
+}
+
+.icon-settings:before {
+    content: "";
+}
+
+.icon-sort:before {
+    content: "";
+}
+
+.icon-checkbox-checked:before {
+    content: "";
+}
+
+.icon-checkbox-unchecked:before {
+    content: "";
+}
+
+.icon-radio-checked:before {
+    content: "";
+}
+
+.icon-radio-unchecked:before {
+    content: "";
+}
+
+.icon-letter-empty:before {
+    content: "";
+}
+
+.icon-heart-fill:before {
+    content: "";
+}
+
+.icon-star:before {
+    content: "";
+}
+
+.icon-tick:before {
+    content: "";
+}
+
+.icon-cross:before {
+    content: "";
+}
+
+.icon-lock:before {
+    content: "";
+}
+
+.icon-left:before {
+    content: "";
+}
+
+.icon-right:before {
+    content: "";
+}
+
+.icon-ban:before {
+    content: "";
+}
+
+.icon-calendar:before {
+    content: "";
+}
+
+.icon-comment-fill:before {
+    content: "";
+}
+
+.icon-facebook:before {
+    content: "";
+}
+
+.icon-heart-empty:before {
+    content: "";
+}
+
+.icon-sign-out:before {
+    content: "";
+}
+
+.icon-sign-in:before {
+    content: "";
+}
+
+.icon-filter:before {
+    content: "";
+}
+
+.icon-banknote:before {
+    content: "";
+}
+
+.icon-letter-fill:before {
+    content: "";
+}
+
+.icon-comment-empty:before {
+    content: "";
+}
+
+.icon-dollar:before {
+    content: "";
+}
+
+.icon-youtube:before {
+    content: "";
+}
+
+.icon-instagram:before {
+    content: "";
+}
+
+.icon-credit-card:before {
+    content: "";
+}
+
+body {
+    background-color: #0D0E0D;
+    width: 100vw;
+    height: 52.6vw;
+    overflow: hidden;
+}
+
+body > div {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#back {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#sign-in, #registration {
+    position: relative;
+    width: 29%;
+    margin: 250px auto 0 auto;
+    min-width: 280px;
+    max-width: 558px;
+    padding: 50px 53px 38px 53px;
+    color: #D7D7D7;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    background-color: rgba(13, 14, 13, 0.88);
+    box-shadow: 0 0 100px #0D0E0D;
+}
+
+#sign-in .fields, #registration .fields {
+    width: 100%;
+    position: relative;
+}
+
+#sign-in .fields .password, #sign-in .fields .password-confirm, #registration .fields .password, #registration .fields .password-confirm {
+    font-size: 16px;
+}
+
+#sign-in .fields .required, #registration .fields .required {
+    color: #AF2341;
+}
+
+#sign-in .fields > div + div, #registration .fields > div + div {
+    margin-top: 19px;
+}
+
+#sign-in .fields .title, #registration .fields .title {
+    font-weight: 400;
+    color: #A3A3A3;
+    padding-left: 14px;
+}
+
+#sign-in .fields .field, #registration .fields .field {
+    width: 100%;
+    height: 30px;
+    padding: 3px 14px 7px 7px;
+    background-color: rgba(85, 85, 85, 0.3);
+}
+
+#sign-in .fields .field > div, #registration .fields .field > div {
+    width: 100%;
+    height: 22px;
+    padding-left: 7px;
+    border-bottom: 1px solid #AF2341;
+}
+
+#sign-in .fields .field > div input, #registration .fields .field > div input {
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 300;
+    border: 0;
+    background: none;
+    color: #A3A3A3;
+}
+
+#sign-in .fields .field > div input::placeholder, #registration .fields .field > div input::placeholder {
+    color: #A3A3A3;
+}
+
+#sign-in .fields .field > div input:focus, #registration .fields .field > div input:focus {
+    outline: none;
+}
+
+#sign-in .fields .field > div input:focus::placeholder, #registration .fields .field > div input:focus::placeholder {
+    color: transparent;
+}
+
+#sign-in .button, #registration .button {
+    position: absolute;
+    bottom: 38px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    font-size: 24px;
+    line-height: 35px;
+}
+
+#sign-in .button .sign-in-btn, #sign-in .button .registration-btn, #registration .button .sign-in-btn, #registration .button .registration-btn {
+    width: 29.08%;
+    max-width: 167px;
+    margin: auto;
+    text-align: center;
+    background-size: 201% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    transition: all 0.3s ease-in-out;
+}
+
+#sign-in .button .sign-in-btn:hover, #sign-in .button .registration-btn:hover, #registration .button .sign-in-btn:hover, #registration .button .registration-btn:hover {
+    cursor: pointer;
+    background-position: 0 0;
+    color: #0D0E0D;
+    transition: all 0.3s ease-in-out;
+}
+
+#sign-in .navbar, #registration .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1624px) {
+    #sign-in .navbar .nav-item:not(.selected), #registration .navbar .nav-item:not(.selected) {
+        display: none;
+    }
+}
+
+#sign-in .navbar .nav-item, #registration .navbar .nav-item {
+    display: inline-flex;
+    align-items: center;
+    width: 30%;
+}
+
+#sign-in .navbar .nav-item.selected, #registration .navbar .nav-item.selected {
+    justify-content: center;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 1624px) {
+    #sign-in .navbar .nav-item.selected, #registration .navbar .nav-item.selected {
+        width: 39%;
+    }
+}
+
+@media screen and (max-width: 1624px) {
+    #sign-in .navbar .nav-item.selected, #registration .navbar .nav-item.selected {
+        width: 100%;
+    }
+}
+
+#sign-in .navbar .nav-item.sign-in, #sign-in .navbar .nav-item.registration, #registration .navbar .nav-item.sign-in, #registration .navbar .nav-item.registration {
+    font-size: 24px;
+    line-height: 24px;
+    color: #A3A3A3;
+}
+
+#sign-in .navbar .nav-item.sign-in:hover, #sign-in .navbar .nav-item.registration:hover, #registration .navbar .nav-item.sign-in:hover, #registration .navbar .nav-item.registration:hover {
+    color: #D7D7D7;
+    cursor: pointer;
+}
+
+#sign-in .navbar .nav-item.sign-in:hover .triangle, #sign-in .navbar .nav-item.registration:hover .triangle, #registration .navbar .nav-item.sign-in:hover .triangle, #registration .navbar .nav-item.registration:hover .triangle {
+    border-bottom-color: #AF2341;
+}
+
+@media screen and (max-width: 1000px) {
+    #sign-in .navbar .nav-item.sign-in, #sign-in .navbar .nav-item.registration, #registration .navbar .nav-item.sign-in, #registration .navbar .nav-item.registration {
+        display: none;
+    }
+}
+
+#sign-in .navbar .nav-item.sign-in, #registration .navbar .nav-item.sign-in {
+    justify-content: left;
+}
+
+#sign-in .navbar .nav-item.sign-in .triangle, #registration .navbar .nav-item.sign-in .triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #A3A3A3;
+    border-bottom-color: #A3A3A3;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.sign-in .triangle-0, #registration .navbar .nav-item.sign-in .triangle-0 {
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.sign-in .triangle-wide, #registration .navbar .nav-item.sign-in .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.sign-in .triangle, #registration .navbar .nav-item.sign-in .triangle {
+    margin-right: 2px;
+}
+
+#sign-in .navbar .nav-item.registration, #registration .navbar .nav-item.registration {
+    justify-content: right;
+}
+
+#sign-in .navbar .nav-item.registration .triangle, #registration .navbar .nav-item.registration .triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #A3A3A3;
+    border-bottom-color: #A3A3A3;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.registration .triangle-0, #registration .navbar .nav-item.registration .triangle-0 {
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.registration .triangle-wide, #registration .navbar .nav-item.registration .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
+#sign-in .navbar .nav-item.registration .triangle, #registration .navbar .nav-item.registration .triangle {
+    margin-left: 2px;
+}
+
+#sign-in {
+    height: 465px;
+}
+
+#registration {
+    height: 565px;
+}
+
+#sign-in-panel {
+    left: 0;
+}
+
+#registration-panel {
+    left: 100vw;
+}
+
+/*# sourceMappingURL=login.css.map */

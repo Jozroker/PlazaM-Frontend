@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
+    <link href="../css/movies.css" rel="stylesheet">
+</head>
+<body>
+<img alt="" id="back" src="../img/jpg/wide/hall.jpg">
+<div id="filter">
+    <div class="scroll">
+        <div class="content">
+            <div class="title">Filter</div>
+            <div class="subtitle">Genre</div>
+            <div class="underline"></div>
+            <div class="genres">
+                <div>
+                    <div class="genre">action</div>
+                </div>
+                <div>
+                    <div class="genre">comedy</div>
+                </div>
+                <div>
+                    <div class="genre">cartoon</div>
+                </div>
+                <div>
+                    <div class="genre">romance</div>
+                </div>
+                <div>
+                    <div class="genre">criminal</div>
+                </div>
+                <div>
+                    <div class="genre">science fiction</div>
+                </div>
+                <div>
+                    <div class="genre">documentary</div>
+                </div>
+                <div>
+                    <div class="genre">horror</div>
+                </div>
+                <div>
+                    <div class="genre">fantasy</div>
+                </div>
+                <div>
+                    <div class="genre">adventure</div>
+                </div>
+                <div>
+                    <div class="genre">detective</div>
+                </div>
+                <div>
+                    <div class="genre">thriller</div>
+                </div>
+                <div>
+                    <div class="genre">historical</div>
+                </div>
+                <div>
+                    <div class="genre">drama</div>
+                </div>
+            </div>
+            <div class="subtitle">Year</div>
+            <div class="underline"></div>
+            <div class="from">
+                <div class="title">From</div>
+                <div class="year-from">
+                    <ul class="list">
+                        <li class="selected">
+                            <div>Not Selected</div>
+                            <div class="triangle"></div>
+                        </li>
+                        <li class="scroll">
+                            <div>
+                                <div class="year">Not Selected</div>
+                                <div class="year">2021</div>
+                                <div class="year">2020</div>
+                                <div class="year">2019</div>
+                                <div class="year">2018</div>
+                            </div>
+                        </li>
+                        <!--                        todo js year generator-->
+                    </ul>
+                </div>
+            </div>
+            <div class="to">
+                <div class="title">To</div>
+                <div class="year-to">
+                    <ul class="list">
+                        <li class="selected">
+                            <div>Not Selected</div>
+                            <div class="triangle"></div>
+                        </li>
+                        <li class="scroll">
+                            <div>
+                                <div class="year">Not Selected</div>
+                                <div class="year">2021</div>
+                                <div class="year">2020</div>
+                                <div class="year">2019</div>
+                                <div class="year">2018</div>
+                            </div>
+                        </li>
+                        <!--                        todo js year generator-->
+                    </ul>
+                </div>
+            </div>
+            <div class="button">
+                <div class="apply-btn">Apply</div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow">
+        <div class="triangle triangle-wide"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="top">
+        <div class="title">Catalog of all movies</div>
+        <div class="underline"></div>
+        <div class="sort">
+            <div class="title">Sort by</div>
+            <div class="categories">
+                <div class="category selected">Newest</div>
+                <div class="category">Popular</div>
+                <div class="category">Expected</div>
+            </div>
+            <div class="underline"></div>
+        </div>
+    </div>
+    <div id="movies">
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18
+                            </div
+                            >
+                            <div class="month">September 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie">
+            <div>
+                <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+            </div>
+            <div class="card">
+                <div class="name">
+                    <a href="#">
+                        <div class="first">Avengers</div>
+                        <div class="second">First Part</div>
+                    </a>
+                </div>
+                <div class="info">
+                    <div>153m</div>
+                    <div>IBSMb 4.8</div>
+                </div>
+                <div class="bottom">
+                    <div class="genres">
+                        <div class="title">Genres</div>
+                        <div class="genres-info">adventure, action</div>
+                    </div>
+                    <div class="date">
+                        <div class="title">in rental</div>
+                        <div class="rental-date">
+                            <div class="number">from 18</div>
+                            <div class="month">April 2021</div>
+                        </div>
+                    </div>
+                    <div class="like">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="curtain"></div>
+    </div>
+    <div id="pages"></div>
+</div>
+</body>
+<script crossorigin="anonymous"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script src="../js/movies.js"></script>
+</html>

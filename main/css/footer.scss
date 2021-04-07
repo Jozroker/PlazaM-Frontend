@@ -168,7 +168,7 @@
         display: inline-block;
       }
 
-      @include triangle(5px, $white-dark, 180deg);
+      @include triangle(5px, $white-dark, 180deg, 0);
 
       .triangle {
         margin-right: 3px;

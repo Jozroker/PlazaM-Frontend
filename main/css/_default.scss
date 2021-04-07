@@ -6,24 +6,31 @@ $white-dark: #D7D7D7;
 $maroon: #AF2341;
 $maroon-light: #CB3F5D;
 
-@mixin triangle($size, $color, $angle) {
+@mixin triangle($size, $color, $angle, $colorTransition) {
   .triangle {
     width: 0;
     height: 0;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-bottom: $size solid $color;
+    border-bottom-color: $color;
     vertical-align: middle;
 
     transform-box: fill-box;
     transform-origin: center;
     transform: rotate($angle);
-    transition: transform 0.5s ease-in-out !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color $colorTransition ease-in-out !important;
   }
 
   .triangle-0 {
     transform: rotate(0deg) !important;
-    transition: transform 0.5s ease-in-out !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color $colorTransition ease-in-out !important;
+  }
+
+  .triangle-wide {
+    border-left: ($size * 2) solid transparent !important;
+    border-right: ($size * 2) solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color $colorTransition ease-in-out !important;
   }
 }
 
@@ -41,8 +48,22 @@ body {
   font-weight: 500;
   font-size: 18px;
   color: $gray-light;
-  overflow: hidden;
+  //overflow: hidden;
   min-width: 487px;
+
+  margin: 0 auto;
+  background-color: $gray-dark;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  @media screen and (min-width: 1920px) {
+    width: 1920px;
+  }
+
+  @media screen and (max-width: 1920px) {
+    width: 100vw;
+  }
 }
 
 ul, ol {

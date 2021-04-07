@@ -7,24 +7,40 @@
 }
 
 body {
-  display: block;
-  position: static;
-  font-family: "BauhausC", "Baumans", "Arial", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  color: #A3A3A3;
-  overflow: hidden;
-  min-width: 487px;
+    display: block;
+    position: static;
+    font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #A3A3A3;
+    min-width: 487px;
+    margin: 0 auto;
+    background-color: #0D0E0D;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        width: 1920px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 100vw;
+    }
 }
 
 ul, ol {
-  list-style: none;
+    list-style: none;
 }
 
 a, a:hover, a:visited, a:active {
-  text-decoration: none;
-  color: inherit;
-  outline: none;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
 }
 
 @font-face {
@@ -329,30 +345,41 @@ header #settings-bar #personal-settings .list .selected > div, header #settings-
   display: inline-block;
 }
 header #settings-bar #personal-settings .list .selected .triangle, header #settings-bar #site-settings .list .selected .triangle, header #settings-bar #security .list .selected .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(180deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #settings-bar #personal-settings .list .selected .triangle-0, header #settings-bar #site-settings .list .selected .triangle-0, header #settings-bar #security .list .selected .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #settings-bar #personal-settings .list .selected .triangle-wide, header #settings-bar #site-settings .list .selected .triangle-wide, header #settings-bar #security .list .selected .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #settings-bar #personal-settings .list .selected .triangle, header #settings-bar #site-settings .list .selected .triangle, header #settings-bar #security .list .selected .triangle {
-  vertical-align: middle;
-  margin-left: 3px;
+    vertical-align: middle;
+    margin-left: 3px;
 }
+
 header #settings-bar #personal-settings .list .selected:hover, header #settings-bar #site-settings .list .selected:hover, header #settings-bar #security .list .selected:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #settings-bar #personal-settings .list .selected:hover .triangle, header #settings-bar #site-settings .list .selected:hover .triangle, header #settings-bar #security .list .selected:hover .triangle {
-  border-bottom: 5px solid #AF2341;
+    border-bottom: 5px solid #AF2341;
   transition: all 0.1s linear;
 }
 header #settings-bar #security .content {
@@ -936,30 +963,41 @@ header #right-side .link:nth-child(4) > div > div {
   position: static;
 }
 header #right-side .link:nth-child(4) > div .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(-90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #right-side .link:nth-child(4) > div .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #right-side .link:nth-child(4) > div .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #right-side .link:nth-child(4) > div .triangle {
-  vertical-align: middle;
-  margin-left: 3px;
+    vertical-align: middle;
+    margin-left: 3px;
 }
+
 header #right-side .link:nth-child(4) > div:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #right-side .link:nth-child(4) > div:hover .triangle {
-  border-bottom: 5px solid #AF2341;
+    border-bottom: 5px solid #AF2341;
   transition: all 0.1s linear;
 }
 header #right-side .link #locals li {
@@ -1034,30 +1072,41 @@ header #right-side .link #current-local > div {
   display: inline-block;
 }
 header #right-side .link #current-local .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(180deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #right-side .link #current-local .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #right-side .link #current-local .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #right-side .link #current-local:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #right-side .link #current-local:hover .triangle {
-  border-bottom: 5px solid #AF2341;
-  transition: all 0.1s linear;
+    border-bottom: 5px solid #AF2341;
+    transition: all 0.1s linear;
 }
+
 header #right-side .link #current-cinema {
-  width: 100%;
+    width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -1076,30 +1125,41 @@ header #right-side .link #current-cinema > div + div {
   margin-left: 5px;
 }
 header #right-side .link #current-cinema .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(180deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #right-side .link #current-cinema .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #right-side .link #current-cinema .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #right-side .link #current-cinema:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #right-side .link #current-cinema:hover .triangle {
-  border-bottom: 5px solid #AF2341;
-  transition: border-bottom-color 0.1s linear;
+    border-bottom: 5px solid #AF2341;
+    transition: border-bottom-color 0.1s linear;
 }
+
 header #right-side .link #countries {
-  position: relative;
+    position: relative;
   overflow: hidden;
 }
 header #right-side .link #countries .cinema-list {
@@ -1123,29 +1183,40 @@ header #right-side .link #countries .cinema-list > div:first-child {
   align-items: center;
 }
 header #right-side .link #countries .cinema-list > div:first-child .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #right-side .link #countries .cinema-list > div:first-child .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #right-side .link #countries .cinema-list > div:first-child .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #right-side .link #countries .cinema-list > div:first-child .triangle {
-  position: relative;
-  left: 0;
-  display: flex;
+    position: relative;
+    left: 0;
+    display: flex;
 }
+
 header #right-side .link #countries .cinema-list > div:first-child:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #right-side .link #countries .cinema-list > div:first-child:hover .triangle {
   border-bottom: 5px solid #AF2341;
   transition: all 0.1s linear;
@@ -1163,30 +1234,40 @@ header #right-side .link #countries li > div {
   width: 100%;
 }
 header #right-side .link #countries li > div .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(-90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #right-side .link #countries li > div .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #right-side .link #countries li > div .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #right-side .link #countries li > div .triangle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
 }
+
 header #right-side .link #countries li .city {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
   text-align: center;
   opacity: 1;
   transition: opacity 0.5s linear;
@@ -1261,30 +1342,41 @@ header #user > div:nth-child(2) > div > div {
   display: inline-block;
 }
 header #user > div:nth-child(2) > div .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #user > div:nth-child(2) > div .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #user > div:nth-child(2) > div .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #user > div:nth-child(2) > div .triangle {
-  vertical-align: middle;
-  margin-left: 3px;
+    vertical-align: middle;
+    margin-left: 3px;
 }
+
 header #user > div:nth-child(2) > div:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 header #user > div:nth-child(2) > div:hover .triangle {
-  border-bottom: 5px solid #AF2341;
+    border-bottom: 5px solid #AF2341;
   transition: all 0.1s linear;
 }
 header #menu-top {
@@ -1410,29 +1502,39 @@ header #settings .title {
   }
 }
 header #settings .title .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #settings .title .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #settings .title .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #settings .title .triangle {
-  vertical-align: middle;
-  margin-left: 3px;
-  display: inline-block;
-  height: 100%;
+    vertical-align: middle;
+    margin-left: 3px;
+    display: inline-block;
+    height: 100%;
 }
+
 header #settings .title:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 header #settings .title:hover .triangle {
   border-bottom: 5px solid #AF2341;
@@ -1476,29 +1578,39 @@ header #messages .title {
   }
 }
 header #messages .title .triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #D7D7D7;
-  vertical-align: middle;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(90deg);
-  transition: transform 0.5s ease-in-out !important;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #D7D7D7;
+    border-bottom-color: #D7D7D7;
+    vertical-align: middle;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
 header #messages .title .triangle-0 {
-  transform: rotate(0deg) !important;
-  transition: transform 0.5s ease-in-out !important;
+    transform: rotate(0deg) !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
 }
+
+header #messages .title .triangle-wide {
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+}
+
 header #messages .title .triangle {
-  vertical-align: middle;
-  margin-left: 3px;
-  display: inline-block;
-  height: 100%;
+    vertical-align: middle;
+    margin-left: 3px;
+    display: inline-block;
+    height: 100%;
 }
+
 header #messages .title:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 header #messages .title:hover .triangle {
   border-bottom: 5px solid #AF2341;

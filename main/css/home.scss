@@ -1,21 +1,21 @@
 @import "default";
 @import "fonts";
 
-body {
-  margin: 0 auto;
-  background-color: $gray-dark;
-  overflow-y: auto;
-  overflow-x: hidden;
-  min-height: 100vh;
-
-  @media screen and (min-width: 1920px) {
-    width: 1920px;
-  }
-
-  @media screen and (max-width: 1920px) {
-    width: 100vw;
-  }
-}
+//body {
+//  margin: 0 auto;
+//  background-color: $gray-dark;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  min-height: 100vh;
+//
+//  @media screen and (min-width: 1920px) {
+//    width: 1920px;
+//  }
+//
+//  @media screen and (max-width: 1920px) {
+//    width: 100vw;
+//  }
+//}
 
 #home-content {
   font-size: 16px;
