@@ -23,13 +23,6 @@
       line-height: 80px;
       color: $white-dark;
       z-index: 2;
-      //transition: color 0.1s linear;
-
-      //&:hover {
-      //  cursor: pointer;
-      //  color: $maroon;
-      //  transition: color 0.1s linear;
-      //}
     }
 
     .borders {
@@ -346,6 +339,8 @@
 }
 
 #poster {
+  margin-right: 35px;
+
   img {
     @media screen and (max-width: 510px) {
       margin-bottom: 10px;
@@ -498,8 +493,8 @@
 #add-schedule {
   position: absolute;
   right: 0;
-  bottom: 25px;
-  width: 150px;
+  bottom: 0;
+  width: 200px;
   height: 30px;
   background-size: 202% 100%;
   background-position: 100% 0;
@@ -511,11 +506,11 @@
   color: $gray-light;
   transition: all 0.3s ease-in-out;
 
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 500px) {
     display: block;
   }
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 500px) {
     display: none;
   }
 
@@ -720,88 +715,27 @@
 #schedule {
   margin-top: 27px;
   position: relative;
-  //transition: height 0.5s ease-in-out;
 
-  @media screen and (max-width: 792px) and (min-width: 510px) {
-    //margin-top: 126px;
-    height: 442px;
-  }
-
-  @media screen and (max-width: 510px) {
-    //margin-top: 394px;
-    height: 710px;
-  }
-
-  //.background {
-  //  width: 100%;
-  //  height: 100%;
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  background-color: $gray-dark;
-  //  z-index: 3;
+  //@media screen and (max-width: 792px) and (min-width: 510px) {
+  //  height: 442px;
+  //}
+  //
+  //@media screen and (max-width: 510px) {
+  //  height: 710px;
   //}
 
-  .calendar {
-    padding: 0;
-  }
-
-  .movie-schedule {
+  .movie {
     padding-left: 0;
     position: relative;
-    //z-index: 4;
 
     .top {
       position: relative;
-    }
+      display: flex;
+      flex-wrap: wrap;
 
-    .button.date {
-      @media screen and (max-width: 792px) and (min-width: 510px) {
-        left: -196px;
-        top: 14px;
-      }
-
-      @media screen and (max-width: 510px) {
-        left: 4px;
-        top: 6px;
-      }
-    }
-
-    .buy-button {
-      .button {
-        @media screen and (max-width: 792px) {
-          top: 116px;
-          left: 4px;
-          right: auto;
-        }
-
-        @media screen and (max-width: 984px) and (min-width: 793px) {
-          top: -53px;
-        }
-
-        @media screen and (min-width: 984px) {
-          top: -28px;
-        }
-      }
-    }
-
-    .buttons {
-      .time-button {
-        @media screen and (max-width: 792px) {
-          top: 102px !important;
-        }
-      }
-
-      .hall-button, .time-button {
-        @media screen and (max-width: 792px) {
-          top: 60px;
-          margin-left: 4px;
-        }
-
-        @media screen and (max-width: 984px) and (min-width: 793px) {
-          top: -66px;
-        }
-      }
+      //& > div {
+      //  display: inline-block;
+      //}
     }
 
     .details {
@@ -827,73 +761,33 @@
           width: 15vw;
           min-width: 210px;
           max-width: 270px;
-          margin-right: 35px;
           margin-bottom: 11px;
-
-          @media screen and (min-width: 792px) {
-            display: inline-block;
-          }
-
-          @media screen and (max-width: 792px) {
-            display: block;
-          }
-
-          & > div + div {
-            margin-top: 11px;
-          }
+          border-bottom: 1px solid $white-dark;
+          display: flex;
+          justify-content: space-between;
 
           & > div {
-            width: 100%;
-            border-bottom: 1px solid $white-dark;
-            display: flex;
-            justify-content: space-between;
+            display: inline-flex;
+            font-size: 18px;
+            line-height: 26px;
 
-            & > div {
-              display: inline-flex;
-              font-size: 18px;
-              line-height: 26px;
-
-              &:last-child {
-                font-weight: 300;
-              }
+            &:last-child {
+              font-weight: 300;
             }
           }
+
+          //@media screen and (min-width: 792px) {
+          //  display: inline-block;
+          //}
+          //
+          //@media screen and (max-width: 792px) {
+          //  display: block;
+          //}
+
+          //& > div + div {
+          //  margin-top: 11px;
+          //}
         }
-      }
-    }
-
-    .halls {
-      margin-top: 8px;
-    }
-
-    .schedule {
-      top: -12px;
-
-      .line + .line {
-        margin-left: 1.35vw;
-      }
-
-      .hour + .hour {
-        margin-left: 8.1vw;
-      }
-    }
-
-    .week {
-      .week-day {
-        width: 94px;
-        height: 94px;
-
-        .day {
-          margin-bottom: 6px;
-        }
-
-        .date {
-          line-height: 54px;
-        }
-      }
-
-      .underline {
-        left: 7px;
       }
     }
   }

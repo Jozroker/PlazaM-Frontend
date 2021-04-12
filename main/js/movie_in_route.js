@@ -66,13 +66,14 @@ $(document).ready(function () {
 
     $("#info .star").mouseover(function () {
         if (!$("#info .user-rating").hasClass("selected")) {
+            $("#info .star").removeClass("full");
             for (let i = 0; i <= $("#info .star").index($(this)); i++) {
                 $($("#info .star")[i]).addClass("full");
             }
         }
     })
 
-    $("#info .star").mouseleave(function () {
+    $("#info .user-rating").mouseleave(function () {
         if (!$("#info .user-rating").hasClass("selected")) {
             $("#info .star").removeClass("full");
         }
