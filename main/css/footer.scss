@@ -27,203 +27,6 @@
 
   }
 
-  #about {
-    text-align: justify;
-
-    @media screen and (min-width: 500px) {
-      display: block;
-    }
-
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-  }
-
-  #contacts {
-
-    .email, .phone .title-2 {
-      display: flex;
-      height: 30px;
-      align-items: center;
-    }
-
-    .email {
-      &:hover {
-        cursor: pointer;
-
-        &::before {
-          color: $maroon;
-        }
-
-        span:first-child {
-          color: $white-dark;
-        }
-
-        span:last-child {
-          color: $maroon;
-        }
-      }
-
-      &::before {
-        font-family: "icomoon" !important;
-        font-size: 25px;
-        content: "\f0e0";
-        color: $gray-light;
-        position: relative;
-        top: -3px;
-        margin-right: 5px;
-      }
-    }
-
-    .phone .title-2 {
-      margin-bottom: 3px;
-
-      &::before {
-        font-family: "icomoon" !important;
-        font-size: 25px;
-        content: "\e942";
-        color: $gray-light;
-        margin-right: 5px;
-        position: relative;
-        top: -1px;
-      }
-    }
-
-    .title {
-      margin-bottom: 8px;
-    }
-
-    li {
-      padding-left: 10px;
-      display: flex;
-      height: 20px;
-      align-items: center;
-
-      .flag {
-        width: 24px;
-        height: 16px;
-        margin: 0 4px;
-      }
-    }
-  }
-
-  #location {
-
-    @media screen and (min-width: 800px) {
-      display: block;
-    }
-
-    @media screen and (max-width: 800px) {
-      display: none;
-    }
-
-    ul {
-      width: 100%;
-    }
-
-    .title {
-      margin-bottom: 8px;
-    }
-
-    li + li {
-      margin-top: 6px;
-    }
-
-    .street {
-      height: 40px;
-      overflow: auto;
-
-      & > div {
-        font-size: 12px;
-        line-height: 12px;
-      }
-
-      & > div + div {
-        margin-top: 2px;
-      }
-    }
-
-    .country {
-      margin: 2px 0;
-
-      &:hover {
-        cursor: pointer;
-        color: $white-dark;
-
-        .triangle {
-          border-bottom-color: $maroon;
-        }
-      }
-    }
-
-    li {
-      display: block;
-      height: 20px;
-      overflow: hidden;
-    }
-
-    .country {
-
-      & > div {
-        display: inline-block;
-      }
-
-      @include triangle(5px, $white-dark, 180deg, 0);
-
-      .triangle {
-        margin-right: 3px;
-        vertical-align: middle;
-        transition: transform 0.3s ease-in-out !important;
-      }
-    }
-  }
-
-  #links {
-
-    @media screen and (min-width: 1200px) {
-      display: block;
-    }
-
-    @media screen and (max-width: 1200px) {
-      display: none;
-    }
-
-    .icons {
-      display: flex;
-
-      .icon {
-        width: 2.6vw;
-        height: 2.6vw;
-        min-width: 30px;
-        min-height: 30px;
-        max-width: 50px;
-        max-height: 50px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $gray-light;
-        font-size: 36px;
-
-        &:hover {
-          color: $maroon;
-        }
-      }
-
-      .icon-instagram {
-        font-size: 37px;
-      }
-
-      .icon-googleplay {
-        font-size: 30px;
-      }
-
-      .icon + .icon {
-        margin-left: 10px;
-      }
-    }
-  }
-
   .copyright {
     font-size: 18px;
     font-weight: 500;
@@ -314,6 +117,213 @@
     a:hover {
       cursor: pointer;
       text-shadow: $white-dark 0 0 2px;
+    }
+  }
+}
+
+#about {
+  text-align: justify;
+
+  @media screen and (min-width: 500px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+
+  .info {
+    font-size: 18px;
+  }
+}
+
+#contacts {
+
+  .email, .phone .title-2 {
+    display: flex;
+    height: 30px;
+    align-items: center;
+  }
+
+  .email {
+    font-size: 18px;
+
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        color: $maroon;
+      }
+
+      span:first-child {
+        color: $white-dark;
+      }
+
+      span:last-child {
+        color: $maroon;
+      }
+    }
+
+    &::before {
+      font-family: "icomoon" !important;
+      font-size: 25px;
+      content: "\f0e0";
+      color: $gray-light;
+      position: relative;
+      top: -3px;
+      margin-right: 5px;
+    }
+  }
+
+  .phone {
+    .title-2 {
+      margin-bottom: 3px;
+
+      &::before {
+        font-family: "icomoon" !important;
+        font-size: 25px;
+        content: "\e942";
+        color: $gray-light;
+        margin-right: 5px;
+        position: relative;
+        top: -1px;
+      }
+    }
+
+    .number {
+      font-size: 18px;
+    }
+  }
+
+  .title {
+    margin-bottom: 8px;
+  }
+
+  li {
+    padding-left: 10px;
+    display: flex;
+    height: 20px;
+    align-items: center;
+
+    .flag {
+      width: 24px;
+      height: 16px;
+      margin: 0 4px;
+    }
+  }
+}
+
+#location {
+
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+
+  ul {
+    width: 100%;
+  }
+
+  .title {
+    margin-bottom: 8px;
+  }
+
+  li + li {
+    margin-top: 6px;
+  }
+
+  .street {
+    height: 40px;
+    overflow: auto;
+
+    & > div {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  li {
+    display: block;
+    height: 20px;
+    overflow: hidden;
+  }
+
+  .country {
+    margin: 2px 0;
+    display: flex;
+    align-items: center;
+
+    .title-2 {
+      margin-left: 6px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $white-dark;
+
+      .triangle {
+        border-bottom-color: $maroon;
+      }
+    }
+
+    & > div {
+      display: inline-block;
+    }
+
+    @include triangle(5px, $white-dark, 180deg, 0s);
+
+    .triangle {
+      vertical-align: middle;
+      transition: transform 0.3s ease-in-out !important;
+    }
+  }
+}
+
+#links {
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+
+  .icons {
+    display: flex;
+
+    .icon {
+      width: 2.6vw;
+      height: 2.6vw;
+      min-width: 30px;
+      min-height: 30px;
+      max-width: 50px;
+      max-height: 50px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $gray-light;
+      font-size: 36px;
+
+      &:hover {
+        color: $maroon;
+      }
+    }
+
+    .icon-instagram {
+      font-size: 37px;
+    }
+
+    .icon-googleplay {
+      font-size: 30px;
+    }
+
+    .icon + .icon {
+      margin-left: 10px;
     }
   }
 }

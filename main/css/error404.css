@@ -11,7 +11,7 @@ body {
     position: static;
     font-family: "BauhausC", "Baumans", "Arial", sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 0;
     color: #A3A3A3;
     min-width: 487px;
     margin: 0 auto;
@@ -45,13 +45,12 @@ a, a:hover, a:visited, a:active {
 
 @font-face {
     font-family: "icomoon";
-    src: url("../fonts/icomoon.eot?tth84l");
-    src: url("../fonts/icomoon.eot?tth84l#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tth84l") format("truetype"), url("../fonts/icomoon.woff?tth84l") format("woff"), url("../fonts/icomoon.svg?tth84l#icomoon") format("svg");
+    src: url("../fonts/icomoon.eot?m2ajbg");
+    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
@@ -59,7 +58,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
@@ -67,7 +65,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
@@ -75,7 +72,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
@@ -83,7 +79,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 [class^=icon-], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: "icomoon" !important;
@@ -156,6 +151,10 @@ a, a:hover, a:visited, a:active {
 
 .icon-star:before {
     content: "";
+}
+
+.icon-star-empty:before {
+    content: "";
 }
 
 .icon-tick:before {
@@ -246,7 +245,6 @@ a, a:hover, a:visited, a:active {
         transform: rotate(360deg);
     }
 }
-
 body {
     background-color: #0D0E0D;
     display: flex;
@@ -257,16 +255,13 @@ body {
     overflow: hidden;
     color: #D7D7D7;
 }
-
 body > div {
     width: 100%;
 }
-
 body > div > div {
     display: flex;
     justify-content: center;
 }
-
 body .message {
     position: relative;
 }
@@ -294,7 +289,6 @@ body .message {
         top: -24px;
     }
 }
-
 body .button {
     width: 100%;
     height: 45px;
@@ -318,7 +312,6 @@ body .button {
         font-size: 22px;
     }
 }
-
 body .button .home-btn {
     width: 9.9%;
     max-width: 190px;
@@ -330,14 +323,12 @@ body .button .home-btn {
     background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
     transition: all 0.3s ease-in-out;
 }
-
 body .button .home-btn:hover {
     cursor: pointer;
     background-position: 0 0;
     color: #0D0E0D;
     transition: all 0.3s ease-in-out;
 }
-
 body .error-code {
     font-weight: 700;
     align-items: baseline;
@@ -363,11 +354,9 @@ body .error-code {
         line-height: 150px;
     }
 }
-
 body .error-code > div {
     display: inline-block;
 }
-
 body .error-code .zero {
     margin: 0 20px;
 }
@@ -392,7 +381,6 @@ body .error-code .zero {
         height: 94px;
     }
 }
-
 body .error-code .circle {
     transform-origin: center;
     animation-name: rotation;

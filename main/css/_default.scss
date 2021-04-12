@@ -46,11 +46,10 @@ body {
   position: static;
   font-family: "BauhausC", "Baumans", "Arial", sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 0;
   color: $gray-light;
   //overflow: hidden;
   min-width: 487px;
-
   margin: 0 auto;
   background-color: $gray-dark;
   overflow-y: auto;

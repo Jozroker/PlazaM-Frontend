@@ -1,0 +1,624 @@
+@import "default";
+@import "fonts";
+
+#schedule-creation {
+  width: 100%;
+  position: absolute;
+  padding: 0 10px;
+  left: 0;
+  top: 100%;
+  z-index: 2;
+  background-color: $black-light;
+  overflow-y: hidden;
+  height: 0;
+
+  & > div {
+    width: 100%;
+  }
+
+  .simplebar-scrollbar {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      background-color: $maroon;
+      width: 6px;
+    }
+  }
+
+  .simplebar-content-wrapper {
+    //padding-left: 10px;
+    overflow: auto;
+  }
+
+  .simplebar-vertical {
+    position: absolute;
+    right: 4px;
+    width: 8px;
+  }
+
+  .title {
+    width: 100%;
+    height: 28px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 400;
+    color: $white-dark;
+    margin-top: 6px;
+  }
+
+  .underline {
+    width: 100%;
+    height: 1px;
+    background-color: $maroon;
+  }
+
+  .form {
+    width: 100%;
+    position: relative;
+    height: 246px;
+
+    .simplebar-horizontal {
+      bottom: -38px;
+
+      .simplebar-scrollbar {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    .simplebar-vertical {
+      .simplebar-scrollbar {
+        &::before {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
+    .form-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+
+      & > div {
+        padding: 3px 5px;
+        height: 246px;
+
+        .title-2 {
+          width: 100%;
+          height: 26px;
+          font-size: 18px;
+          line-height: 26px;
+          text-align: center;
+          color: $white-dark;
+        }
+
+        .input {
+          width: 100%;
+          height: 210px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          padding: 0 5px;
+        }
+      }
+
+      .hall-select {
+        .scroll {
+          height: 115px;
+        }
+
+        .list {
+          height: 25px;
+          line-height: 25px;
+          top: 92px;
+        }
+      }
+
+      .movie-name {
+        width: 25%;
+        max-width: 401px;
+        min-width: 210px;
+
+        input {
+          &::placeholder {
+            color: $gray-light;
+            transition: color 0.1s linear;
+          }
+
+          &:hover {
+            &::placeholder {
+              color: $white-dark;
+              transition: color 0.1s linear;
+            }
+          }
+        }
+      }
+
+      .price-select {
+        width: 10%;
+        max-width: 160px;
+        min-width: 160px;
+
+        .input {
+          width: 100%;
+
+          & > div {
+            display: inline-block;
+
+          }
+
+          .sign {
+            width: 20px;
+            height: 20px;
+            font-size: 13px;
+            line-height: 23px;
+            font-weight: 500;
+            text-align: center;
+            color: $white-dark;
+            transition: all 0.1s linear;
+
+            &:hover {
+              cursor: pointer;
+              color: $gray-dark;
+              background-color: rgba($maroon, 0.7);
+              transition: all 0.1s linear;
+            }
+          }
+
+          input {
+            width: 76px;
+            height: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 300;
+            text-align: center;
+            color: $gray-light;
+            background-color: transparent;
+            border: 0;
+
+            &::placeholder {
+              color: $gray-light;
+              transition: color 0.1s linear;
+            }
+
+            &:hover {
+              &::placeholder {
+                color: $white-dark;
+                transition: color 0.1s linear;
+              }
+            }
+
+            &:focus {
+              outline: none;
+            }
+
+            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+
+          input[type=number] {
+            -moz-appearance: textfield;
+          }
+
+          .currency {
+            width: 15px;
+            height: 20px;
+            font-size: 20px;
+            line-height: 20px;
+            text-align: center;
+
+            &::before {
+              font-family: "icomoon" !important;
+              content: "\f155";
+              color: $maroon;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .seance-time {
+        width: 7%;
+        max-width: 100px;
+        min-width: 97px;
+
+        input {
+          width: 100%;
+          padding: 0 3px;
+          font-size: 18px;
+          line-height: 18px;
+          font-weight: 500;
+          color: $gray-light;
+          background-color: transparent;
+          border: 0;
+          text-align: center;
+
+          &::placeholder {
+            color: $gray-light;
+            transition: color 0.1s linear;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            &::placeholder {
+              color: $white-dark;
+              transition: color 0.1s linear;
+            }
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .hall-select, .date-from, .date-to {
+        width: 12%;
+        max-width: 190px;
+        min-width: 125px;
+
+        .title {
+          margin-top: 0;
+        }
+      }
+
+      .days-select {
+        width: 9%;
+        max-width: 140px;
+        min-width: 120px;
+
+        .input {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 10px 0;
+        }
+
+        .day {
+          width: 100%;
+          //padding-left: 15px;
+          text-align: left;
+          font-size: 16px;
+          line-height: 18px;
+          color: $gray-light;
+          transition: color 0.1s linear;
+        }
+
+        .checkbox {
+          display: flex;
+
+          &::before {
+            font-family: "icomoon" !important;
+            font-size: 16px;
+            margin-right: 5px;
+            color: $white-dark;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: $white-dark;
+            transition: color 0.1s linear;
+          }
+        }
+
+        .checkbox {
+          &::before {
+            content: "\ea53";
+          }
+        }
+
+        .checked {
+          color: $white-dark;
+
+          .checkbox {
+            &::before {
+              content: "\ea52" !important;
+              color: $maroon !important;
+            }
+          }
+        }
+      }
+
+      .cinema-select {
+        width: 13%;
+        max-width: 214px;
+        min-width: 140px;
+
+        .scroll {
+          height: 90px;
+        }
+
+        .list {
+          height: 50px;
+          top: 79px;
+
+          .selected {
+            height: 50px;
+            white-space: normal;
+            text-align: center;
+          }
+        }
+      }
+
+      .hall-select, .cinema-select {
+        .selected > div:first-child {
+          font-size: 16px;
+        }
+
+        .cinema-list {
+          padding-right: 10px;
+        }
+
+        .simplebar-content-wrapper {
+          padding-right: 10px;
+        }
+
+        .scroll {
+          .underline {
+            width: 80%;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba($maroon, 0) 0, $maroon 20%, $maroon 80%, rgba($maroon, 0) 100%);
+            background-color: transparent;
+            margin: 0 auto 4px auto;
+          }
+        }
+
+        .list {
+          width: 100%;
+          position: absolute;
+          overflow: hidden;
+          font-size: 20px;
+          font-weight: 500;
+          background-size: 201% 100%;
+          background-position: 200% 0;
+          background-image: linear-gradient(to right, rgba($gray-dark, 0),
+                  rgba($gray-dark, 0) 50%,
+                  rgba($gray-dark, 0.95) 50%,
+                  rgba($gray-dark, 0.95) 100%);
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+
+            &:not(.selected) {
+              font-weight: 300;
+            }
+          }
+
+          .selected {
+            margin-bottom: 10px;
+            color: $gray-light;
+            transition: color 0.1s linear;
+
+            & > div {
+              display: inline-block;
+            }
+
+            @include triangle(5px, $white-dark, 180deg, 0s);
+
+            .triangle {
+              vertical-align: middle;
+              margin-left: 3px;
+            }
+
+            &:hover {
+              cursor: pointer;
+              color: $white-dark;
+              transition: color 0.1s linear;
+
+              .triangle {
+                border-bottom: 5px solid $maroon;
+                transition: all 0.1s linear;
+              }
+            }
+          }
+        }
+
+        .triangle {
+          margin-left: 5px;
+        }
+
+        .hall, .cinema {
+          text-align: center;
+          white-space: normal;
+          font-size: 16px;
+
+          &:hover {
+            cursor: pointer;
+            color: $maroon;
+          }
+        }
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    height: 26px;
+    margin-bottom: 14px;
+
+    .create-btn {
+      width: 150px;
+      height: 100%;
+      margin: auto;
+      text-align: center;
+      font-size: 22px;
+      line-height: 26px;
+      color: $white-dark;
+      background-size: 202% 100%;
+      background-position: 100% 0;
+      background-image: linear-gradient(to right, $maroon 0, $maroon 50%, rgba($maroon, 0) 50%, rgba($maroon, 0) 100%);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        background-position: 0 0;
+        color: $gray-dark;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+#search-movie {
+  display: block;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  padding-right: 32px;
+
+  @media screen and (min-width: 1440px) {
+    height: 32px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    height: 30px;
+  }
+
+  input {
+    padding-left: 5px;
+  }
+
+  .underline {
+    width: 100%;
+    height: 1px;
+    background-color: $white-dark;
+    position: absolute;
+    right: 0;
+  }
+
+  & > div {
+    display: inline-block;
+
+    &:first-child {
+      width: 100%;
+      position: relative;
+      margin-top: 3px;
+    }
+  }
+}
+
+#movie-search-result {
+  display: block;
+  width: 100%;
+  height: max-content;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+#date-from, #date-to {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  height: 25px;
+  top: 92px;
+  z-index: 5;
+
+  .content {
+    height: 186px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $gray-light;
+    transition: color 0.1s ease-in-out;
+    //background-size: 0 100%;
+    //background-position: 50% 100%;
+    //background-repeat: no-repeat;
+    //background-image: linear-gradient(to right, $gray-dark 0%, $gray-dark 100%);
+
+    &:hover {
+      cursor: pointer;
+      color: $white-dark;
+      transition: color 0.1s ease-in-out;
+
+      .triangle {
+        border-bottom-color: $maroon;
+        transition: border-bottom-color 0.1s ease-in-out;
+      }
+    }
+
+    .value {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    @include triangle(5px, $white-dark, 180deg, 0.1s);
+
+    .triangle {
+      margin-left: 5px;
+    }
+  }
+}
+
+#movie-search-icon {
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  margin: 0 7px;
+
+  &::after {
+    font-family: "icomoon";
+    content: "\e901";
+    font-size: 18px;
+    color: $white-dark;
+    position: absolute;
+    right: 0;
+    margin-left: 14px;
+    transition: color 0.2s linear;
+
+    @media screen and (min-width: 1440px) {
+      line-height: 32px;
+    }
+
+    @media screen and (max-width: 1440px) {
+      line-height: 30px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &:after {
+      color: $maroon;
+      cursor: pointer;
+      transition: color 0.2s linear;
+    }
+  }
+}
+
+#movie-search-line {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 18px;
+  background: none;
+  border: 0;
+  width: 100%;
+  color: $white-dark;
+  //!!!
+  //opacity: 0;
+  //pointer-events: none;
+
+  &:focus {
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}

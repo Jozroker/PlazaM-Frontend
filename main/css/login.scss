@@ -188,7 +188,7 @@ body {
 
       &.sign-in {
         justify-content: left;
-        @include triangle(5px, $gray-light, -90deg, 0);
+        @include triangle(5px, $gray-light, -90deg, 0s);
 
         .triangle {
           margin-right: 2px;
@@ -198,7 +198,7 @@ body {
       &.registration {
         justify-content: right;
 
-        @include triangle(5px, $gray-light, 90deg, 0);
+        @include triangle(5px, $gray-light, 90deg, 0s);
 
         .triangle {
           margin-left: 2px;

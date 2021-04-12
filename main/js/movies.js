@@ -86,6 +86,7 @@ $(document).ready(function () {
                     yearFromAnimate = false;
                     $("#filter").find(".simplebar-vertical").last().css("display", "none");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
             } else {
                 $(".year-from").animate({
@@ -96,6 +97,7 @@ $(document).ready(function () {
                     $("#filter").find(".simplebar-vertical").last().css("display", "block");
                     $(this).removeClass("selected");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
             }
         } else {
@@ -116,6 +118,7 @@ $(document).ready(function () {
                     yearToAnimate = false;
                     $("#filter").find(".simplebar-vertical").last().css("display", "none");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
             } else {
                 $(".year-to").animate({
@@ -126,6 +129,7 @@ $(document).ready(function () {
                     $("#filter").find(".simplebar-vertical").last().css("display", "block");
                     $(this).removeClass("selected");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
             }
         } else {
@@ -163,8 +167,8 @@ $(document).ready(function () {
                     filterHidden = false;
                     $("body").css("overflow-y", "hidden");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
-
                 $(this).addClass("viewed");
             } else {
                 $("#filter").animate({
@@ -174,20 +178,16 @@ $(document).ready(function () {
                     filterHidden = true;
                     $("body").css("overflow-y", "auto");
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 })
-
                 $(this).removeClass("viewed");
             }
-        } else {
-            nextClickedElement = $(this);
         }
     })
 
     $("#filter").mouseleave(function () {
         if (!filterHidden) {
             $(".arrow").click();
-        } else {
-            nextClickedElement = $(".arrow");
         }
     })
 })

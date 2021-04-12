@@ -11,7 +11,7 @@ body {
     position: static;
     font-family: "BauhausC", "Baumans", "Arial", sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 0;
     color: #A3A3A3;
     min-width: 487px;
     margin: 0 auto;
@@ -45,13 +45,12 @@ a, a:hover, a:visited, a:active {
 
 @font-face {
     font-family: "icomoon";
-    src: url("../fonts/icomoon.eot?tth84l");
-    src: url("../fonts/icomoon.eot?tth84l#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tth84l") format("truetype"), url("../fonts/icomoon.woff?tth84l") format("woff"), url("../fonts/icomoon.svg?tth84l#icomoon") format("svg");
+    src: url("../fonts/icomoon.eot?m2ajbg");
+    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
@@ -59,7 +58,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
@@ -67,7 +65,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
@@ -75,7 +72,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
@@ -83,7 +79,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 [class^=icon-], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: "icomoon" !important;
@@ -156,6 +151,10 @@ a, a:hover, a:visited, a:active {
 
 .icon-star:before {
     content: "";
+}
+
+.icon-star-empty:before {
+    content: "";
 }
 
 .icon-tick:before {
@@ -254,39 +253,16 @@ body {
     margin: auto;
     display: flex;
 }
-
-.pages #arrow-left, .pages #arrow-right {
-    margin: 0 15px;
-    font-size: 14px;
-}
-
-.pages #arrow-left:hover, .pages #arrow-right:hover {
-    color: #AF2341;
-    cursor: pointer;
-}
-
-.pages #arrow-left::before {
-    font-family: "icomoon" !important;
-    content: "";
-}
-
-.pages #arrow-right::before {
-    font-family: "icomoon" !important;
-    content: "";
-}
-
 .pages > div {
     width: 32px;
     height: 32px;
     display: inline-block;
     text-align: center;
 }
-
 .pages .selected {
     font-size: 22px;
     color: #AF2341;
 }
-
 .pages .page:hover, .pages .first:hover, .pages .last:hover {
     cursor: pointer;
 }
@@ -297,6 +273,26 @@ body {
     background-color: #AF2341;
     position: relative;
     left: 0;
+}
+
+#arrow-left, #arrow-right {
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+#arrow-left:hover, #arrow-right:hover {
+    color: #AF2341;
+    cursor: pointer;
+}
+
+#arrow-left::before {
+    font-family: "icomoon" !important;
+    content: "";
+}
+
+#arrow-right::before {
+    font-family: "icomoon" !important;
+    content: "";
 }
 
 /*# sourceMappingURL=pages.css.map */

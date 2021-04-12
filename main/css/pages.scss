@@ -17,26 +17,6 @@ body {
   margin: auto;
   display: flex;
 
-  #arrow-left, #arrow-right {
-    margin: 0 15px;
-    font-size: 14px;
-
-    &:hover {
-      color: $maroon;
-      cursor: pointer;
-    }
-  }
-
-  #arrow-left::before {
-    font-family: "icomoon" !important;
-    content: "\f053";
-  }
-
-  #arrow-right::before {
-    font-family: "icomoon" !important;
-    content: "\f054";
-  }
-
   & > div {
     width: 32px;
     height: 32px;
@@ -62,4 +42,24 @@ body {
   background-color: $maroon;
   position: relative;
   left: 0;
+}
+
+#arrow-left, #arrow-right {
+  margin: 0 15px;
+  font-size: 14px;
+
+  &:hover {
+    color: $maroon;
+    cursor: pointer;
+  }
+}
+
+#arrow-left::before {
+  font-family: "icomoon" !important;
+  content: "\f053";
+}
+
+#arrow-right::before {
+  font-family: "icomoon" !important;
+  content: "\f054";
 }

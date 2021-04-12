@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     let timer;
     let movieRouteAnimate = false;
+    let nextClickedElement = $();
 
     {
         $("#movies-in-route .movie.selected").find(".name").css("left", "9.38%");
@@ -26,9 +27,11 @@ $(document).ready(function () {
     }
 
     $("#movies-in-route .circle").click(function () {
-        index = $("#movies-in-route .circle").index($(this));
-        // loop(false);
-        slide(true, true);
+        if (!$(this).hasClass("selected")) {
+            index = $("#movies-in-route .circle").index($(this));
+            // loop(false);
+            slide(true, true);
+        }
     })
 
     $("#movies-in-route .borders").click(function () {
@@ -62,12 +65,20 @@ $(document).ready(function () {
                         selectedMovie = $("#movies-in-route .movie.selected").first();
                         selectedCircle = $("#movies-in-route .circle.selected").first();
                         movieRouteAnimate = false;
+                        nextClickedElement.click();
+                        nextClickedElement = $();
                         if (userClick) {
                             // loop(true);
                         }
                     });
                 }, 1000);
             })
+        } else {
+            if (circleSelected) {
+                nextClickedElement = $($("#movies-in-route .circle")[index]);
+            } else {
+                nextClickedElement = $("#movies-in-route .borders");
+            }
         }
     }
 

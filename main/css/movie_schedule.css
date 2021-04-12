@@ -11,7 +11,7 @@ body {
     position: static;
     font-family: "BauhausC", "Baumans", "Arial", sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 0;
     color: #A3A3A3;
     min-width: 487px;
     margin: 0 auto;
@@ -45,13 +45,12 @@ a, a:hover, a:visited, a:active {
 
 @font-face {
     font-family: "icomoon";
-    src: url("../fonts/icomoon.eot?tth84l");
-    src: url("../fonts/icomoon.eot?tth84l#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tth84l") format("truetype"), url("../fonts/icomoon.woff?tth84l") format("woff"), url("../fonts/icomoon.svg?tth84l#icomoon") format("svg");
+    src: url("../fonts/icomoon.eot?m2ajbg");
+    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
@@ -59,7 +58,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
@@ -67,7 +65,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
@@ -75,7 +72,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
@@ -83,7 +79,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 [class^=icon-], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: "icomoon" !important;
@@ -156,6 +151,10 @@ a, a:hover, a:visited, a:active {
 
 .icon-star:before {
     content: "";
+}
+
+.icon-star-empty:before {
+    content: "";
 }
 
 .icon-tick:before {
@@ -252,16 +251,13 @@ a, a:hover, a:visited, a:active {
         height: 322px;
     }
 }
-
 .movie-schedule .simplebar-scrollbar:hover {
     cursor: pointer;
 }
-
 .movie-schedule .simplebar-scrollbar::before {
     background-color: #AF2341;
     width: 6px;
 }
-
 .movie-schedule .simplebar-content-wrapper {
     padding-right: 7px;
     overflow: auto;
@@ -269,7 +265,11 @@ a, a:hover, a:visited, a:active {
 
 .movie-schedule .simplebar-vertical {
     position: absolute;
-    right: -3px;
+    right: 3px;
+}
+
+.movie-schedule .simplebar-mask {
+    background-color: #0A0B0B;
 }
 
 .movie-schedule .button {
@@ -279,16 +279,16 @@ a, a:hover, a:visited, a:active {
     position: absolute;
     display: none;
 }
-
 .movie-schedule .button .title {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 34px;
-    background-color: rgba(163, 163, 163, 0.04);
+    font-size: 18px;
+    background-color: #121312;
     position: relative;
+    z-index: 2;
 }
-
 .movie-schedule .button .title .triangle {
     width: 0;
     height: 0;
@@ -300,39 +300,32 @@ a, a:hover, a:visited, a:active {
     transform-box: fill-box;
     transform-origin: center;
     transform: rotate(180deg);
-    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 .movie-schedule .button .title .triangle-0 {
     transform: rotate(0deg) !important;
-    transition: transform 0.5s ease-in-out, border-bottom-color 0 ease-in-out !important;
+    transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 .movie-schedule .button .title .triangle-wide {
     border-left: 10px solid transparent !important;
     border-right: 10px solid transparent !important;
-    transition: transform 0s ease-in-out, border-bottom-color 0 ease-in-out !important;
+    transition: transform 0s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 .movie-schedule .button .title .triangle {
     position: absolute;
     right: 16px;
 }
-
 .movie-schedule .button .title:hover {
     color: #D7D7D7;
     cursor: pointer;
 }
-
 .movie-schedule .button .title:hover .triangle {
     border-bottom: 5px solid #AF2341;
-    transition: all 0.1s linear;
+    transition: all 0.1s ease-in-out;
 }
-
 .movie-schedule .button .content {
     height: 104px;
 }
-
 .movie-schedule .button .content .simplebar-content > div:not(.line-between) {
     display: flex;
     align-items: center;
@@ -343,7 +336,6 @@ a, a:hover, a:visited, a:active {
     line-height: 16px;
     font-weight: 300;
 }
-
 .movie-schedule .button .content .line-between {
     width: 75%;
     margin: auto;
@@ -352,25 +344,20 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, rgba(175, 35, 65, 0), #AF2341 50%, rgba(175, 35, 65, 0));
     transition: all 0.1s ease-in-out;
 }
-
 .movie-schedule .button .content .hall:hover, .movie-schedule .button .content .time:hover {
     color: #D7D7D7;
     text-shadow: #D7D7D7 0 0 2px;
     cursor: pointer;
 }
 
-.movie-schedule .button.hall-button, .movie-schedule .button.time-button {
-    z-index: 4;
-}
-
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 985px) {
     .movie-schedule .button.hall-button, .movie-schedule .button.time-button {
         display: inline-block;
         top: -75px;
     }
 }
 
-@media screen and (max-width: 1340px) and (min-width: 970px) {
+@media screen and (max-width: 1340px) and (min-width: 985px) {
     .movie-schedule .button.hall-button, .movie-schedule .button.time-button {
         display: inline-block;
         top: 0;
@@ -382,13 +369,19 @@ a, a:hover, a:visited, a:active {
         display: none;
     }
 }
-
 .movie-schedule .button.hall-button .content, .movie-schedule .button.time-button .content {
     background-color: rgba(13, 14, 13, 0.97);
+    padding: 0 !important;
 }
 
 .movie-schedule .button.hall-button {
     margin-left: 200px;
+    z-index: 4;
+}
+
+.movie-schedule .button.time-button {
+    z-index: 3;
+    overflow: visible;
 }
 
 @media screen and (max-width: 677px) {
@@ -404,74 +397,90 @@ a, a:hover, a:visited, a:active {
     }
 }
 
+.movie-schedule .button.time-button .content {
+    height: 0;
+}
+
+.movie-schedule .button.time-button .change-schedule {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 34px;
+    width: 90px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 34px;
+    background-color: rgba(163, 163, 163, 0.2);
+    box-shadow: inset 1px 1px 5px black;
+    color: #A3A3A3;
+    transition: color 0.1s linear;
+}
+
+.movie-schedule .button.time-button .change-schedule:hover {
+    cursor: pointer;
+    color: #AF2341;
+    transition: color 0.1s linear;
+}
+
 .movie-schedule .button.date {
     z-index: 5;
 }
 
 .movie-schedule .button.date .content {
-    height: 100%;
+    height: 186px;
 }
 
 .movie-schedule .top > div {
     display: inline-block;
     vertical-align: top;
 }
-
 .movie-schedule .top img {
     width: 180px;
     height: 267px;
     margin-right: 20px;
 }
-
 .movie-schedule .top .name {
     color: #D7D7D7;
 }
-
 .movie-schedule .top .name .firstname {
     font-size: 30px;
     line-height: 30px;
     margin-top: 8px;
 }
-
 .movie-schedule .top .name .lastname {
     font-size: 22px;
     line-height: 22px;
     margin-bottom: 4px;
 }
-
 .movie-schedule .top .name:hover {
     color: #AF2341;
 }
-
 .movie-schedule .top .rate > div {
     display: inline-flex;
 }
-
 .movie-schedule .top .rate .rate-number {
     font-size: 14px;
     line-height: 14px;
     font-weight: 300;
     margin-left: 6px;
 }
-
 .movie-schedule .top .rate .star + .star {
     margin-left: 4px;
 }
-
 .movie-schedule .top .rate .star {
     justify-content: flex-start;
     width: 13px;
     height: 14px;
 }
-
 .movie-schedule .top .rate .star.full::before {
     width: 13px;
 }
-
 .movie-schedule .top .rate .star.empty::before {
     width: 0;
 }
-
 .movie-schedule .top .rate .star::before {
     overflow: hidden;
     font-size: 14px;
@@ -479,11 +488,9 @@ a, a:hover, a:visited, a:active {
     content: "";
     color: #AF2341;
 }
-
 .movie-schedule .top .week {
     position: relative;
 }
-
 .movie-schedule .top .week .week-day {
     display: inline-block;
     text-align: center;
@@ -494,43 +501,35 @@ a, a:hover, a:visited, a:active {
     line-height: 16px;
     transition: color 0.5s linear;
 }
-
 .movie-schedule .top .week .week-day .day {
     width: 100%;
     margin-bottom: 6px;
 }
-
 .movie-schedule .top .week .week-day .date {
     width: 100%;
     font-size: 66px;
     line-height: 58px;
     transition: color 0.5s linear;
 }
-
 .movie-schedule .top .week .week-day .month {
     font-weight: 300;
     width: 100%;
 }
-
 .movie-schedule .top .week .week-day.selected {
     color: #D7D7D7;
     transition: color 0.5s linear;
 }
-
 .movie-schedule .top .week .week-day.selected .date {
     color: #AF2341;
     transition: color 0.5s linear;
 }
-
 .movie-schedule .top .week .week-day:not(.selected):hover {
     cursor: pointer;
 }
-
 .movie-schedule .top .week .week-day:not(.selected):hover .date {
     color: #D7D7D7;
     transition: color 0s;
 }
-
 .movie-schedule .top .week .underline {
     position: relative;
     left: 10px;
@@ -540,30 +539,29 @@ a, a:hover, a:visited, a:active {
     transition: left 0.5s ease-in-out, width 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 985px) {
     .movie-schedule .top .week .underline, .movie-schedule .top .week .visible {
         display: none;
     }
 }
 
-@media screen and (min-width: 970px) {
+@media screen and (min-width: 985px) {
     .movie-schedule .top .week .underline, .movie-schedule .top .week .visible {
         display: block;
     }
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 985px) {
     .movie-schedule .top .week .button {
         display: block;
     }
 }
 
-@media screen and (min-width: 970px) {
+@media screen and (min-width: 985px) {
     .movie-schedule .top .week .button {
         display: none;
     }
 }
-
 .movie-schedule .top .info {
     height: 20px;
     margin-top: 3px;
@@ -572,22 +570,20 @@ a, a:hover, a:visited, a:active {
     font-size: 14px;
     line-height: 14px;
 }
-
 .movie-schedule .top .info > div {
     display: inline-flex;
     vertical-align: middle;
 }
-
 .movie-schedule .top .info .vertical-line {
     height: 100%;
     width: 1px;
     margin: 0 15px;
     background-color: #A3A3A3;
 }
-
 .movie-schedule .buy-button {
     position: relative;
     top: 16px;
+    font-size: 18px;
     height: 34px;
 }
 
@@ -602,7 +598,6 @@ a, a:hover, a:visited, a:active {
         display: none;
     }
 }
-
 .movie-schedule .buy-button .button {
     right: 50px;
     background-color: rgba(163, 163, 163, 0.04);
@@ -617,27 +612,24 @@ a, a:hover, a:visited, a:active {
     }
 }
 
-@media screen and (max-width: 970px) and (min-width: 677px) {
+@media screen and (max-width: 985px) and (min-width: 677px) {
     .movie-schedule .buy-button .button {
         top: -68px;
     }
 }
 
-@media screen and (min-width: 970px) {
+@media screen and (min-width: 985px) {
     .movie-schedule .buy-button .button {
         top: -34px;
     }
 }
-
 .movie-schedule .buy-button .button:hover {
     cursor: pointer;
     color: #D7D7D7;
 }
-
 .movie-schedule .schedule {
     position: relative;
     top: -18px;
-    width: max-content;
 }
 
 @media screen and (max-width: 1340px) {
@@ -651,49 +643,40 @@ a, a:hover, a:visited, a:active {
         display: block;
     }
 }
-
 .movie-schedule .schedule .timeline .lines {
     position: relative;
     padding-left: 214px;
 }
-
 .movie-schedule .schedule .timeline .lines .line {
     display: inline-block;
     vertical-align: top;
     background-color: #A3A3A3;
 }
-
 .movie-schedule .schedule .timeline .lines .line + .line {
     margin-left: 1.46vw;
 }
-
 .movie-schedule .schedule .timeline .lines .hour-line {
     width: 2px;
     height: 25px;
 }
-
 .movie-schedule .schedule .timeline .lines .half-hour-line {
     width: 1px;
     height: 15px;
 }
-
 .movie-schedule .schedule .timeline .hours {
     padding-left: 200px;
-    font-size: 12px;
-    line-height: 12px;
-    font-weight: 300;
 }
-
 .movie-schedule .schedule .timeline .hours .hour {
     display: inline-block;
     margin-right: 9px;
     width: 0;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 300;
 }
-
 .movie-schedule .schedule .timeline .hours .hour + .hour {
     margin-left: 8.76vw;
 }
-
 .movie-schedule .schedule .halls {
     margin-top: 12px;
 }
@@ -709,7 +692,6 @@ a, a:hover, a:visited, a:active {
         display: block;
     }
 }
-
 .movie-schedule .schedule .halls .line-between {
     width: 100%;
     height: 1px;
@@ -717,13 +699,11 @@ a, a:hover, a:visited, a:active {
     transition: opacity 0.5s linear;
     background-image: linear-gradient(to right, rgba(175, 35, 65, 0), #AF2341 15%, #AF2341 85%, rgba(175, 35, 65, 0));
 }
-
 .movie-schedule .schedule .halls .hall {
     position: relative;
     height: 40px;
     width: 100%;
 }
-
 .movie-schedule .schedule .halls .hall .name {
     color: #D7D7D7;
     font-size: 18px;
@@ -750,27 +730,60 @@ a, a:hover, a:visited, a:active {
     position: absolute;
     white-space: pre;
     height: 32px;
-    border-radius: 12px;
-    box-shadow: inset 1px 1px 5px black;
+    border-radius: 16px;
     margin: 4px 0;
+    display: inline-block;
+}
+
+.movie-schedule .schedule .halls .hall .seances .seance .value {
+    width: 100%;
+    position: relative;
+    font-size: 18px;
     line-height: 32px;
     color: #0D0E0D;
-    display: inline-block;
     text-align: center;
+    z-index: 1;
     background-size: 201% 100%;
     background-position: 0 0;
     background-color: #555;
     transition: background-position 0.3s ease-in-out;
+    border-radius: 12px;
+    box-shadow: inset 1px 1px 5px black;
 }
 
-.movie-schedule .schedule .halls .hall .seances .select {
+.movie-schedule .schedule .halls .hall .seances .seance .select {
     background-image: linear-gradient(to left, #AF2341 0%, #AF2341 50%, #D7D7D7 50%, #D7D7D7 100%);
 }
 
-.movie-schedule .schedule .halls .hall .seances .hovered:hover {
+.movie-schedule .schedule .halls .hall .seances .seance .hovered:hover {
     cursor: pointer;
     background-position: 100% 0;
     transition: background-position 0.3s ease-in-out;
+}
+
+.movie-schedule .schedule .halls .hall .seances .seance .change {
+    width: 90px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    text-align: right;
+    color: #A3A3A3;
+    background-color: rgba(163, 163, 163, 0.2);
+    box-shadow: inset 1px 1px 5px black;
+    padding-right: 10px;
+    transition: color 0.1s linear;
+    border-radius: 0 12px 12px 0;
+    z-index: 0;
+}
+
+.movie-schedule .schedule .halls .hall .seances .seance .change:hover {
+    cursor: pointer;
+    color: #AF2341;
+    transition: color 0.1s linear;
 }
 
 /*# sourceMappingURL=movie_schedule.css.map */
