@@ -1,0 +1,865 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  display: block;
+  position: static;
+  font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 0;
+  color: #A3A3A3;
+  min-width: 487px;
+  margin: 0 auto;
+  background-color: #0D0E0D;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    width: 1920px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  body {
+    width: 100vw;
+  }
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?m2ajbg");
+  src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "BauhausC";
+  src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BauhausC";
+  src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BauhausC";
+  src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BauhausC";
+  src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^=icon-], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-googleplay:before {
+  content: "";
+}
+
+.icon-search:before {
+  content: "";
+}
+
+.icon-edit:before {
+  content: "";
+}
+
+.icon-ticket:before {
+  content: "";
+}
+
+.icon-phone:before {
+  content: "";
+}
+
+.icon-clock:before {
+  content: "";
+}
+
+.icon-settings:before {
+  content: "";
+}
+
+.icon-sort:before {
+  content: "";
+}
+
+.icon-checkbox-checked:before {
+  content: "";
+}
+
+.icon-checkbox-unchecked:before {
+  content: "";
+}
+
+.icon-radio-checked:before {
+  content: "";
+}
+
+.icon-radio-unchecked:before {
+  content: "";
+}
+
+.icon-letter-empty:before {
+  content: "";
+}
+
+.icon-heart-fill:before {
+  content: "";
+}
+
+.icon-star:before {
+  content: "";
+}
+
+.icon-star-empty:before {
+  content: "";
+}
+
+.icon-tick:before {
+  content: "";
+}
+
+.icon-cross:before {
+  content: "";
+}
+
+.icon-lock:before {
+  content: "";
+}
+
+.icon-left:before {
+  content: "";
+}
+
+.icon-right:before {
+  content: "";
+}
+
+.icon-ban:before {
+  content: "";
+}
+
+.icon-calendar:before {
+  content: "";
+}
+
+.icon-comment-fill:before {
+  content: "";
+}
+
+.icon-facebook:before {
+  content: "";
+}
+
+.icon-heart-empty:before {
+  content: "";
+}
+
+.icon-sign-out:before {
+  content: "";
+}
+
+.icon-sign-in:before {
+  content: "";
+}
+
+.icon-filter:before {
+  content: "";
+}
+
+.icon-banknote:before {
+  content: "";
+}
+
+.icon-letter-fill:before {
+  content: "";
+}
+
+.icon-comment-empty:before {
+  content: "";
+}
+
+.icon-dollar:before {
+  content: "";
+}
+
+.icon-youtube:before {
+  content: "";
+}
+
+.icon-instagram:before {
+  content: "";
+}
+
+.icon-credit-card:before {
+  content: "";
+}
+
+.container {
+  margin: 162px 67px 0 67px;
+}
+
+.container .top {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #A3A3A3;
+  transition: color 0.2s linear;
+}
+
+.container .top .title {
+  padding-left: 7px;
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 500;
+  color: #D7D7D7;
+}
+
+.container .top .underline {
+  width: 100%;
+  height: 2px;
+  margin: 7px 0 17px 0;
+  background-image: linear-gradient(to right, #AF2341 0, rgba(175, 35, 65, 0) 100%);
+}
+
+.container .top .sort .title {
+  font-size: 28px;
+  line-height: 28px;
+  margin-bottom: 6px;
+}
+
+.container .top .sort .categories {
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.container .top .sort .categories > div {
+  display: inline-block;
+  padding: 0 7px;
+}
+
+.container .top .sort .categories > div.selected {
+  color: #AF2341;
+  font-weight: 400;
+  transition: color 0.2s linear;
+}
+
+.container .top .sort .categories > div:not(.selected):hover {
+  cursor: pointer;
+  color: #AF2341;
+}
+
+.container .top .sort .underline {
+  position: relative;
+  left: 0;
+  margin: 0;
+  width: 80px;
+  height: 1px;
+  background-color: #AF2341;
+}
+
+.simplebar-scrollbar:hover {
+  cursor: pointer;
+}
+
+.simplebar-scrollbar::before {
+  background-color: #AF2341;
+  width: 6px;
+}
+
+.simplebar-content-wrapper {
+  padding-left: 10px;
+  overflow: auto;
+}
+
+.simplebar-vertical {
+  position: absolute;
+  left: 4px;
+  width: 8px;
+}
+
+#back {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+#filter {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #A3A3A3;
+  transition: color 0.3s ease-in-out;
+  opacity: 0.95;
+  z-index: 3;
+}
+
+#filter > div {
+  display: inline-flex;
+  height: 100%;
+}
+
+#filter > div.scroll {
+  background-color: #0D0E0D;
+  width: 300px;
+}
+
+#filter > div.scroll .content {
+  height: 100vh;
+  min-height: 977px;
+  max-height: 1080px;
+  width: 300px;
+  position: relative;
+  left: -10px;
+  padding: 20px;
+}
+
+#filter > div.scroll .content > div {
+  width: 100%;
+}
+
+#filter > div.scroll .content .title {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  color: #D7D7D7;
+  margin-top: 78px;
+  text-align: center;
+}
+
+#filter > div.scroll .content .subtitle {
+  margin-top: 19px;
+  padding-left: 22px;
+  text-align: left;
+  color: #D7D7D7;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+#filter > div.scroll .content .underline {
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(175, 35, 65, 0) 0, #AF2341 10%, #AF2341 90%, rgba(175, 35, 65, 0) 100%);
+  margin-bottom: 10px;
+}
+
+#filter > div.scroll .content .genres {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 14px;
+  grid-column-gap: 16px;
+  justify-items: center;
+}
+
+#filter > div.scroll .content .genres .genre {
+  width: 120px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  background-size: 202% 100%;
+  background-position: 100% 0;
+  background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+  transition: background-position 0.3s ease-in-out;
+}
+
+#filter > div.scroll .content .genres .genre:not(.selected):hover {
+  cursor: pointer;
+  color: #AF2341;
+}
+
+#filter > div.scroll .content .genres .genre.selected {
+  color: #0D0E0D;
+  background-position: 0 0;
+  transition: background-position 0.3s ease-in-out;
+}
+
+#filter > div.scroll .content .genres .genre.selected:hover {
+  cursor: pointer;
+  color: #D7D7D7;
+}
+
+#filter > div.scroll .content .from, #filter > div.scroll .content .to {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 6px;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#filter > div.scroll .content .from > div, #filter > div.scroll .content .to > div {
+  display: inline-flex;
+  justify-content: center;
+}
+
+#filter > div.scroll .content .from .title, #filter > div.scroll .content .to .title {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+#filter > div.scroll .content .from .year-from, #filter > div.scroll .content .to .year-from {
+  z-index: 4;
+}
+
+#filter > div.scroll .content .from .year-to, #filter > div.scroll .content .to .year-to {
+  z-index: 3;
+}
+
+#filter > div.scroll .content .from .year-from, #filter > div.scroll .content .from .year-to, #filter > div.scroll .content .to .year-from, #filter > div.scroll .content .to .year-to {
+  position: absolute;
+  right: 20px;
+  width: 122px;
+  height: 28px;
+  background-size: 202% 100%;
+  background-position: 100% 0;
+  background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+  transition: background-position 0.3s ease-in-out, color 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+#filter > div.scroll .content .from .year-from:hover, #filter > div.scroll .content .from .year-to:hover, #filter > div.scroll .content .to .year-from:hover, #filter > div.scroll .content .to .year-to:hover {
+  background-position: 0 0;
+  color: #0D0E0D;
+  transition: background-position 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#filter > div.scroll .content .from .year-from.selected, #filter > div.scroll .content .from .year-to.selected, #filter > div.scroll .content .to .year-from.selected, #filter > div.scroll .content .to .year-to.selected {
+  background-position: 0 0;
+  color: #0D0E0D;
+}
+
+#filter > div.scroll .content .from .year-from.selected .list .triangle, #filter > div.scroll .content .from .year-to.selected .list .triangle, #filter > div.scroll .content .to .year-from.selected .list .triangle, #filter > div.scroll .content .to .year-to.selected .list .triangle {
+  border-bottom-color: #0D0E0D !important;
+}
+
+#filter > div.scroll .content .from .year-from .list, #filter > div.scroll .content .from .year-to .list, #filter > div.scroll .content .to .year-from .list, #filter > div.scroll .content .to .year-to .list {
+  width: 100%;
+}
+
+#filter > div.scroll .content .from .year-from .list .simplebar-content-wrapper, #filter > div.scroll .content .from .year-to .list .simplebar-content-wrapper, #filter > div.scroll .content .to .year-from .list .simplebar-content-wrapper, #filter > div.scroll .content .to .year-to .list .simplebar-content-wrapper {
+  padding-right: 7px;
+  padding-left: 0;
+}
+
+#filter > div.scroll .content .from .year-from .list .simplebar-vertical, #filter > div.scroll .content .from .year-to .list .simplebar-vertical, #filter > div.scroll .content .to .year-from .list .simplebar-vertical, #filter > div.scroll .content .to .year-to .list .simplebar-vertical {
+  width: 15px;
+  right: 0;
+  left: auto;
+}
+
+#filter > div.scroll .content .from .year-from .list .simplebar-vertical .simplebar-scrollbar::before, #filter > div.scroll .content .from .year-to .list .simplebar-vertical .simplebar-scrollbar::before, #filter > div.scroll .content .to .year-from .list .simplebar-vertical .simplebar-scrollbar::before, #filter > div.scroll .content .to .year-to .list .simplebar-vertical .simplebar-scrollbar::before {
+  background-color: #0D0E0D;
+  width: 6px;
+  margin-right: 2px;
+}
+
+#filter > div.scroll .content .from .year-from .list .scroll, #filter > div.scroll .content .from .year-to .list .scroll, #filter > div.scroll .content .to .year-from .list .scroll, #filter > div.scroll .content .to .year-to .list .scroll {
+  height: 54px;
+}
+
+#filter > div.scroll .content .from .year-from .list .year, #filter > div.scroll .content .from .year-to .list .year, #filter > div.scroll .content .to .year-from .list .year, #filter > div.scroll .content .to .year-to .list .year {
+  text-align: center;
+  height: 18px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  color: #0D0E0D;
+}
+
+#filter > div.scroll .content .from .year-from .list .year:hover, #filter > div.scroll .content .from .year-to .list .year:hover, #filter > div.scroll .content .to .year-from .list .year:hover, #filter > div.scroll .content .to .year-to .list .year:hover {
+  cursor: pointer;
+  color: #D7D7D7;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected, #filter > div.scroll .content .from .year-to .list .selected, #filter > div.scroll .content .to .year-from .list .selected, #filter > div.scroll .content .to .year-to .list .selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  line-height: 28px;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected:hover, #filter > div.scroll .content .from .year-to .list .selected:hover, #filter > div.scroll .content .to .year-from .list .selected:hover, #filter > div.scroll .content .to .year-to .list .selected:hover {
+  cursor: pointer;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected:hover .triangle, #filter > div.scroll .content .from .year-to .list .selected:hover .triangle, #filter > div.scroll .content .to .year-from .list .selected:hover .triangle, #filter > div.scroll .content .to .year-to .list .selected:hover .triangle {
+  border-bottom-color: #0D0E0D;
+  transition: border-bottom-color 0.3s ease-in-out;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected div:first-child, #filter > div.scroll .content .from .year-to .list .selected div:first-child, #filter > div.scroll .content .to .year-from .list .selected div:first-child, #filter > div.scroll .content .to .year-to .list .selected div:first-child {
+  margin-right: 5px;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected > div, #filter > div.scroll .content .from .year-to .list .selected > div, #filter > div.scroll .content .to .year-from .list .selected > div, #filter > div.scroll .content .to .year-to .list .selected > div {
+  display: inline-flex;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected .triangle, #filter > div.scroll .content .from .year-to .list .selected .triangle, #filter > div.scroll .content .to .year-from .list .selected .triangle, #filter > div.scroll .content .to .year-to .list .selected .triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #A3A3A3;
+  border-bottom-color: #A3A3A3;
+  vertical-align: middle;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out, border-bottom-color 0.3s ease-in-out !important;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected .triangle-0, #filter > div.scroll .content .from .year-to .list .selected .triangle-0, #filter > div.scroll .content .to .year-from .list .selected .triangle-0, #filter > div.scroll .content .to .year-to .list .selected .triangle-0 {
+  transform: rotate(0deg) !important;
+  transition: transform 0.5s ease-in-out, border-bottom-color 0.3s ease-in-out !important;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected .triangle-wide, #filter > div.scroll .content .from .year-to .list .selected .triangle-wide, #filter > div.scroll .content .to .year-from .list .selected .triangle-wide, #filter > div.scroll .content .to .year-to .list .selected .triangle-wide {
+  border-left: 10px solid transparent !important;
+  border-right: 10px solid transparent !important;
+  transition: transform 0s ease-in-out, border-bottom-color 0.3s ease-in-out !important;
+}
+
+#filter > div.scroll .content .from .year-from .list .selected .triangle, #filter > div.scroll .content .from .year-to .list .selected .triangle, #filter > div.scroll .content .to .year-from .list .selected .triangle, #filter > div.scroll .content .to .year-to .list .selected .triangle {
+  position: absolute;
+  right: 5px;
+}
+
+#filter > div.scroll .content .button {
+  position: absolute;
+  width: 100%;
+  height: 34px;
+  left: 0;
+  bottom: 85px;
+}
+
+#filter > div.scroll .content .button .apply-btn {
+  height: 34px;
+  width: 140px;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  line-height: 34px;
+  background-size: 202% 100%;
+  background-position: 100% 0;
+  background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+  transition: all 0.3s ease-in-out;
+}
+
+#filter > div.scroll .content .button .apply-btn:hover {
+  cursor: pointer;
+  color: #0D0E0D;
+  background-position: 0 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#filter > div.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 204px;
+  background-color: rgba(163, 163, 163, 0.7);
+  z-index: 3;
+  transition: background-color 0.1s linear, height 0.5s ease-in-out;
+}
+
+#filter > div.arrow .triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #0D0E0D;
+  border-bottom-color: #0D0E0D;
+  vertical-align: middle;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
+}
+
+#filter > div.arrow .triangle-0 {
+  transform: rotate(0deg) !important;
+  transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
+}
+
+#filter > div.arrow .triangle-wide {
+  border-left: 10px solid transparent !important;
+  border-right: 10px solid transparent !important;
+  transition: transform 0s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
+}
+
+#filter > div.arrow.viewed {
+  height: 100%;
+  background-color: rgba(163, 163, 163, 0.7);
+  transition: background-color 0.1s linear, height 0.5s ease-in-out;
+}
+
+#filter > div.arrow.viewed .triangle {
+  transform: rotate(-90deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+#filter > div.arrow.viewed:hover {
+  cursor: pointer;
+  background-color: rgba(163, 163, 163, 0.95);
+  transition: background-color 0.1s linear, height 0.5s ease-in-out;
+}
+
+#filter > div.arrow.viewed:hover .triangle {
+  border-bottom-color: #AF2341;
+  transition: border-bottom-color 0.1s ease-in-out;
+}
+
+#filter > div.arrow:not(.viewed):hover {
+  cursor: pointer;
+  background-color: rgba(163, 163, 163, 0.95);
+  transition: background-color 0.1s linear, height 0.5s ease-in-out;
+}
+
+#filter > div.arrow:not(.viewed):hover .triangle {
+  border-bottom-color: #AF2341;
+  transition: border-bottom-color 0.1s ease-in-out;
+}
+
+#pages {
+  width: 100%;
+  margin: 85px auto 100px auto;
+}
+
+#movies {
+  margin-top: 27px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-row-gap: 30px;
+  justify-items: center;
+}
+
+#movies .curtain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #0D0E0D;
+  opacity: 0.7;
+  display: none;
+}
+
+#movies .movie {
+  width: 260px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+  position: relative;
+  font-size: 16px;
+  line-height: 16px;
+  color: #D7D7D7;
+  font-weight: 300;
+}
+
+#movies .movie:hover {
+  cursor: pointer;
+}
+
+#movies .movie:hover .card {
+  left: 0;
+  transition: left 0.4s ease-in-out;
+}
+
+#movies .movie > div {
+  width: 100%;
+  height: 100%;
+}
+
+#movies .movie img {
+  width: 100%;
+  height: 100%;
+}
+
+#movies .movie .card {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: 12px;
+  background-color: rgba(13, 14, 13, 0.8);
+  transition: left 0.4s ease-in-out;
+}
+
+#movies .movie .card .bottom {
+  position: absolute;
+  width: 196px;
+  left: 32px;
+  bottom: 24px;
+  text-align: left;
+}
+
+#movies .movie .card .bottom .date {
+  margin-top: 8px;
+}
+
+#movies .movie .card .bottom .title {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+#movies .movie .card .bottom .genres-info, #movies .movie .card .bottom .rental-date {
+  font-size: 16px;
+  line-height: 16px;
+  color: #A3A3A3;
+}
+
+#movies .movie .card .bottom .rental-date {
+  max-width: 160px;
+}
+
+#movies .movie .card .bottom .rental-date > div {
+  display: inline-block;
+}
+
+#movies .movie .card .bottom .like {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  line-height: 22px;
+  color: #A3A3A3;
+  background-size: 202% 100%;
+  background-position: 100% 0;
+  background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+  transition: background-position 0.1s linear, color 0.2s linear;
+}
+
+#movies .movie .card .bottom .like.selected {
+  color: #AF2341;
+  transition: background-position 0.1s linear, color 0.2s linear;
+}
+
+#movies .movie .card .bottom .like.selected:hover {
+  background-position: 0 0;
+  color: #CB3F5D;
+  transition: background-position 0.1s linear, color 0.2s linear;
+}
+
+#movies .movie .card .bottom .like:not(.selected):hover {
+  background-position: 0 0;
+  color: #0D0E0D;
+  transition: background-position 0.1s linear, color 0.2s linear;
+}
+
+#movies .movie .card .bottom .like::before {
+  font-family: "icomoon" !important;
+  content: "";
+}
+
+#movies .movie .card .info {
+  width: 100%;
+  padding-right: 18px;
+  text-align: right;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+#movies .movie .card .name {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#movies .movie .card .name:hover .first {
+  color: #AF2341;
+  transition: color 0.1s linear;
+}
+
+#movies .movie .card .name:hover .second {
+  color: #85172E;
+  transition: color 0.1s linear;
+}
+
+#movies .movie .card .name .first {
+  color: #D7D7D7;
+  font-size: 28px;
+  line-height: 28px;
+  transition: color 0.1s linear;
+}
+
+#movies .movie .card .name .second {
+  color: #A3A3A3;
+  font-size: 20px;
+  line-height: 20px;
+  transition: color 0.1s linear;
+}
+
+/*# sourceMappingURL=movies.css.map */

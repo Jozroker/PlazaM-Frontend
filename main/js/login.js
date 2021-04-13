@@ -8,17 +8,20 @@ $(document).ready(function () {
             if (registerHidden) {
                 panelAnimate = true;
 
-                $("#sign-in-panel").animate({
+                $("#sign-in-panel").css("overflow-y", "hidden").animate({
                     "left": "-100vw"
                 }, 1000, "easeInOutQuint", function () {
                     loginHidden = true;
                     registerHidden = false;
                     panelAnimate = false;
+                    $(this).css("overflow-y", "auto");
                 });
 
-                $("#registration-panel").animate({
+                $("#registration-panel").css("overflow-y", "hidden").animate({
                     "left": "0"
-                }, 1000, "easeInOutQuint");
+                }, 1000, "easeInOutQuint", function () {
+                    $(this).css("overflow-y", "auto");
+                });
             }
         }
     })
@@ -28,17 +31,20 @@ $(document).ready(function () {
             if (loginHidden) {
                 panelAnimate = true;
 
-                $("#sign-in-panel").animate({
+                $("#sign-in-panel").css("overflow-y", "hidden").animate({
                     "left": "0"
                 }, 1000, "easeInOutQuint", function () {
                     loginHidden = false;
                     registerHidden = true;
                     panelAnimate = false;
+                    $(this).css("overflow-y", "auto");
                 });
 
-                $("#registration-panel").animate({
+                $("#registration-panel").css("overflow-y", "hidden").animate({
                     "left": "100vw"
-                }, 1000, "easeInOutQuint");
+                }, 1000, "easeInOutQuint", function () {
+                    $(this).css("overflow-y", "auto");
+                });
             }
         }
     })

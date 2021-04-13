@@ -1,0 +1,381 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: block;
+    position: static;
+    font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 0;
+    color: #A3A3A3;
+    min-width: 487px;
+    margin: 0 auto;
+    background-color: #0D0E0D;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        width: 1920px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 100vw;
+    }
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("../fonts/icomoon.eot?m2ajbg");
+    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+[class^=icon-], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-googleplay:before {
+    content: "";
+}
+
+.icon-search:before {
+    content: "";
+}
+
+.icon-edit:before {
+    content: "";
+}
+
+.icon-ticket:before {
+    content: "";
+}
+
+.icon-phone:before {
+    content: "";
+}
+
+.icon-clock:before {
+    content: "";
+}
+
+.icon-settings:before {
+    content: "";
+}
+
+.icon-sort:before {
+    content: "";
+}
+
+.icon-checkbox-checked:before {
+    content: "";
+}
+
+.icon-checkbox-unchecked:before {
+    content: "";
+}
+
+.icon-radio-checked:before {
+    content: "";
+}
+
+.icon-radio-unchecked:before {
+    content: "";
+}
+
+.icon-letter-empty:before {
+    content: "";
+}
+
+.icon-heart-fill:before {
+    content: "";
+}
+
+.icon-star:before {
+    content: "";
+}
+
+.icon-star-empty:before {
+    content: "";
+}
+
+.icon-tick:before {
+    content: "";
+}
+
+.icon-cross:before {
+    content: "";
+}
+
+.icon-lock:before {
+    content: "";
+}
+
+.icon-left:before {
+    content: "";
+}
+
+.icon-right:before {
+    content: "";
+}
+
+.icon-ban:before {
+    content: "";
+}
+
+.icon-calendar:before {
+    content: "";
+}
+
+.icon-comment-fill:before {
+    content: "";
+}
+
+.icon-facebook:before {
+    content: "";
+}
+
+.icon-heart-empty:before {
+    content: "";
+}
+
+.icon-sign-out:before {
+    content: "";
+}
+
+.icon-sign-in:before {
+    content: "";
+}
+
+.icon-filter:before {
+    content: "";
+}
+
+.icon-banknote:before {
+    content: "";
+}
+
+.icon-letter-fill:before {
+    content: "";
+}
+
+.icon-comment-empty:before {
+    content: "";
+}
+
+.icon-dollar:before {
+    content: "";
+}
+
+.icon-youtube:before {
+    content: "";
+}
+
+.icon-instagram:before {
+    content: "";
+}
+
+.icon-credit-card:before {
+    content: "";
+}
+
+body {
+    background-color: #0D0E0D;
+}
+
+#filter {
+    display: block;
+    position: relative;
+    margin: 0 45px;
+    color: #A3A3A3;
+    user-select: none;
+}
+#filter .top-line {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to left, rgba(175, 35, 65, 0), rgba(175, 35, 65, 0) 15%, #AF2341 70%, #AF2341 100%);
+}
+#filter .bottom-line {
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(175, 35, 65, 0), rgba(175, 35, 65, 0) 15%, #AF2341 70%, #AF2341 100%);
+}
+#filter .content {
+    margin: 17px 60px 11px 60px;
+    display: flex;
+    align-items: flex-start;
+}
+#filter .content > div {
+    display: inline-block;
+    white-space: nowrap;
+}
+#filter .content .title {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 13px;
+    color: #D7D7D7;
+}
+#filter .content .left-side {
+    width: 65%;
+}
+#filter .content .left-side .title {
+    width: 100%;
+}
+#filter .content .left-side .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(129px, 1fr));
+    padding: 0 2.16vw;
+    margin: 0;
+    flex-wrap: wrap;
+}
+#filter .content .left-side .content > div {
+    padding: 4px;
+    display: inline-flex;
+    justify-content: center;
+}
+#filter .content .left-side .content > div > div {
+    display: inline-block;
+    width: 121px;
+    height: 27px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 27px;
+    background-size: 201% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0));
+    transition: background-position 0.3s ease-in-out;
+}
+#filter .content .left-side .content > div > div:hover:not(.selected) {
+    cursor: pointer;
+    color: #AF2341;
+}
+#filter .content .right-side {
+    width: 35%;
+}
+#filter .content .right-side .title {
+    width: 100%;
+    padding-right: 4.2vw;
+}
+#filter .content .right-side .simplebar-vertical {
+    right: 0;
+}
+#filter .content .right-side .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+    margin: 0;
+    padding-right: 4.2vw;
+    flex-wrap: wrap;
+}
+#filter .content .right-side .content > div {
+    padding: 3px 5px;
+    display: inline-flex;
+    justify-content: center;
+}
+#filter .content .right-side .content > div > div {
+    display: inline-block;
+    width: 76px;
+    height: 33px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 33px;
+    margin-bottom: 8px;
+    background-size: 201% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0));
+    transition: background-position 0.3s ease-in-out;
+}
+#filter .content .right-side .content > div > div:hover:not(.selected) {
+    cursor: pointer;
+    color: #AF2341;
+}
+#filter .selected {
+    background-position: 0 0 !important;
+    color: #0D0E0D !important;
+    transition: background-position 0.3s ease-in-out;
+}
+#filter .selected:hover {
+    cursor: pointer;
+    color: #D7D7D7 !important;
+}
+#filter .simplebar-scrollbar:hover {
+    cursor: pointer;
+}
+#filter .simplebar-scrollbar::before {
+    background-color: #AF2341;
+    width: 6px;
+}
+#filter .simplebar-content-wrapper {
+    overflow: auto;
+}
+#filter .simplebar-vertical {
+    position: absolute;
+    right: 7px;
+}
+#filter .scroll {
+    height: 74px;
+}
+
+/*# sourceMappingURL=filter.css.map */

@@ -1,0 +1,988 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    display: block;
+    position: static;
+    font-family: "BauhausC", "Baumans", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 0;
+    color: #A3A3A3;
+    min-width: 487px;
+    margin: 0 auto;
+    background-color: #0D0E0D;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        width: 1920px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 100vw;
+    }
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("../fonts/icomoon.eot?m2ajbg");
+    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BauhausC";
+    src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+[class^=icon-], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-googleplay:before {
+    content: "";
+}
+
+.icon-search:before {
+    content: "";
+}
+
+.icon-edit:before {
+    content: "";
+}
+
+.icon-ticket:before {
+    content: "";
+}
+
+.icon-phone:before {
+    content: "";
+}
+
+.icon-clock:before {
+    content: "";
+}
+
+.icon-settings:before {
+    content: "";
+}
+
+.icon-sort:before {
+    content: "";
+}
+
+.icon-checkbox-checked:before {
+    content: "";
+}
+
+.icon-checkbox-unchecked:before {
+    content: "";
+}
+
+.icon-radio-checked:before {
+    content: "";
+}
+
+.icon-radio-unchecked:before {
+    content: "";
+}
+
+.icon-letter-empty:before {
+    content: "";
+}
+
+.icon-heart-fill:before {
+    content: "";
+}
+
+.icon-star:before {
+    content: "";
+}
+
+.icon-star-empty:before {
+    content: "";
+}
+
+.icon-tick:before {
+    content: "";
+}
+
+.icon-cross:before {
+    content: "";
+}
+
+.icon-lock:before {
+    content: "";
+}
+
+.icon-left:before {
+    content: "";
+}
+
+.icon-right:before {
+    content: "";
+}
+
+.icon-ban:before {
+    content: "";
+}
+
+.icon-calendar:before {
+    content: "";
+}
+
+.icon-comment-fill:before {
+    content: "";
+}
+
+.icon-facebook:before {
+    content: "";
+}
+
+.icon-heart-empty:before {
+    content: "";
+}
+
+.icon-sign-out:before {
+    content: "";
+}
+
+.icon-sign-in:before {
+    content: "";
+}
+
+.icon-filter:before {
+    content: "";
+}
+
+.icon-banknote:before {
+    content: "";
+}
+
+.icon-letter-fill:before {
+    content: "";
+}
+
+.icon-comment-empty:before {
+    content: "";
+}
+
+.icon-dollar:before {
+    content: "";
+}
+
+.icon-youtube:before {
+    content: "";
+}
+
+.icon-instagram:before {
+    content: "";
+}
+
+.icon-credit-card:before {
+    content: "";
+}
+
+#movie .image {
+    width: 100vw;
+    height: 31.5vw;
+    position: relative;
+}
+#movie .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#movie .image .name {
+    position: absolute;
+    left: 11.35vw;
+    bottom: 3.23vw;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 80px;
+    color: #D7D7D7;
+    z-index: 2;
+}
+#movie .image .borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 100px 25px #0D0E0D;
+    z-index: 1;
+}
+#movie .content {
+    padding: 0 6.41vw;
+    color: #A3A3A3;
+}
+#movie .content .additionally {
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 112px;
+}
+
+@media screen and (min-width: 793px) {
+    #movie .content .additionally {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 792px) and (min-width: 510px) {
+    #movie .content .additionally {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #movie .content .additionally > div {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 793px) {
+    #movie .content .additionally > div {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #movie .content .additionally > div:first-child {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 793px) {
+    #movie .content .additionally > div:first-child {
+        width: 55.7%;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #movie .content .additionally > div:last-child {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 793px) {
+    #movie .content .additionally > div:last-child {
+        width: 44.3%;
+    }
+}
+#movie .content .additionally > div .title {
+    font-size: 24px;
+    line-height: 24px;
+    color: #AF2341;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12px;
+}
+#movie .content .additionally > div .underline {
+    width: 100%;
+    height: 2px;
+    background-color: #AF2341;
+    margin-bottom: 11px;
+}
+#movie .content .additionally .comments {
+    position: relative;
+    overflow: hidden;
+}
+#movie .content .additionally .comments .scroll {
+    width: 100%;
+    padding: 0 14px;
+}
+#movie .content .additionally .comments .comment-form {
+    position: absolute;
+    width: 100%;
+    height: 190px;
+    left: 0;
+    bottom: -164px;
+    background-color: #0A0B0B;
+    transition: bottom 0.5s ease-in-out;
+    z-index: 1;
+}
+#movie .content .additionally .comments .comment-form > div {
+    padding: 0 10px;
+}
+#movie .content .additionally .comments .comment-form .field {
+    padding: 8px 10px;
+}
+#movie .content .additionally .comments .comment-form .add-comment {
+    width: 100%;
+    height: 26px;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    background-color: #AF2341;
+    transition: all 0.2s ease-in-out;
+}
+#movie .content .additionally .comments .comment-form .add-comment:hover {
+    cursor: pointer;
+    background-color: #CB3F5D;
+    color: #D7D7D7;
+    transition: all 0.2s ease-in-out;
+}
+#movie .content .additionally .comments .comment-form .button {
+    height: 26px;
+    width: 100%;
+}
+#movie .content .additionally .comments .comment-form .button .comment-btn {
+    margin: auto;
+    width: 40%;
+    min-width: 100px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 26px;
+    color: #D7D7D7;
+    background-size: 202% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    transition: all 0.2s ease-in-out;
+}
+#movie .content .additionally .comments .comment-form .button .comment-btn:hover {
+    cursor: pointer;
+    color: #0D0E0D;
+    background-position: 0 0;
+    transition: all 0.2s ease-in-out;
+}
+#movie .content .additionally .comments .comment-form textarea {
+    background-color: #0A0B0B;
+    width: 100%;
+    height: 122px;
+    padding: 5px 13px;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 300;
+    color: #A3A3A3;
+    resize: none;
+    border: 0;
+    outline: none;
+}
+#movie .content .additionally .gallery .slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0 14px;
+}
+#movie .content .additionally .gallery .slider .pictures img {
+    width: 100%;
+}
+#movie .content .additionally .gallery .slider .left-arrow, #movie .content .additionally .gallery .slider .right-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 6.1%;
+    top: 0;
+    z-index: 1;
+}
+#movie .content .additionally .gallery .slider .left-arrow:hover, #movie .content .additionally .gallery .slider .right-arrow:hover {
+    cursor: pointer;
+    background-color: rgba(13, 14, 13, 0.4);
+}
+#movie .content .additionally .gallery .slider .left-arrow:hover::before, #movie .content .additionally .gallery .slider .right-arrow:hover::before {
+    color: #AF2341;
+}
+#movie .content .additionally .gallery .slider .left-arrow {
+    left: 14px;
+}
+#movie .content .additionally .gallery .slider .left-arrow::before {
+    font-family: "icomoon" !important;
+    content: "";
+    font-size: 22px;
+    color: #D7D7D7;
+}
+#movie .content .additionally .gallery .slider .right-arrow {
+    right: 14px;
+}
+#movie .content .additionally .gallery .slider .right-arrow::before {
+    font-family: "icomoon" !important;
+    content: "";
+    font-size: 22px;
+    color: #D7D7D7;
+}
+#movie .content .additionally .actors .scroll {
+    width: 100%;
+    padding: 0 14px;
+}
+#movie .content .additionally .actors .scroll .actors-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-row-gap: 15px;
+    grid-column-gap: 10px;
+    justify-content: center;
+}
+#movie .content .additionally .actors .scroll .actors-list .actor {
+    display: flex;
+    align-items: center;
+}
+#movie .content .additionally .actors .scroll .actors-list .actor > div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#movie .content .additionally .actors .scroll .actors-list .actor > div:last-child {
+    margin-left: 10px;
+    font-size: 20px;
+    line-height: 20px;
+}
+#movie .content .additionally .actors .scroll .actors-list .actor > div img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+#movie .content .additionally .description .text {
+    width: 100%;
+    padding: 0 14px;
+}
+#movie .content .additionally .description .text p {
+    font-size: 20px;
+    line-height: 20px;
+    text-indent: 45px;
+    text-align: justify;
+}
+#movie .content .additionally .description .text p + p {
+    margin-top: 15px;
+}
+#movie .simplebar-scrollbar:hover {
+    cursor: pointer;
+}
+#movie .simplebar-scrollbar::before {
+    background-color: #AF2341;
+    width: 6px;
+}
+#movie .simplebar-content-wrapper {
+    overflow: auto;
+}
+#movie .simplebar-vertical {
+    position: absolute;
+    right: 4px;
+    width: 8px;
+}
+
+@media screen and (max-width: 510px) {
+    #poster img {
+        margin-bottom: 10px;
+    }
+}
+
+#comments .comment + .comment {
+    margin-top: 20px;
+}
+#comments .comment {
+    width: 100%;
+}
+#comments .comment > div {
+    width: 100%;
+}
+#comments .comment:last-child {
+    margin-bottom: 26px;
+}
+#comments .text {
+    margin-top: 5px;
+    width: 100%;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: justify;
+    text-indent: 15px;
+}
+#comments .user-info {
+    display: flex;
+    align-items: flex-start;
+}
+#comments .user-info > div {
+    display: inline-block;
+    width: 100%;
+    padding-right: 13px;
+}
+#comments .user-info .avatar {
+    width: 62px;
+    height: 62px;
+    margin-right: 14px;
+    flex-shrink: 0;
+    padding-right: 0;
+}
+#comments .user-info .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+#comments .user-info .other {
+    display: flex;
+    justify-content: space-between;
+}
+#comments .user-info .other > div {
+    display: inline-block;
+}
+#comments .user-info .other .complain-btn {
+    font-size: 18px;
+    line-height: 18px;
+    transition: color 0.1s ease-in-out;
+}
+#comments .user-info .other .complain-btn:hover {
+    cursor: pointer;
+    color: #AF2341;
+    transition: color 0.1s ease-in-out;
+}
+#comments .user-info .other .user-rating {
+    margin-top: 2px;
+}
+#comments .user-info .other .user-rating > div {
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 18px;
+    color: #AF2341;
+}
+#comments .user-info .other .user-rating .star + .star {
+    margin-left: 4px;
+}
+#comments .user-info .other .user-rating .star {
+    justify-content: flex-start;
+    width: 13px;
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+}
+#comments .user-info .other .user-rating .star::before {
+    font-family: "icomoon" !important;
+    content: "";
+    color: #AF2341;
+}
+#comments .user-info .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 12px;
+}
+#comments .user-info .user > div {
+    display: inline-block;
+}
+#comments .user-info .user > div:first-child {
+    display: flex;
+    align-items: center;
+}
+#comments .user-info .user > div:first-child > div {
+    display: inline-block;
+}
+#comments .user-info .user > div:first-child .flag {
+    width: 24px;
+    height: 16px;
+    margin-right: 7px;
+}
+#comments .user-info .user > div:first-child .username {
+    font-size: 22px;
+    line-height: 22px;
+    color: #D7D7D7;
+}
+#comments .user-info .user .date {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 300;
+    color: #D7D7D7;
+}
+
+#add-schedule {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    width: 150px;
+    height: 30px;
+    background-size: 202% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    color: #A3A3A3;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 1140px) {
+    #add-schedule {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    #add-schedule {
+        display: none;
+    }
+}
+#add-schedule:hover {
+    cursor: pointer;
+    background-position: 0 0;
+    color: #0D0E0D;
+    transition: all 0.3s ease-in-out;
+}
+
+#bottom-border {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+    background-image: linear-gradient(to top, #0D0E0D, rgba(13, 14, 13, 0) 100%);
+}
+
+#info {
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#info .left-side {
+    position: relative;
+}
+#info .left-side .first > div {
+    display: inline-flex;
+}
+#info .left-side .first > div:first-child {
+    font-size: 40px;
+    line-height: 40px;
+    color: #D7D7D7;
+    margin-right: 12px;
+}
+#info .left-side .first .like {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 22px;
+    background-size: 202% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    transition: background-position 0.1s linear, color 0.2s linear;
+}
+#info .left-side .first .like.selected {
+    color: #AF2341;
+    transition: background-position 0.1s linear, color 0.2s linear;
+}
+#info .left-side .first .like.selected:hover {
+    cursor: pointer;
+    background-position: 0 0;
+    color: #CB3F5D;
+    transition: background-position 0.1s linear, color 0.2s linear;
+}
+#info .left-side .first .like:not(.selected):hover {
+    cursor: pointer;
+    background-position: 0 0;
+    color: #0D0E0D;
+    transition: background-position 0.1s linear, color 0.2s linear;
+}
+#info .left-side .first .like::before {
+    font-family: "icomoon" !important;
+    content: "";
+}
+#info .left-side .second {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #D7D7D7;
+}
+#info .left-side .genres {
+    margin-top: 9px;
+    display: flex;
+}
+#info .left-side .genres > div {
+    display: inline-block;
+}
+#info .left-side .genres .genre {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 300;
+}
+#info .left-side .genres .line {
+    width: 1px;
+    height: 16px;
+    margin: 0 6px;
+    vertical-align: middle;
+    background-color: #A3A3A3;
+}
+#info .right-side {
+    margin-right: 36px;
+    position: relative;
+}
+#info .right-side > div {
+    position: relative;
+    right: 0;
+    text-align: right;
+}
+#info .right-side > div + div {
+    margin-top: 4px;
+}
+#info .right-side .imdb-rating, #info .right-side .pg-rating {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 300;
+}
+#info .right-side .user-rating > div {
+    display: inline-flex;
+}
+#info .right-side .user-rating .rate-number {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 300;
+    margin-left: 6px;
+}
+#info .right-side .user-rating .star + .star {
+    margin-left: 4px;
+}
+#info .right-side .user-rating .star {
+    justify-content: flex-start;
+    width: 13px;
+    height: 14px;
+}
+#info .right-side .user-rating .star:hover {
+    cursor: pointer;
+}
+#info .right-side .user-rating .star.full::before {
+    font-family: "icomoon" !important;
+    content: "";
+    color: #AF2341;
+}
+#info .right-side .user-rating .star::before {
+    overflow: hidden;
+    font-size: 14px;
+    font-family: "icomoon" !important;
+    content: "";
+    color: #A3A3A3;
+}
+#info .right-side .change-button {
+    position: relative;
+    text-align: center;
+    right: 0;
+    width: 140px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    background-size: 202% 100%;
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    transition: all 0.3s ease-in-out;
+}
+#info .right-side .change-button:hover {
+    color: #0D0E0D;
+    cursor: pointer;
+    background-position: 0 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#schedule {
+    margin-top: 27px;
+    position: relative;
+}
+
+@media screen and (max-width: 792px) and (min-width: 510px) {
+    #schedule {
+        height: 442px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    #schedule {
+        height: 710px;
+    }
+}
+#schedule .calendar {
+    padding: 0;
+}
+#schedule .movie-schedule {
+    padding-left: 0;
+    position: relative;
+}
+#schedule .movie-schedule .top {
+    position: relative;
+}
+
+@media screen and (max-width: 792px) and (min-width: 510px) {
+    #schedule .movie-schedule .button.date {
+        left: -196px;
+        top: 14px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    #schedule .movie-schedule .button.date {
+        left: 4px;
+        top: 6px;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #schedule .movie-schedule .buy-button .button {
+        top: 116px;
+        left: 4px;
+        right: auto;
+    }
+}
+
+@media screen and (max-width: 984px) and (min-width: 793px) {
+    #schedule .movie-schedule .buy-button .button {
+        top: -53px;
+    }
+}
+
+@media screen and (min-width: 984px) {
+    #schedule .movie-schedule .buy-button .button {
+        top: -28px;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #schedule .movie-schedule .buttons .time-button {
+        top: 102px !important;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #schedule .movie-schedule .buttons .hall-button, #schedule .movie-schedule .buttons .time-button {
+        top: 60px;
+        margin-left: 4px;
+    }
+}
+
+@media screen and (max-width: 984px) and (min-width: 793px) {
+    #schedule .movie-schedule .buttons .hall-button, #schedule .movie-schedule .buttons .time-button {
+        top: -66px;
+    }
+}
+#schedule .movie-schedule .details {
+    min-height: 132px;
+    margin-bottom: 3px;
+}
+#schedule .movie-schedule .details .title {
+    font-size: 24px;
+    line-height: 24px;
+    color: #AF2341;
+    font-weight: 400;
+}
+#schedule .movie-schedule .details .content {
+    margin-top: 7px;
+    padding: 0;
+}
+#schedule .movie-schedule .details .content .title {
+    color: #A3A3A3;
+}
+#schedule .movie-schedule .details .content > div {
+    width: 15vw;
+    min-width: 210px;
+    max-width: 270px;
+    margin-right: 35px;
+    margin-bottom: 11px;
+}
+
+@media screen and (min-width: 792px) {
+    #schedule .movie-schedule .details .content > div {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    #schedule .movie-schedule .details .content > div {
+        display: block;
+    }
+}
+#schedule .movie-schedule .details .content > div > div + div {
+    margin-top: 11px;
+}
+#schedule .movie-schedule .details .content > div > div {
+    width: 100%;
+    border-bottom: 1px solid #D7D7D7;
+    display: flex;
+    justify-content: space-between;
+}
+#schedule .movie-schedule .details .content > div > div > div {
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 26px;
+}
+#schedule .movie-schedule .details .content > div > div > div:last-child {
+    font-weight: 300;
+}
+#schedule .movie-schedule .halls {
+    margin-top: 8px;
+}
+#schedule .movie-schedule .schedule {
+    top: -12px;
+}
+#schedule .movie-schedule .schedule .line + .line {
+    margin-left: 1.35vw;
+}
+#schedule .movie-schedule .schedule .hour + .hour {
+    margin-left: 8.1vw;
+}
+#schedule .movie-schedule .week .week-day {
+    width: 94px;
+    height: 94px;
+}
+#schedule .movie-schedule .week .week-day .day {
+    margin-bottom: 6px;
+}
+#schedule .movie-schedule .week .week-day .date {
+    line-height: 54px;
+}
+#schedule .movie-schedule .week .underline {
+    left: 7px;
+}
+
+/*# sourceMappingURL=movie_in_route.css.map */

@@ -3,11 +3,12 @@ $(document).ready(function () {
         .text().trim().indexOf(" ")));
     let calendarDateClick = false;
     let windowResize = false;
-    let scheduleAnimateFirst = false;
-    let scheduleAnimateSecond = false;
     let calendarHidden = true;
     let hallsHidden = true;
     let timesHidden = true;
+
+    let scheduleAnimateFirst = false;
+    let scheduleAnimateSecond = false;
     let calendarAnimate = false;
     let hallsAnimate = false;
     let timesAnimate = false;
@@ -17,46 +18,57 @@ $(document).ready(function () {
     let stringDate = "" + (currentDate.getDate() / 10 >= 1 ? currentDate.getDate() : "0" + currentDate.getDate());
     stringDate += "." + ((currentDate.getMonth() + 1) / 10 >= 1 ? currentDate.getMonth() + 1 : "0" + (currentDate.getMonth() + 1));
     stringDate += "." + (currentDate.getFullYear());
+    let currentScrollPosition;
 
 
     {
         let rating = parseFloat($($(".rate-number")[0]).text());
         let full = true;
+        let lines = "";
         for (let i = 0; i < 5; i++) {
             if (full) {
                 if (rating >= i + 1) {
-                    $($(".star")[i]).addClass("full");
+                    $($(".rate.star")[i]).addClass("full");
                 } else {
                     full = false;
                     if (rating % i + 1 === 0) {
                         continue;
                     }
-                    $($(".star")[i]).addClass("other");
+                    $($(".rate.star")[i]).addClass("other");
                     rating = rating % 1;
                 }
             } else {
-                $($(".star")[i]).addClass("empty");
+                $($(".rate.star")[i]).addClass("empty");
             }
         }
+
+        for (let i = 0; i < 25; i++) {
+            lines += '<div class="line hour-line"></div>';
+            if (i < 24) {
+                lines += '<div class="line half-hour-line"></div>';
+            }
+        }
+        $(".timeline .lines").first().html(lines);
+
         let width = 13 * rating;
         document.styleSheets[0].addRule(".other::before", "width: " + width + "px");
         $(".movie-schedule").css("display", "block");
-        $(".button.date .value").text(stringDate);
+        $(".button.date .value, #date-from .value, #date-to .value").text(stringDate);
         calculateSeancesPosition(duration);
     }
 
     $(document).mousemove(function () {
-        if (!$(".button.date").is(":hover") && !calendarHidden) {
-            $(".button.date .title").click();
-        }
-
-        if (!$(".button.hall-button").is(":hover") && !hallsHidden) {
-            $(".button.hall-button .title").click();
-        }
-
-        if (!$(".button.time-button").is(":hover") && !timesHidden) {
-            $(".button.time-button .title").click();
-        }
+        // if (!$(".button.date").is(":hover") && !calendarHidden) {
+        //     $(".button.date .title").click();
+        // }
+        //
+        // if (!$(".button.hall-button").is(":hover") && !hallsHidden) {
+        //     $(".button.hall-button .title").click();
+        // }
+        //
+        // if (!$(".button.time-button").is(":hover") && !timesHidden) {
+        //     $(".button.time-button .title").click();
+        // }
     })
 
     $(".scroll").each(function (index) {
@@ -65,9 +77,9 @@ $(document).ready(function () {
         });
     })
 
-    $(window).resize(function () {
-        window.resizeTo(1000, 1080);
-    })
+    // $(window).resize(function () {
+    //     window.resizeTo(1000, 1080);
+    // })
 
     $(window).on("resize", function () {
         $(".seance").css("display", "none");
@@ -85,13 +97,19 @@ $(document).ready(function () {
     })
 
     $(".hall, .time").click(function () {
-        $($(this).parents(".button")[0]).find(".value").text($(this).text().trim());
+        if ($(this).text() == $(".hall").first().text()) {
+            $($(this).parents(".button")[0]).find(".change-schedule").text("create").attr("action", "create");
+        } else {
+            $($(this).parents(".button")[0]).find(".change-schedule").text("change").attr("action", "change");
+        }
+        $($(this).parents(".button")[0]).find(".value").text($(this).text().trim()).css("color", "#A3A3A3");
         $($(this).parents(".button")[0]).find(".title").click();
     })
 
     $(".week-day").click(function () {
         if (!$(this).hasClass("selected")) {
-            let underlinePosition = ($(".week-day").index($(this)) * 100) + 10;
+            // let underlinePosition = ($(".week-day").index($(this)) * 100) + 10;
+            let underlinePosition = ($(".week-day").index($(this)) * parseInt($(this).css("width").slice(0, -2))) + 10;
             $($(".week-day.selected")[0]).removeClass("selected");
             $(this).addClass("selected");
             let underline = $($(this).parents(".week")[0]).find(".underline");
@@ -112,12 +130,12 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", ".calendar td", function () {
+    $(document).on("click", ".button.date .calendar td", function () {
         if (!calendarHidden) {
             calendarDateClick = true;
             let newDate = new Date();
-            newDate.setFullYear(parseInt($(".calendar .header-label").text().trim().slice(-4)));
-            newDate.setMonth(parseInt(months.indexOf($(".calendar .header-label").text().trim().slice(0, -5))));
+            newDate.setFullYear(parseInt($(".button.date .calendar .header-label").text().trim().slice(-4)));
+            newDate.setMonth(parseInt(months.indexOf($(".button.date .calendar .header-label").text().trim().slice(0, -5))));
             newDate.setDate(parseInt($(this).text().trim()));
 
             stringDate = "" + (newDate.getDate() / 10 >= 1 ? newDate.getDate() : "0" + newDate.getDate());
@@ -158,20 +176,21 @@ $(document).ready(function () {
                         $(this).calendar(selectedDate);
                     });
                 } else {
-                    $($(".calendar td.selected")[0]).removeClass("selected");
-                    $(".calendar td").each(function () {
+                    $($(parent).find(".calendar td.selected")[0]).removeClass("selected");
+                    $(parent).find(".calendar td").each(function () {
                         if (parseInt($(this).text().trim()) === selectedDate.getDate()) {
                             $(this).addClass("selected");
                         }
                     })
                 }
 
-                $(parent).find(".triangle").css("transform", "rotate(0deg)");
+                // $(parent).find(".triangle").css("transform", "rotate(0deg)");
+                $(parent).find(".triangle").addClass("triangle-0");
                 $(parent).animate({
                     "width": "284px"
                 }, 300, "easeInOutQuint", function () {
                     $(parent).animate({
-                        "height": "198px"
+                        "height": "215px"
                     }, 300, "easeInOutQuint", function () {
                         calendarHidden = false;
                         calendarAnimate = false;
@@ -179,7 +198,8 @@ $(document).ready(function () {
                 });
             } else {
                 let delay = calendarDateClick ? 200 : 0;
-                $(parent).delay(delay).find(".triangle").css("transform", "rotate(180deg)");
+                // $(parent).delay(delay).find(".triangle").css("transform", "rotate(180deg)");
+                $(parent).delay(delay).find(".triangle").removeClass("triangle-0");
                 $(parent).delay(delay).animate({
                     "height": "34px"
                 }, 300, "easeInOutQuint", function () {
@@ -195,11 +215,20 @@ $(document).ready(function () {
         }
     })
 
+    $(".button.date").mouseleave(function () {
+        if (!calendarHidden) {
+            $(this).find(".title").click();
+        }
+    })
+
     $(".button.hall-button .title").click(function () {
         if (!hallsAnimate) {
             hallsAnimate = true;
             if (hallsHidden) {
-                $($(this).parent()[0]).find(".triangle").css("transform", "rotate(0deg)");
+                // $($(this).parent()[0]).find(".triangle").css("transform", "rotate(0deg)");
+                currentScrollPosition = window.scrollY;
+                window.addEventListener("scroll", noScroll);
+                $($(this).parent()[0]).find(".triangle").addClass("triangle-0");
                 $($(this).parent()[0]).animate({
                     "height": "138px"
                 }, 300, "easeInOutQuint", function () {
@@ -207,7 +236,9 @@ $(document).ready(function () {
                     hallsAnimate = false;
                 });
             } else {
-                $($(this).parent()[0]).find(".triangle").css("transform", "rotate(180deg)");
+                // $($(this).parent()[0]).find(".triangle").css("transform", "rotate(180deg)");
+                window.removeEventListener("scroll", noScroll);
+                $($(this).parent()[0]).find(".triangle").removeClass("triangle-0");
                 $($(this).parent()[0]).animate({
                     "height": "34px"
                 }, 300, "easeInOutQuint", function () {
@@ -218,21 +249,34 @@ $(document).ready(function () {
         }
     })
 
+    $(".button.hall-button").mouseleave(function () {
+        if (!hallsHidden) {
+            $(this).find(".title").click();
+        }
+    })
+
     $(".button.time-button .title").click(function () {
         if (!timesAnimate) {
             timesAnimate = true;
             if (timesHidden) {
-                $($(this).parent()[0]).find(".triangle").css("transform", "rotate(0deg)");
-                $($(this).parent()[0]).animate({
-                    "height": "138px"
+                // $($(this).parent()[0]).find(".triangle").css("transform", "rotate(0deg)");
+                currentScrollPosition = window.scrollY;
+                window.addEventListener("scroll", noScroll);
+                $($(this).parent()[0]).find(".triangle").addClass("triangle-0");
+                $($(this).parent()[0]).find(".content").animate({
+                    // "height": "138px"
+                    "height": "104px"
                 }, 300, "easeInOutQuint", function () {
                     timesHidden = false;
                     timesAnimate = false;
                 });
             } else {
-                $($(this).parent()[0]).find(".triangle").css("transform", "rotate(180deg)");
-                $($(this).parent()[0]).animate({
-                    "height": "34px"
+                // $($(this).parent()[0]).find(".triangle").css("transform", "rotate(180deg)");
+                window.removeEventListener("scroll", noScroll);
+                $($(this).parent()[0]).find(".triangle").removeClass("triangle-0");
+                $($(this).parent()[0]).find(".content").animate({
+                    // "height": "34px"
+                    "height": "0"
                 }, 300, "easeInOutQuint", function () {
                     timesHidden = true;
                     timesAnimate = false;
@@ -241,11 +285,41 @@ $(document).ready(function () {
         }
     })
 
+    $(".button.time-button").mouseenter(function () {
+        $(this).find(".change-schedule").animate({
+            "right": "-76px"
+        }, 300, "easeInOutQuint");
+    })
+
+    $(".button.time-button").mouseleave(function () {
+        $(this).find(".change-schedule").animate({
+            "right": "0"
+        }, 300, "easeInOutQuint");
+        if (!timesHidden) {
+            $(this).find(".title").click();
+        }
+    })
+
+    $(".seance").mouseenter(function () {
+        $(this).find(".change").animate({
+            "right": "-74px"
+        }, 300, "easeInOutQuint");
+    })
+
+    $(".seance").mouseleave(function () {
+        $(this).find(".change").animate({
+            "right": "0"
+        }, 300, "easeInOutQuint");
+    })
+
     function calculateSeancesPosition(durationInMinutes) {
         $(".seance").each(function () {
-            let spaceBetweenLines = parseFloat($($(".line")[1]).css("margin-left").slice(0, -2));
-            let beginInMinutes = (parseInt($(this).text().trim().slice(0, $(this).text().trim().indexOf("h"))) * 60) +
-                parseInt($(this).text().trim().slice($(this).text().lastIndexOf(" ") + 1, $(this).text()
+            let spaceBetweenLines = parseFloat($($(".movie-schedule .line")[1]).css("margin-left").slice(0, -2));
+            // let beginInMinutes = (parseInt($(this).text().trim().slice(0, $(this).text().trim().indexOf("h"))) * 60) +
+            //     parseInt($(this).text().trim().slice($(this).text().lastIndexOf(" ") + 1, $(this).text()
+            //         .trim().indexOf("m")));
+            let beginInMinutes = (parseInt($(this).find(".value").text().trim().slice(0, $(this).find(".value").text().trim().indexOf("h"))) * 60) +
+                parseInt($(this).find(".value").text().trim().slice($(this).find(".value").text().lastIndexOf(" ") + 1, $(this).find(".value").text()
                     .trim().indexOf("m")));
             let beginRemainder = (spaceBetweenLines * (beginInMinutes % 30)) / 30;
             let durationRemainder = (spaceBetweenLines * (durationInMinutes % 30)) / 30;
@@ -289,7 +363,7 @@ $(document).ready(function () {
                 $(parent).find(".seance").get().reverse().forEach(function (elem, index) {
                     let waiting = index * 100;
                     $(elem).attr("positionLeft", $(elem).css("left"));
-                    $(elem).removeClass("hovered");
+                    $(elem).find(".value").removeClass("hovered");
 
                     setTimeout(function () {
                         let positionToHide = window.screen.availWidth - $(elem).offset().left +
@@ -303,7 +377,7 @@ $(document).ready(function () {
             }
 
             setTimeout(function () {
-                $(parent).find(".seance").removeClass("select");
+                $(parent).find(".seance .value").removeClass("select");
                 $(parent).find(".halls").css("overflow", "hidden");
                 if ($(".hall").length !== 0) {
                     wait = $(parent).find(".hall").length * 100 + 200;
@@ -362,7 +436,7 @@ $(document).ready(function () {
                             firstSelectedDate.setMinutes(parseInt($(elem).text().slice($(elem).text()
                                 .lastIndexOf(" ") + 1, -1)));
                             if (firstSelectedDate > currentDate) {
-                                $(elem).addClass("hovered").addClass("select");
+                                $(elem).find(".value").addClass("hovered").addClass("select");
                             }
 
                             setTimeout(function () {
@@ -386,5 +460,9 @@ $(document).ready(function () {
                 }, wait);
             }, wait);
         }
+    }
+
+    function noScroll() {
+        window.scrollTo(0, currentScrollPosition);
     }
 })

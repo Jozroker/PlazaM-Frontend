@@ -123,6 +123,7 @@ $(document).ready(function () {
                 }, 1000, "easeInOutQuint", function () {
                     settingsMenuAnimate = false;
                     nextClickedElement.click();
+                    nextClickedElement = $();
                 });
                 $("#save-btn").attr("data", $(this).attr("id"));
                 settingsHidden = false;
@@ -840,6 +841,8 @@ $(document).ready(function () {
         }
     })
 
+    //todo check personal-settings click (selection)
+
     $("#settings .title").click(function () {
         if (!settingsMenuHidden) {
             if (!settingsAnimate && !settingsMenuAnimate) {
@@ -957,6 +960,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             sexHidden = false;
                             sexAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     });
                 } else {
@@ -973,13 +978,14 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             sexHidden = true;
                             sexAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     })
                 }
             } else {
                 nextClickedElement = $(this);
             }
-
         }
     })
 
@@ -1000,6 +1006,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             countryHidden = false;
                             countryAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     });
                 } else {
@@ -1016,6 +1024,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             countryHidden = true;
                             countryAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     })
                 }
@@ -1042,6 +1052,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             languageHidden = false;
                             languageAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     });
                 } else {
@@ -1058,6 +1070,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             languageHidden = true;
                             languageAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     })
                 }
@@ -1084,6 +1098,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             phoneCodeHidden = false;
                             phoneCodeAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     });
                 } else {
@@ -1100,6 +1116,8 @@ $(document).ready(function () {
                         }, 250, "easeInOutQuint", function () {
                             phoneCodeHidden = true;
                             phoneCodeAnimate = false;
+                            nextClickedElement.click();
+                            nextClickedElement = $();
                         });
                     })
                 }
