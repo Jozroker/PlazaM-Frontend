@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Movie</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
+    <link href="../css/create_change_movie.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="pictures">
+        <div class="wide-picture">
+            <div class="title">Full Size Image</div>
+            <div class="image">
+                <img alt="" src="../img/jpg/wide/default-wide.jpg">
+                <div class="button">upload</div>
+                <input accept="image/jpeg,image/png,image/gif" id="change-wide-picture" type="file">
+            </div>
+        </div>
+        <div class="poster-picture">
+            <div class="title">Poster Image</div>
+            <div class="image">
+                <img alt="" src="../img/jpg/posters/default-poster.jpg">
+                <div class="button">upload</div>
+                <input accept="image/jpeg,image/png,image/gif" id="change-poster-picture" type="file">
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div>
+            <div class="name">
+                <div class="top">
+                    <div class="title">Name</div>
+                    <div class="language-slider">
+                        <div class="triangle triangle-left"></div>
+                        <div class="slider">
+                            <div class="languages">
+                                <div class="language">english</div>
+                                <div class="language">ukrainian</div>
+                                <div class="language">polish</div>
+                            </div>
+                        </div>
+                        <div class="triangle triangle-right"></div>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="fields-container">
+                        <div class="field en-field">
+                            <div>
+                                <input placeholder="Movie name" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field ua-field">
+                            <div>
+                                <input placeholder="Movie name" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field pl-field">
+                            <div>
+                                <input placeholder="Movie name" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="duration">
+                <div class="top">
+                    <div class="title">Duration</div>
+                </div>
+                <div class="field">
+                    <div class="sign minus">&#9866;</div>
+                    <div>
+                        <input id="duration" max="300" min="1" placeholder="0" type="number">
+                    </div>
+                    <div class="sign plus">&#10010;</div>
+                    <div>min</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="directed-by">
+                <div class="top">
+                    <div class="title">Directed By</div>
+                    <div class="language-slider">
+                        <div class="triangle triangle-left"></div>
+                        <div class="slider">
+                            <div class="languages">
+                                <div class="language">english</div>
+                                <div class="language">ukrainian</div>
+                                <div class="language">polish</div>
+                            </div>
+                        </div>
+                        <div class="triangle triangle-right"></div>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="fields-container">
+                        <div class="field en-field">
+                            <div>
+                                <input placeholder="First Second" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field ua-field">
+                            <div>
+                                <input placeholder="First Second" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field pl-field">
+                            <div>
+                                <input placeholder="First Second" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="announcement">
+                <div class="top">
+                    <div class="title">Announcement</div>
+                </div>
+                <div class="field">
+                    <div class="day-selection">
+                        <div class="sign minus">&#9866;</div>
+                        <div>
+                            <input id="day" max="31" min="1" placeholder="0" type="number">
+                        </div>
+                        <div class="sign plus">&#10010;</div>
+                    </div>
+                    <div class="month-selection">
+                        <div class="sign minus">&#9866;</div>
+                        <div>
+                            <input id="month" max="12" min="1" placeholder="0" type="number">
+                        </div>
+                        <div class="sign plus">&#10010;</div>
+                    </div>
+                    <div class="year-selection">
+                        <div class="sign minus">&#9866;</div>
+                        <div>
+                            <input id="year" max="9999" min="2020" placeholder="0" type="number">
+                        </div>
+                        <div class="sign plus">&#10010;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="country">
+                <div class="top">
+                    <div class="title">Country</div>
+                    <div class="language-slider">
+                        <div class="triangle triangle-left"></div>
+                        <div class="slider">
+                            <div class="languages">
+                                <div class="language">english</div>
+                                <div class="language">ukrainian</div>
+                                <div class="language">polish</div>
+                            </div>
+                        </div>
+                        <div class="triangle triangle-right"></div>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="fields-container">
+                        <div class="field en-field">
+                            <div>
+                                <input placeholder="The USA" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field ua-field">
+                            <div>
+                                <input placeholder="The USA" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                        <div class="field pl-field">
+                            <div>
+                                <input placeholder="The USA" spellcheck="false" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="movie-language">
+                <div class="top">
+                    <div class="title">Movie Language</div>
+                </div>
+                <div class="field">
+                    <ul class="list">
+                        <li class="selected">
+                            <div>Not selected</div>
+                            <div class="triangle"></div>
+                        </li>
+                        <li>
+                            <div>Not selected</div>
+                        </li>
+                        <li>
+                            <div>english</div>
+                        </li>
+                        <li>
+                            <div>ukrainian</div>
+                        </li>
+                        <li>
+                            <div>polish</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="mpaa-rating">
+                <div class="top">
+                    <div class="title">MPAA Rating</div>
+                </div>
+                <div class="field">
+                    <ul class="list">
+                        <li class="selected">
+                            <div>Not selected</div>
+                            <div class="triangle"></div>
+                        </li>
+                        <li>
+                            <div>Not selected</div>
+                        </li>
+                        <li>
+                            <div>G</div>
+                        </li>
+                        <li>
+                            <div>PG</div>
+                        </li>
+                        <li>
+                            <div>PG-13</div>
+                        </li>
+                        <li>
+                            <div>R</div>
+                        </li>
+                        <li>
+                            <div>NC-17</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="imdb-rating">
+                <div class="top">
+                    <div class="title">IMDb</div>
+                </div>
+                <div class="field">
+                    <div class="sign minus">&#9866;</div>
+                    <div>
+                        <input id="imdb-rating" max="10.0" min="0.1" placeholder="0.0" step="0.1" type="number">
+                    </div>
+                    <div class="sign plus">&#10010;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="description">
+        <div class="top">
+            <div class="title">Description</div>
+            <div class="language-slider">
+                <div class="triangle triangle-left"></div>
+                <div class="slider">
+                    <div class="languages">
+                        <div class="language">english</div>
+                        <div class="language">ukrainian</div>
+                        <div class="language">polish</div>
+                    </div>
+                </div>
+                <div class="triangle triangle-right"></div>
+            </div>
+        </div>
+        <div class="fields">
+            <div class="fields-container">
+                <div class="field en-field">
+                    <div class="scroll">
+                        <textarea spellcheck="false"></textarea>
+                    </div>
+                </div>
+                <div class="field ua-field">
+                    <div class="scroll">
+                        <textarea spellcheck="false"></textarea>
+                    </div>
+                </div>
+                <div class="field pl-field">
+                    <div class="scroll">
+                        <textarea spellcheck="false"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="selection-lists">
+        <div class="genres">
+            <div class="top">
+                <div class="title">Genres</div>
+            </div>
+            <div class="field">
+                <div class="scroll">
+                    <div class="genres-container">
+                        <!--                        todo js generator-->
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">action</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">fantasy</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">science fiction</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">documentary</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">romance</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">cartoon</div>
+                        </div>
+                        <div class="genre">
+                            <div class="icon-tick"></div>
+                            <div class="value">horror</div>
+                        </div>
+
+                        <div class="genre empty-genre">
+                            <div class="icon-tick"></div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="genre empty-genre">
+                            <div class="icon-tick"></div>
+                            <div class="value"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="create-genre">
+                    <div class="button">create new</div>
+                    <div class="language-slider">
+                        <div class="triangle triangle-left"></div>
+                        <div class="slider">
+                            <div class="languages">
+                                <div class="language">english</div>
+                                <div class="language">ukrainian</div>
+                                <div class="language">polish</div>
+                            </div>
+                        </div>
+                        <div class="triangle triangle-right"></div>
+                    </div>
+                    <div class="genre-form">
+                        <div>Genre name</div>
+                        <div class="fields">
+                            <div class="fields-container">
+                                <div class="field en-field">
+                                    <div>
+                                        <input placeholder="fantasy" spellcheck="false" type="text">
+                                    </div>
+                                </div>
+                                <div class="field ua-field">
+                                    <div>
+                                        <input placeholder="fantasy" spellcheck="false" type="text">
+                                    </div>
+                                </div>
+                                <div class="field pl-field">
+                                    <div>
+                                        <input placeholder="fantasy" spellcheck="false" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actors">
+            <div class="top">
+                <div class="title">Actors</div>
+            </div>
+            <div class="field">
+                <div id="search-actor">
+                    <div>
+                        <div>
+                            <input id="actor-search-line" placeholder="Actor" spellcheck="false" type="text">
+                        </div>
+                        <div class="underline"></div>
+                    </div>
+                    <div id="actor-search-icon"></div>
+                </div>
+                <div class="actors-field">
+                    <div class="scroll">
+                        <!--                    todo js generator-->
+                        <div class="actors-container">
+                            <div class="actor">
+                                <div class="icon-tick"></div>
+                                <img alt="" class="actor-avatar"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <div class="actor-name">Rostyslav Zadyraichuk</div>
+                            </div>
+                            <div class="actor">
+                                <div class="icon-tick"></div>
+                                <img alt="" class="actor-avatar"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <div class="actor-name">Rostyslav Zadyraichuk</div>
+                            </div>
+                            <div class="actor">
+                                <div class="icon-tick"></div>
+                                <img alt="" class="actor-avatar"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <div class="actor-name">Rostyslav Zadyraichuk</div>
+                            </div>
+                            <div class="actor">
+                                <div class="icon-tick"></div>
+                                <img alt="" class="actor-avatar"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <div class="actor-name">Rostyslav Zadyraichuk</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actor-form">
+                    <div class="button">create new</div>
+                    <div class="language-slider">
+                        <div class="triangle triangle-left"></div>
+                        <div class="slider">
+                            <div class="languages">
+                                <div class="language">english</div>
+                                <div class="language">ukrainian</div>
+                                <div class="language">polish</div>
+                            </div>
+                        </div>
+                        <div class="triangle triangle-right"></div>
+                    </div>
+                    <div class="container">
+                        <div class="avatar-picture">
+                            <img alt="" id="actor-avatar" src="../img/jpg/default-avatar.jpg">
+                            <div class="button">upload</div>
+                            <input accept="image/jpeg,image/png,image/gif" id="change-actor-avatar" type="file">
+                        </div>
+                        <div class="form-info">
+                            <div class="first-name">
+                                <div class="top">
+                                    <div class="title">First Name</div>
+                                </div>
+                                <div class="fields">
+                                    <div class="fields-container">
+                                        <div class="field en-field">
+                                            <div>
+                                                <input placeholder="Josh" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                        <div class="field ua-field">
+                                            <div>
+                                                <input placeholder="Josh" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                        <div class="field pl-field">
+                                            <div>
+                                                <input placeholder="Josh" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="last-name">
+                                <div class="top">
+                                    <div class="title">Last Name</div>
+                                </div>
+                                <div class="fields">
+                                    <div class="fields-container">
+                                        <div class="field en-field">
+                                            <div>
+                                                <input placeholder="Bower" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                        <div class="field ua-field">
+                                            <div>
+                                                <input placeholder="Bower" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                        <div class="field pl-field">
+                                            <div>
+                                                <input placeholder="Bower" spellcheck="false" type="text">
+                                            </div>
+                                            <div class="underline"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="top">
+        <div class="title">Gallery</div>
+    </div>
+    <div class="field">
+        <div class="scroll">
+            <div class="gallery">
+                <div class="gallery-image add-button">
+                    <div>
+                        <div>&#10010;</div>
+                        <div>add picture</div>
+                    </div>
+                </div>
+                <input accept="image/jpeg,image/png,image/gif" id="add-movie-picture" type="file">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="create-button">Create</div>
+</body>
+<script crossorigin="anonymous"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script src="../js/create_change_movie.js"></script>
+</html>

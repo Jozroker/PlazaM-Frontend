@@ -20,13 +20,11 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
 @media screen and (min-width: 1920px) {
   body {
     width: 1920px;
   }
 }
-
 @media screen and (max-width: 1920px) {
   body {
     width: 100vw;
@@ -324,19 +322,16 @@ header .flag {
   border: 0;
   border-radius: 4px;
 }
-
 @media screen and (min-width: 1440px) {
   header .flag {
     height: 16px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   header .flag {
     height: 15px;
   }
 }
-
 @media screen and (max-width: 960px) {
   header .flag {
     height: 14px;
@@ -374,7 +369,6 @@ header .pl-flag {
 #left-side {
   padding-top: 23px;
 }
-
 @media screen and (min-width: 1440px) {
   #left-side {
     font-size: 24px;
@@ -382,7 +376,6 @@ header .pl-flag {
     padding-left: 45px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #left-side {
     font-size: 22px;
@@ -390,7 +383,6 @@ header .pl-flag {
     padding-left: 40px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #left-side {
     font-size: 20px;
@@ -404,7 +396,6 @@ header .pl-flag {
   background-color: #AF2341;
   transition: width 0.3s ease-in-out;
 }
-
 @media screen and (max-width: 960px) {
   #left-side .underline {
     height: 1px;
@@ -420,7 +411,6 @@ header .pl-flag {
 #left-side .links > div > div {
   display: inline-block;
 }
-
 @media screen and (max-width: 960px) {
   #left-side .links > div > div {
     display: block;
@@ -431,7 +421,6 @@ header .pl-flag {
 #left-side .links > div > div + div {
   margin-left: 3.13vw;
 }
-
 @media screen and (max-width: 960px) {
   #left-side .links > div > div + div {
     margin-left: 0;
@@ -461,7 +450,6 @@ header .pl-flag {
   padding-top: 32px;
   flex-grow: 1;
 }
-
 @media screen and (min-width: 1440px) {
   #right-side {
     font-size: 18px;
@@ -469,7 +457,6 @@ header .pl-flag {
     padding-right: 45px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #right-side {
     font-size: 17px;
@@ -477,7 +464,6 @@ header .pl-flag {
     padding-right: 40px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #right-side {
     font-size: 16px;
@@ -516,19 +502,16 @@ header .pl-flag {
   margin-top: 3px;
   background-image: linear-gradient(to right, rgba(13, 14, 13, 0), rgba(13, 14, 13, 0) 50%, rgba(13, 14, 13, 0.2) 50%, rgba(13, 14, 13, 0.2));
 }
-
 @media screen and (max-width: 1110px) {
   #right-side .link:first-child {
     display: none;
   }
 }
-
 @media screen and (min-width: 1440px) {
   #right-side .link:first-child {
     height: 32px;
   }
 }
-
 @media screen and (max-width: 1440px) {
   #right-side .link:first-child {
     height: 30px;
@@ -550,25 +533,21 @@ header .pl-flag {
   padding: 8px 10px;
   overflow: hidden;
 }
-
 @media screen and (max-width: 600px) {
   #right-side .link:nth-child(2) {
     display: none;
   }
 }
-
 @media screen and (min-width: 1440px) {
   #right-side .link:nth-child(2) {
     height: 34px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #right-side .link:nth-child(2) {
     height: 33px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #right-side .link:nth-child(2) {
     height: 32px;
@@ -584,25 +563,21 @@ header .pl-flag {
   padding: 8px 10px;
   overflow: hidden;
 }
-
 @media screen and (max-width: 1110px) {
   #right-side .link:nth-child(3) {
     display: none;
   }
 }
-
 @media screen and (min-width: 1440px) {
   #right-side .link:nth-child(3) {
     height: 34px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #right-side .link:nth-child(3) {
     height: 33px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #right-side .link:nth-child(3) {
     height: 32px;
@@ -622,19 +597,16 @@ header .pl-flag {
   height: max-content;
   white-space: nowrap;
 }
-
 @media screen and (min-width: 1440px) {
   #right-side .link:nth-child(4) {
     height: 34px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #right-side .link:nth-child(4) {
     height: 33px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #right-side .link:nth-child(4) {
     height: 32px;
@@ -823,21 +795,18 @@ header .pl-flag {
   content: "";
   color: #D7D7D7;
 }
-
 @media screen and (min-width: 1440px) {
   #menu-bottom > div:nth-child(3) {
     font-size: 24px;
     line-height: 24px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #menu-bottom > div:nth-child(3) {
     font-size: 22px;
     line-height: 22px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #menu-bottom > div:nth-child(3) {
     font-size: 20px;
@@ -866,25 +835,21 @@ header .pl-flag {
   display: flex;
   justify-content: end;
 }
-
 @media screen and (min-width: 1820px) {
   #settings .title {
     padding-right: 24%;
   }
 }
-
 @media screen and (min-width: 1440px) and (max-width: 1820px) {
   #settings .title {
     padding-right: 21%;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #settings .title {
     padding-right: 22%;
   }
 }
-
 @media screen and (max-width: 960px) {
   #settings .title {
     padding-right: 23%;
@@ -943,25 +908,21 @@ header .pl-flag {
   display: flex;
   justify-content: end;
 }
-
 @media screen and (min-width: 1820px) {
   #messages .title {
     padding-right: 19%;
   }
 }
-
 @media screen and (min-width: 1440px) and (max-width: 1820px) {
   #messages .title {
     padding-right: 15%;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #messages .title {
     padding-right: 17%;
   }
 }
-
 @media screen and (max-width: 960px) {
   #messages .title {
     padding-right: 19%;
@@ -1007,14 +968,12 @@ header .pl-flag {
   position: relative;
   right: -320px;
 }
-
 @media screen and (max-width: 960px) {
   #messages .messages {
     font-size: 16px;
     line-height: 16px;
   }
 }
-
 @media screen and (min-width: 960px) {
   #messages .messages {
     font-size: 18px;
@@ -1093,21 +1052,18 @@ header .pl-flag {
   cursor: pointer;
   text-shadow: #D7D7D7 0 0 2px;
 }
-
 @media screen and (min-width: 1440px) {
   #menu {
     font-size: 30px;
     line-height: 30px;
   }
 }
-
 @media screen and (min-width: 960px) and (max-width: 1440px) {
   #menu {
     font-size: 28px;
     line-height: 28px;
   }
 }
-
 @media screen and (max-width: 960px) {
   #menu {
     font-size: 26px;
@@ -1495,13 +1451,11 @@ header .pl-flag {
   position: relative;
   padding-right: 32px;
 }
-
 @media screen and (min-width: 1440px) {
   #search {
     height: 32px;
   }
 }
-
 @media screen and (max-width: 1440px) {
   #search {
     height: 30px;
@@ -1553,13 +1507,11 @@ header .pl-flag {
   margin-left: 14px;
   transition: color 0.2s linear;
 }
-
 @media screen and (min-width: 1440px) {
   #search-icon::after {
     line-height: 32px;
   }
 }
-
 @media screen and (max-width: 1440px) {
   #search-icon::after {
     line-height: 30px;

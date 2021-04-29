@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
+    <link href="../css/calendar.css" rel="stylesheet">
+    <link href="../css/buy-ticket.css" rel="stylesheet">
+</head>
+<body>
+<div class="buy-ticket">
+    <div class="buy-ticket-content">
+        <div class="head">
+            <img alt="" id="movie-poster" src="../img/jpg/posters/avenger_poster.jpg">
+            <div class="tickets-price">
+                <!--                    todo js generator-->
+                <div class="scroll">
+                    <div class="ticket">
+                        <div class="ticket-container">
+                            <div><span class="row">5</span>row<span class="column">16</span>th seat</div>
+                            <div>
+                                <div class="price">15$</div>
+                                <div class="icon-cross"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ticket">
+                        <div class="ticket-container">
+                            <div><span class="row">5</span>row<span class="column">16</span>th seat</div>
+                            <div>
+                                <div class="price">15$</div>
+                                <div class="icon-cross"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-price">
+                    <div>Total:&nbsp;</div>
+                    <div class="price"></div>
+                    <div class="dollar">$</div>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-form">
+            <div class="title">
+                <div class="first-name">Avengers</div>
+                <div class="last-name">The First Part</div>
+            </div>
+            <div class="navbar">
+                <div class="nav-item selected" id="choose-places">
+                    <div>Choose places</div>
+                    <div class="underline"></div>
+                </div>
+                <div class="nav-item" id="choose-payment-method">
+                    <div>Payment method</div>
+                    <div class="underline"></div>
+                </div>
+                <div class="nav-item" id="confirm">
+                    <div>Confirm</div>
+                    <div class="underline"></div>
+                </div>
+            </div>
+            <!--                <div class="buy-ticket-info">-->
+            <!--                    <div class="choose-places">-->
+            <!--                        <div class="places">-->
+            <!--                            <div class="screen-image">-->
+            <!--                                <div class="screen"></div>-->
+            <!--                                <div class="screen-revert"></div>-->
+            <!--                            </div>-->
+            <!--                            <div class="places-grid">-->
+            <!--&lt;!&ndash;                                todo create hall places generator&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                            <div class="selections">-->
+            <!--                                <div id="row-select">-->
+            <!--                                    <div class="sign minus">&#9866;</div>-->
+            <!--                                    <div>-->
+            <!--                                        <input id="row" max="15" min="1" placeholder="0" type="number">-->
+            <!--                                    </div>-->
+            <!--                                    <div class="sign plus">&#10010;</div>-->
+            <!--                                </div>-->
+            <!--                                <div id="seat-select">-->
+            <!--                                    <div class="sign minus">&#9866;</div>-->
+            <!--                                    <div>-->
+            <!--                                        <input id="seat" max="30" min="1" placeholder="0" type="number">-->
+            <!--                                    </div>-->
+            <!--                                    <div class="sign plus">&#10010;</div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <div class="lists">-->
+            <!--                            <div class="title-2">Date</div>-->
+            <!--                            <div id="date-select" class="list">-->
+            <!--                                <div class="selected">-->
+            <!--                                    <div class="date">9</div>-->
+            <!--                                    <div class="month">Apr</div>-->
+            <!--                                </div>-->
+            <!--                                <div class="date-selection">-->
+            <!--                                    <div id="calendar"></div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                            <div class="title-2">Time</div>-->
+            <!--                            <div id="time-select" class="list">-->
+            <!--                                <div class="selected">-->
+            <!--                                    <span class="hour">11</span>:<span class="min">50</span>-->
+            <!--                                </div>-->
+            <!--                                <div class="time-selection">-->
+            <!--&lt;!&ndash;                                    todo js generator&ndash;&gt;-->
+            <!--                                    <div class="scroll">-->
+            <!--                                        <div class="time">10:00</div>-->
+            <!--                                        <div class="time">14:00</div>-->
+            <!--                                        <div class="time">16:10</div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                            <div class="title-2">Hall</div>-->
+            <!--                            <div id="hall-select" class="list">-->
+            <!--                                <div class="selected">3D</div>-->
+            <!--                                <div class="hall-selection">-->
+            <!--                                    &lt;!&ndash;                                    todo js generator&ndash;&gt;-->
+            <!--                                    <div class="scroll">-->
+            <!--                                        <div class="hall">2D</div>-->
+            <!--                                        <div class="hall">3D</div>-->
+            <!--                                        <div class="hall">4D</div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="choose-payment">-->
+            <!--                        <div class="method">-->
+            <!--                            <div class="top">-->
+            <!--                                <div class="circle"></div>-->
+            <!--                                <div>Cash</div>-->
+            <!--                                <div class="annotation">-->
+            <!--                                    <div>*ticket must be paid 3</div>-->
+            <!--                                    <div>days before movie start</div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <div class="method">-->
+            <!--                            <div class="top">-->
+            <!--                                <div class="circle"></div>-->
+            <!--                                <div>Card</div>-->
+            <!--                            </div>-->
+            <!--                            <div class="card">-->
+            <!--                                <div>-->
+            <!--                                    <div class="title-2">Card details</div>-->
+            <!--                                    <div class="card-picture">-->
+            <!--                                        <div class="card-rect">-->
+            <!--                                            <div class="top">-->
+            <!--                                                <img src="" alt="" class="mastercard-logo">-->
+            <!--                                                <img src="" alt="" class="visa-logo">-->
+            <!--                                            </div>-->
+            <!--                                            <div class="card-number">-->
+            <!--                                                ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;****-->
+            <!--                                            </div>-->
+            <!--                                            <div class="bottom">-->
+            <!--                                                <div class="card-name">Card Name</div>-->
+            <!--                                                <div class="card-date">mm/YY</div>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="card-rect-back">-->
+            <!--                                            <div class="card-line"></div>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                                <div class="fields">-->
+            <!--                                    <div class="field">-->
+            <!--                                        <div class="title">Card Number</div>-->
+            <!--                                        <div>-->
+            <!--                                            <input id="card-number-field" placeholder="****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;****"-->
+            <!--                                                   spellcheck="false" type="text">-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="field">-->
+            <!--                                        <div class="title">Card Name</div>-->
+            <!--                                        <div>-->
+            <!--                                            <input id="card-name-field" placeholder="Mastercard"-->
+            <!--                                                   spellcheck="false" type="text">-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="field complex-field">-->
+            <!--                                        <div class="title">Expiration Date</div>-->
+            <!--                                        <div class="field">-->
+            <!--                                            <div>-->
+            <!--                                                <input id="card-month-field" placeholder="mm"-->
+            <!--                                                       spellcheck="false" type="text">-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="field">-->
+            <!--                                            <div>-->
+            <!--                                                <input id="card-year-field" placeholder="YY"-->
+            <!--                                                       spellcheck="false" type="text">-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="field">-->
+            <!--                                        <div class="title">CV Code</div>-->
+            <!--                                        <div>-->
+            <!--                                            <input id="card-cv-field" placeholder="***"-->
+            <!--                                                   spellcheck="false" type="text">-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="tickets-confirm">-->
+            <!--                        <div class="scroll">-->
+            <!--                            <div class="ticket">-->
+            <!--                                <div class="ticket-info">-->
+            <!--                                    <div class="info-items">-->
+            <!--                                        <div class="info-item row-info">-->
+            <!--                                            <span class="title">Row:&nbsp;</span><span class="value">5</span>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="info-item date-info">-->
+            <!--                                            <span class="title">Date:&nbsp;</span><span class="value">24.03.2010</span>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="info-item price-info">-->
+            <!--                                            <span class="title">Price:&nbsp;</span><span class="value">15</span>-->
+            <!--                                            <span class="icon-dollar"></span>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="info-item seat-info">-->
+            <!--                                            <span class="title">Seat:&nbsp;</span><span class="value">16</span>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="info-item time-info">-->
+            <!--                                            <span class="title">Time:&nbsp;</span><span class="value">11:50</span>-->
+            <!--                                        </div>-->
+            <!--                                        <div class="info-item hall-info">-->
+            <!--                                            <span class="title">Hall:&nbsp;</span><span class="value">3D</span>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                    <div class="barcode"></div>-->
+            <!--                                    <div class="identifier">273464581736487128165345</div>-->
+            <!--                                    <div class="copyright">PlazaM</div>-->
+            <!--                                </div>-->
+            <!--                                <div class="picture">-->
+            <!--                                    <img class="background-picture" src="../img/jpg/wide/avenger_wide.jpg" alt="">-->
+            <!--                                    <div class="movie-name">-->
+            <!--                                        <div class="first-name">Avengers</div>-->
+            <!--                                        <div class="last-name">The First Part</div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                                <div class="cross">-->
+            <!--                                    <div class="icon-cross"></div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                            <div class="ticket"></div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="button" id="next-tile">Back</div>
+        <div class="button" id="prev-tile">Next</div>
+    </div>
+    <div class="background">
+        <img alt="" src="../img/jpg/wide/avenger_wide.jpg">
+        <div class="borders"></div>
+    </div>
+</div>
+<div class="hall-background">
+    <img alt="" src="../img/jpg/wide/hall.jpg">
+</div>
+</body>
+<script crossorigin="anonymous"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script src="../js/calendar.js"></script>
+<script src="../js/buy-ticket.js"></script>
+</html>
