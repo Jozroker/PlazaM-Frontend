@@ -560,11 +560,28 @@
 
       .info {
         width: 100%;
-        padding-right: 18px;
-        text-align: right;
+        padding: 0 18px;
         margin-top: 20px;
-        font-size: 16px;
-        line-height: 16px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+
+        & > div {
+          & > div {
+            font-size: 16px;
+            line-height: 16px;
+          }
+        }
+
+        .info-right {
+          flex-grow: 1;
+          text-align: right;
+        }
+
+        .info-left {
+          text-align: center;
+        }
       }
 
       .name {

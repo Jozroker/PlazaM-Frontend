@@ -160,10 +160,11 @@
           .button {
             height: 26px;
             width: 100%;
+            padding: 0;
 
             .comment-btn {
               margin: auto;
-              width: 40%;
+              width: 100%;
               min-width: 100px;
               text-align: center;
               font-size: 22px;

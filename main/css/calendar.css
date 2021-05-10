@@ -312,15 +312,15 @@ a, a:hover, a:visited, a:active {
   margin-bottom: 6px;
 }
 .calendar .calendar-frame .date {
-  height: 22px;
-  width: 22px;
-  margin: auto;
-  display: block;
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  background-image: linear-gradient(to right, #AF2341 0%, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
-  transition: background-position 0.3s linear;
-  cursor: pointer;
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    display: block;
+    background-size: 202% 100%;
+    background-position: 101% 0;
+    background-image: linear-gradient(to right, #AF2341 0%, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
+    transition: background-position 0.3s linear;
+    cursor: pointer;
 }
 .calendar .calendar-frame .date:hover {
   color: #AF2341;

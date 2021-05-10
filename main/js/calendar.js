@@ -1,6 +1,6 @@
-// $(document).ready(function () {
-//     $("#calendar").calendar(new Date());
-// });
+$(document).ready(function () {
+    $("#calendar").calendar(new Date());
+});
 
 (function ($) {
 

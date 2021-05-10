@@ -319,7 +319,7 @@ $(document).ready(function () {
             //     parseInt($(this).text().trim().slice($(this).text().lastIndexOf(" ") + 1, $(this).text()
             //         .trim().indexOf("m")));
             let beginInMinutes = (parseInt($(this).find(".value").text().trim().slice(0, $(this).find(".value").text().trim().indexOf("h"))) * 60) +
-                parseInt($(this).find(".value").text().trim().slice($(this).find(".value").text().lastIndexOf(" ") + 1, $(this).find(".value").text()
+                parseInt($(this).find(".value").text().trim().slice($(this).find(".value").text().indexOf("h") + 2, $(this).find(".value").text()
                     .trim().indexOf("m")));
             let beginRemainder = (spaceBetweenLines * (beginInMinutes % 30)) / 30;
             let durationRemainder = (spaceBetweenLines * (durationInMinutes % 30)) / 30;
@@ -434,7 +434,7 @@ $(document).ready(function () {
                             $(elem).removeAttr("positionLeft");
                             firstSelectedDate.setHours(parseInt($(elem).text().slice(0, $(elem).text().indexOf("h"))));
                             firstSelectedDate.setMinutes(parseInt($(elem).text().slice($(elem).text()
-                                .lastIndexOf(" ") + 1, -1)));
+                                .indexOf("h") + 2, -1)));
                             if (firstSelectedDate > currentDate) {
                                 $(elem).find(".value").addClass("hovered").addClass("select");
                             }

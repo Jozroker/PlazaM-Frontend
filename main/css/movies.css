@@ -730,29 +730,48 @@ a, a:hover, a:visited, a:active {
 #movies .movie .card .bottom .like:not(.selected):hover {
   background-position: 0 0;
   color: #0D0E0D;
-  transition: background-position 0.1s linear, color 0.2s linear;
+    transition: background-position 0.1s linear, color 0.2s linear;
 }
+
 #movies .movie .card .bottom .like::before {
-  font-family: "icomoon" !important;
-  content: "";
+    font-family: "icomoon" !important;
+    content: "";
 }
+
 #movies .movie .card .info {
-  width: 100%;
-  padding-right: 18px;
-  text-align: right;
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 16px;
+    width: 100%;
+    padding: 0 18px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
 }
+
+#movies .movie .card .info > div > div {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+#movies .movie .card .info .info-right {
+    flex-grow: 1;
+    text-align: right;
+}
+
+#movies .movie .card .info .info-left {
+    text-align: center;
+}
+
 #movies .movie .card .name {
-  width: 100%;
-  margin-top: 20px;
-  text-align: center;
-  font-weight: 700;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 700;
 }
+
 #movies .movie .card .name:hover .first {
-  color: #AF2341;
-  transition: color 0.1s linear;
+    color: #AF2341;
+    transition: color 0.1s linear;
 }
 #movies .movie .card .name:hover .second {
   color: #85172E;
