@@ -280,7 +280,7 @@ $(document).ready(function () {
 
     $("textarea").on("input", function () {
         $(this).css("height", "auto").delay(10).css("height",
-            $(this).get()[0].scrollHeight + "px");
+            $(this).get(0).scrollHeight + "px");
     })
 
     $(".genre").click(function () {

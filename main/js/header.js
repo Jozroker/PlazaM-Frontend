@@ -10,6 +10,7 @@ $(document).ready(function () {
     let countryHidden = true;
     let languageHidden = true;
     let phoneCodeHidden = true;
+    let ticketsHidden = true;
 
     let searchLineAnimate = false;
     let locationAnimate = false;
@@ -22,6 +23,7 @@ $(document).ready(function () {
     let languageAnimate = false;
     let phoneCodeAnimate = false;
     let settingsMenuAnimate = false;
+    let ticketsAnimate = false;
 
     let scrollBar;
     let settingsPosition = "-808px";
@@ -35,11 +37,6 @@ $(document).ready(function () {
             let width = $(this).find("div").first().width();
             $(this).css("width", 26 + width + "px");
         })
-
-        // $("").find(".list .selected").each(function () {
-        //     let width = $($(this).find("div")[1]).width();
-        //     $(this).css("width", 60 + width + "px");
-        // })
     }
 
     $(window).resize(function () {
@@ -79,8 +76,8 @@ $(document).ready(function () {
     })
 
     $(document).mousemove(function () {
-        if (!$("#menu").is(":hover") && !menuHidden && !$("#menu-btn").is(":hover") &&
-            !$("#settings-bar").is(":hover")) {
+        if (!$("#menu").is(":hover") && !menuHidden && settingsHidden && !$("#menu-btn").is(":hover") &&
+            !$("#settings-bar").is(":hover") && !$("#tickets").is(":hover") && ticketsHidden) {
             $($(".link")[6]).click();
         }
     })
@@ -93,17 +90,75 @@ $(document).ready(function () {
         $("#menu-btn .triangle").css("border-bottom-color", "");
     })
 
+    $(".tickets-btn").click(function () {
+        if (!ticketsAnimate && !messagesAnimate && !settingsAnimate && !menuAnimate) {
+            ticketsAnimate = true;
+
+            if (ticketsHidden) {
+                $("#tickets .scroll .simplebar-content").remove(".ticket");
+
+                createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
+                    "../img/jpg/wide/avenger_wide.jpg");
+                createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
+                    "../img/jpg/wide/avenger_wide.jpg");
+
+                $(this).animate({
+                    "font-size": "36px",
+                    "line-height": "36px",
+                    "margin": "6px 0"
+                }, 500, "easeInOutQuint");
+                $("#tickets").animate({
+                    "top": "0"
+                }, 1000, "easeInOutQuint");
+                $("#background").animate({
+                    "top": "0"
+                }, 1000, "easeInOutQuint", function () {
+                    ticketsAnimate = false;
+                    ticketsHidden = false;
+                    nextClickedElement.click();
+                    nextClickedElement = $();
+                });
+            } else {
+                $(this).animate({
+                    "font-size": "30px",
+                    "line-height": "30px",
+                    "margin": "10px 0"
+                }, 500, "easeInOutQuint");
+                $("#tickets").animate({
+                    "top": "100vh"
+                }, 1000, "easeInOutQuint");
+                $("#background").animate({
+                    "top": "100vh"
+                }, 1000, "easeInOutQuint", function () {
+                    ticketsAnimate = false;
+                    ticketsHidden = true;
+                    nextClickedElement.click();
+                    nextClickedElement = $();
+                });
+            }
+        } else {
+            nextClickedElement = $(this);
+        }
+    })
+
+    $(document).on("click", "#tickets .ticket .cross.active", function () {
+        $(this).removeClass("active");
+        $(this).parents(".ticket").first().animate({
+            "height": "0"
+        }, 300, "easeInOutQuint", function () {
+            $(this).remove();
+        })
+    })
+
     $(".personal-btn, .site-btn, .security-btn").click(function () {
         $("#settings .settings-menu .menu-item").removeClass("selected");
         $(this).addClass("selected");
 
-        if (!settingsMenuHidden) {
+        if ((!settingsMenuHidden && !settingsAnimate) || (settingsMenuHidden && settingsAnimate)) {
             if (!settingsMenuAnimate) {
                 settingsMenuAnimate = true;
 
-                // $("#settings .settings-menu .menu-item").removeClass("selected");
                 let position = $("#settings .settings-menu .menu-item").index($(this));
-                // $(this).addClass("selected");
                 $("#menu").css("background-color", "#0A0B0B");
 
                 $("#settings-bar").animate({
@@ -189,7 +244,7 @@ $(document).ready(function () {
     })
 
     $($(".link")[6]).click(function () {
-        if (!menuAnimate && !messagesAnimate && !settingsAnimate && !settingsMenuAnimate) {
+        if (!menuAnimate && !messagesAnimate && !settingsAnimate && !settingsMenuAnimate && !ticketsAnimate) {
             menuAnimate = true;
 
             if (!settingsHidden) {
@@ -592,78 +647,83 @@ $(document).ready(function () {
 
     $(".messages-btn").click(function () {
         if (messagesHidden) {
-            if (!messagesAnimate && !menuAnimate && !settingsAnimate) {
-                messagesAnimate = true;
-                $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
+            if (!ticketsHidden) {
+                $(".tickets-btn").click();
+                nextClickedElement = $(this);
+            } else {
+                if (!messagesAnimate && !menuAnimate && !settingsAnimate && !ticketsAnimate) {
+                    messagesAnimate = true;
+                    $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
 
-                $("#user").find("img").animate({
-                    "top": "-100px"
-                }, 500, "easeInOutQuint");
-
-                setTimeout(function () {
-                    $("#menu-btn").animate({
+                    $("#user").find("img").animate({
                         "top": "-100px"
                     }, 500, "easeInOutQuint");
-                }, 200);
-
-                $("#menu").find(".line-between").animate({
-                    "opacity": "0"
-                }, 600, "linear");
-
-                $("#menu").find(".menu-item").each(function () {
-                    if (!$(this).hasClass("messages-btn")) {
-                        $(this).animate({
-                            "opacity": "0"
-                        }, 700, "linear");
-                    }
-                })
-
-                setTimeout(function () {
-                    let elem = $(".messages-btn");
-                    let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
-                    elem.css({
-                        "position": "absolute",
-                        "top": position
-                    }).animate({
-                        "top": "-102px"
-                    }, 500, "easeInOutQuint");
 
                     setTimeout(function () {
-                        scrollBar.getScrollElement().scrollTop = 0;
+                        $("#menu-btn").animate({
+                            "top": "-100px"
+                        }, 500, "easeInOutQuint");
                     }, 200);
-                }, 800);
 
-                setTimeout(function () {
-                    $("#messages").animate({
-                        "right": "0"
-                    }, 300, "easeInOutQuint");
+                    $("#menu").find(".line-between").animate({
+                        "opacity": "0"
+                    }, 600, "linear");
+
+                    $("#menu").find(".menu-item").each(function () {
+                        if (!$(this).hasClass("messages-btn")) {
+                            $(this).animate({
+                                "opacity": "0"
+                            }, 700, "linear");
+                        }
+                    })
 
                     setTimeout(function () {
-                        $("#messages").find(".messages").animate({
+                        let elem = $(".messages-btn");
+                        let position = (elem.outerHeight(true) - elem.height()) / 2 + elem.height();
+                        elem.css({
+                            "position": "absolute",
+                            "top": position
+                        }).animate({
+                            "top": "-102px"
+                        }, 500, "easeInOutQuint");
+
+                        setTimeout(function () {
+                            scrollBar.getScrollElement().scrollTop = 0;
+                        }, 200);
+                    }, 800);
+
+                    setTimeout(function () {
+                        $("#messages").animate({
                             "right": "0"
                         }, 300, "easeInOutQuint");
 
                         setTimeout(function () {
-                            if ($("#messages").find(".line-between").length) {
-                                $("#messages").find(".line-between").animate({
-                                    "opacity": "1"
-                                }, 300, "linear", function () {
+                            $("#messages").find(".messages").animate({
+                                "right": "0"
+                            }, 300, "easeInOutQuint");
+
+                            setTimeout(function () {
+                                if ($("#messages").find(".line-between").length) {
+                                    $("#messages").find(".line-between").animate({
+                                        "opacity": "1"
+                                    }, 300, "linear", function () {
+                                        messagesHidden = false;
+                                        messagesAnimate = false;
+                                        nextClickedElement.click();
+                                        nextClickedElement = $();
+                                    });
+                                } else {
                                     messagesHidden = false;
                                     messagesAnimate = false;
                                     nextClickedElement.click();
                                     nextClickedElement = $();
-                                });
-                            } else {
-                                messagesHidden = false;
-                                messagesAnimate = false;
-                                nextClickedElement.click();
-                                nextClickedElement = $();
-                            }
+                                }
+                            }, 200);
                         }, 200);
-                    }, 200);
-                }, 900);
-            } else {
-                nextClickedElement = $(this);
+                    }, 900);
+                } else {
+                    nextClickedElement = $(this);
+                }
             }
         }
     })
@@ -759,84 +819,89 @@ $(document).ready(function () {
 
     $(".settings-btn").click(function () {
         if (settingsMenuHidden) {
-            if (!settingsAnimate && !menuAnimate && !messagesAnimate) {
-                settingsAnimate = true;
+            if (!ticketsHidden) {
+                $(".tickets-btn").click();
+                nextClickedElement = $(this);
+            } else {
+                if (!settingsAnimate && !menuAnimate && !messagesAnimate && !ticketsAnimate) {
+                    settingsAnimate = true;
 
-                $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
-                $(window).resize();
+                    $($("#menu .simplebar-vertical")[1]).css("opacity", "0");
+                    $(window).resize();
 
-                $("#user").find("img").animate({
-                    "top": "-100px"
-                }, 500, "easeInOutQuint");
-
-                setTimeout(function () {
-                    $("#menu-btn").animate({
+                    $("#user").find("img").animate({
                         "top": "-100px"
                     }, 500, "easeInOutQuint");
-                }, 200);
 
-                $("#menu").find(".line-between").animate({
-                    "opacity": "0"
-                }, 600, "linear");
+                    setTimeout(function () {
+                        $("#menu-btn").animate({
+                            "top": "-100px"
+                        }, 500, "easeInOutQuint");
+                    }, 200);
 
-                $("#menu").find(".menu-item").each(function () {
-                    if (!$(this).hasClass("settings-btn")) {
-                        $(this).animate({
-                            "opacity": "0"
-                        }, 700, "linear");
-                    }
-                })
+                    $("#menu").find(".line-between").animate({
+                        "opacity": "0"
+                    }, 600, "linear");
 
-                setTimeout(function () {
-                    let elem = $(".settings-btn");
-                    scrollBar.getScrollElement().scrollTop = 0;
-                    elem.css({
-                        "position": "absolute",
-                        "top": "-10px"
-                    }).animate({
-                        "top": settingsPosition
-                    }, 500, "easeInOutQuint");
-                }, 800);
+                    $("#menu").find(".menu-item").each(function () {
+                        if (!$(this).hasClass("settings-btn")) {
+                            $(this).animate({
+                                "opacity": "0"
+                            }, 700, "linear");
+                        }
+                    })
 
-                setTimeout(function () {
-                    $("#settings").animate({
-                        "right": "0"
-                    }, 300, "easeInOutQuint", function () {
-                        $("#settings").find(".menu-item").each(function (index) {
-                            let wait = 100 * ($("#settings").find(".menu-item").length +
-                                $("#settings").find(".line-between").length);
-                            let waiting = index * 100;
+                    setTimeout(function () {
+                        let elem = $(".settings-btn");
+                        scrollBar.getScrollElement().scrollTop = 0;
+                        elem.css({
+                            "position": "absolute",
+                            "top": "-10px"
+                        }).animate({
+                            "top": settingsPosition
+                        }, 500, "easeInOutQuint");
+                    }, 800);
 
-                            setTimeout(function () {
-                                $($("#settings").find(".menu-item")[index]).animate({
-                                    "opacity": "1"
-                                }, 100, "linear");
-                            }, waiting);
-
-                            setTimeout(function () {
-                                settingsAnimate = false;
-                                settingsMenuHidden = false;
-                                nextClickedElement.click();
-                                nextClickedElement = $();
-                            }, wait);
-                        });
-
-                        setTimeout(function () {
-                            $("#settings").find(".line-between").each(function (index) {
+                    setTimeout(function () {
+                        $("#settings").animate({
+                            "right": "0"
+                        }, 300, "easeInOutQuint", function () {
+                            $("#settings").find(".menu-item").each(function (index) {
+                                let wait = 100 * ($("#settings").find(".menu-item").length +
+                                    $("#settings").find(".line-between").length);
                                 let waiting = index * 100;
 
                                 setTimeout(function () {
-                                    $($("#settings").find(".line-between")[index]).animate({
+                                    $($("#settings").find(".menu-item")[index]).animate({
                                         "opacity": "1"
                                     }, 100, "linear");
                                 }, waiting);
-                            })
-                        }, 50);
-                    });
 
-                }, 900);
-            } else {
-                nextClickedElement = $(this);
+                                setTimeout(function () {
+                                    settingsAnimate = false;
+                                    settingsMenuHidden = false;
+                                    nextClickedElement.click();
+                                    nextClickedElement = $();
+                                }, wait);
+                            });
+
+                            setTimeout(function () {
+                                $("#settings").find(".line-between").each(function (index) {
+                                    let waiting = index * 100;
+
+                                    setTimeout(function () {
+                                        $($("#settings").find(".line-between")[index]).animate({
+                                            "opacity": "1"
+                                        }, 100, "linear");
+                                    }, waiting);
+                                })
+                            }, 50);
+                        });
+
+                    }, 900);
+                } else {
+                    nextClickedElement = $(this);
+                }
             }
         }
     })
@@ -845,7 +910,7 @@ $(document).ready(function () {
 
     $("#settings .title").click(function () {
         if (!settingsMenuHidden) {
-            if (!settingsAnimate && !settingsMenuAnimate) {
+            if (!settingsAnimate && !settingsMenuAnimate && !ticketsAnimate) {
                 settingsAnimate = true;
 
                 if (!settingsHidden) {
@@ -1186,4 +1251,34 @@ $(document).ready(function () {
         $($(this).parents(".personalisation")[0]).find(".checked").removeClass("checked");
         $($(this).parents(".field")[0]).addClass("checked");
     })
+
+    function createTicket(seanceDate, seanceTime, seanceHall, price, row, column, id, moviePicture) {
+        let ticket = '<div class="ticket"><div class="ticket-info"><div class="movie-name"><span class="first-name">' +
+            'Avengers</span><span class="space">_</span><span class="last-name">The First Part</span></div>' +
+            '<div class="info-items"><div class="info-item price-info">' +
+            '<span class="title">Price:</span><span class="space">_</span><span class="value">' + price + '</span>' +
+            '<span class="space"></span><span class="value">$</span></div><div class="info-item date-info">' +
+            '<span class="title">Date:</span><span class="space">_</span><span class="value">' + seanceDate +
+            '</span></div><div class="info-item row-info"><span class="title">Row:</span><span class="space">_</span>' +
+            '<span class="value">' + row + '</span></div><div class="info-item hall-info"><span class="title">Hall:</span>' +
+            '<span class="space">_</span><span class="value">' + seanceHall + '</span></div><div class="info-item time-info">' +
+            '<span class="title">Time:</span><span class="space">_</span><span class="value">' + seanceTime + '</span>' +
+            '</div><div class="info-item seat-info"><span class="title">Seat:</span><span class="space">_</span>' +
+            '<span class="value">' + column + '</span></div></div><div class="barcode"><div class="barcode-container">' +
+            '<svg class="barcode-value"></svg></div><div class="identifier">' + id + '</div></div><div class="copyright">' +
+            'PlazaM</div></div><div class="picture"><img class="background-picture" src="' + moviePicture +
+            '" alt=""><div class="movie-name"><div class="first-name">Avengers</div><div class="last-name">The First Part' +
+            '</div></div><div class="blur"></div></div><div class="cross active"><div class="icon-cross"></div></div></div>';
+
+        $("#tickets .scroll .simplebar-content").append(ticket);
+
+        JsBarcode(".barcode-value", id, {
+            height: 59,
+            width: 2,
+            textMargin: 0,
+            displayValue: false,
+            lineColor: "#0D0E0D",
+            margin: 0
+        })
+    }
 })

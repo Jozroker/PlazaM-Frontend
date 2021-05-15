@@ -1,0 +1,719 @@
+@import "default";
+@import "fonts";
+
+.container {
+  width: 100%;
+  padding: 162px 67px 0 67px;
+
+  .top {
+    color: $gray-light;
+    transition: color 0.2s linear;
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .title {
+        padding-left: 7px;
+        font-size: 38px;
+        line-height: 38px;
+        font-weight: 500;
+        color: $white-dark;
+        margin-right: 20px;
+      }
+
+      .search {
+        flex-grow: 1;
+        flex-shrink: 0;
+        min-width: 150px;
+        max-width: 500px;
+        padding-right: 32px;
+        background-size: 201% 100%;
+        background-position: 0 0;
+        margin-top: 3px;
+        height: 32px;
+        background-image: linear-gradient(to right, rgba($gray-dark, 0),
+                rgba($gray-dark, 0) 50%,
+                rgba($gray-dark, 0.2) 50%,
+                rgba($gray-dark, 0.2));
+
+        .underline {
+          width: 100%;
+          margin: 0;
+          height: 1px;
+          background-color: $maroon;
+          background-image: none;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+
+    .underline {
+      width: 100%;
+      height: 2px;
+      margin: 7px 0 17px 0;
+      background-image: linear-gradient(to right, $maroon 0, rgba($maroon, 0) 100%);
+    }
+
+    .sort {
+      .title {
+        font-size: 28px;
+        line-height: 28px;
+        margin-bottom: 6px;
+      }
+
+      .categories {
+        font-size: 20px;
+        line-height: 20px;
+        position: relative;
+        margin-bottom: 1px;
+
+        & > div {
+          display: inline-block;
+          padding: 0 7px;
+
+          &.selected {
+            color: $maroon;
+            font-weight: 400;
+            transition: color 0.2s linear;
+          }
+
+          &:not(.selected):hover {
+            cursor: pointer;
+            color: $maroon;
+          }
+        }
+      }
+
+      .underline {
+        position: relative;
+        left: 0;
+        margin: 0;
+        width: 80px;
+        height: 1px;
+        background-color: $maroon;
+      }
+    }
+  }
+}
+
+.simplebar-scrollbar {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::before {
+    background-color: $maroon;
+    width: 6px;
+  }
+}
+
+.simplebar-content-wrapper {
+  padding-left: 10px;
+  overflow: auto;
+}
+
+.simplebar-vertical {
+  position: absolute;
+  left: 4px;
+  width: 8px;
+}
+
+#back {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+#user-search {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-right: 32px;
+  height: 32px;
+
+  & > div {
+    display: inline-block;
+
+    &:first-child {
+      width: 100%;
+      position: relative;
+      margin-top: 3px;
+    }
+  }
+}
+
+#user-search-icon {
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  margin: 0 7px;
+
+  &::after {
+    font-family: "icomoon";
+    content: "\e901";
+    font-size: 18px;
+    color: $white-dark;
+    position: absolute;
+    right: 0;
+    margin-left: 14px;
+    transition: color 0.2s linear;
+
+    @media screen and (min-width: 1440px) {
+      line-height: 32px;
+    }
+
+    @media screen and (max-width: 1440px) {
+      line-height: 30px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &:after {
+      color: $maroon;
+      cursor: pointer;
+      transition: color 0.2s linear;
+    }
+  }
+}
+
+#user-search-line {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+  height: 28px;
+  background: none;
+  border: 0;
+  width: 100%;
+  color: $white-dark;
+  padding-left: 6px;
+
+  &:focus {
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+#filter {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  color: $gray-light;
+  transition: color 0.3s ease-in-out;
+  opacity: 0.95;
+  z-index: 3;
+
+  & > div {
+    display: inline-flex;
+    height: 100%;
+
+    &.scroll {
+      background-color: $gray-dark;
+      width: 300px;
+
+      .content {
+        height: 100vh;
+        min-height: 977px;
+        max-height: 1080px;
+        width: 300px;
+        position: relative;
+        left: -10px;
+        padding: 20px;
+
+        & > div {
+          width: 100%;
+        }
+
+        .title {
+          font-weight: 400;
+          font-size: 40px;
+          line-height: 40px;
+          color: $white-dark;
+          margin-top: 78px;
+          text-align: center;
+        }
+
+        .subtitle {
+          margin-top: 19px;
+          padding-left: 22px;
+          text-align: left;
+          color: $white-dark;
+          font-size: 30px;
+          line-height: 30px;
+        }
+
+        .underline {
+          height: 1px;
+          background-image: linear-gradient(to right, rgba($maroon, 0) 0, $maroon 10%, $maroon 90%, rgba($maroon, 0) 100%);
+          margin-bottom: 10px;
+        }
+
+        .roles, .countries, .ban-statuses {
+          width: 100%;
+
+          .role + .role, .country + .country, .ban-status + .ban-status {
+            margin-top: 5px;
+          }
+
+          .role, .country, .ban-status {
+            width: 100%;
+            height: 26px;
+            text-align: center;
+            line-height: 26px;
+            background-size: 201% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, $maroon 0, $maroon 50%, rgba($maroon, 0) 50%, rgba($maroon, 0) 100%);
+            transition: background-position 0.3s ease-in-out;
+
+            &:not(.selected):hover {
+              cursor: pointer;
+              color: $maroon;
+            }
+
+            &.selected {
+              color: $gray-dark;
+              background-position: 0 0;
+              transition: background-position 0.3s ease-in-out;
+
+              &:hover {
+                cursor: pointer;
+                color: $white-dark;
+              }
+            }
+          }
+        }
+
+        .button {
+          position: absolute;
+          width: 100%;
+          height: 34px;
+          left: 0;
+          bottom: 85px;
+
+          .apply-btn {
+            height: 34px;
+            width: 140px;
+            margin: auto;
+            text-align: center;
+            font-size: 20px;
+            line-height: 34px;
+            background-size: 202% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, $maroon 0, $maroon 50%, rgba($maroon, 0) 50%, rgba($maroon, 0) 100%);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              color: $gray-dark;
+              background-position: 0 0;
+              transition: all 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+
+    &.arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 12px;
+      height: 204px;
+      background-color: rgba($gray-light, 0.7);
+      z-index: 3;
+      transition: background-color 0.1s linear, height 0.5s ease-in-out;
+
+      @include triangle(5px, $gray-dark, 90deg, 0.1s);
+
+      &.viewed {
+        height: 100%;
+        background-color: rgba($gray-light, 0.7);
+        transition: background-color 0.1s linear, height 0.5s ease-in-out;
+
+        .triangle {
+          transform: rotate(-90deg);
+          transition: transform 0.5s ease-in-out;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba($gray-light, 0.95);
+          transition: background-color 0.1s linear, height 0.5s ease-in-out;
+
+          .triangle {
+            border-bottom-color: $maroon;
+            transition: border-bottom-color 0.1s ease-in-out;
+          }
+        }
+      }
+
+      &:not(.viewed):hover {
+        cursor: pointer;
+        background-color: rgba($gray-light, 0.95);
+        transition: background-color 0.1s linear, height 0.5s ease-in-out;
+
+        .triangle {
+          border-bottom-color: $maroon;
+          transition: border-bottom-color 0.1s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+#pages {
+  width: 100%;
+  margin: 85px auto 100px auto;
+}
+
+#users {
+  margin-top: 27px;
+  width: 100%;
+  position: relative;
+
+  .curtain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: $gray-dark;
+    opacity: 0.7;
+    //!!!
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    column-gap: 4px;
+    margin: 0 auto 40px auto;
+
+    @media screen and (max-width: 681px) {
+      flex-direction: column;
+      height: 100px;
+    }
+
+    @media screen and (min-width: 682px) {
+      height: 30px;
+    }
+
+    .nav-item {
+      flex-grow: 1;
+      width: 100%;
+      height: 30px;
+      margin-bottom: 5px;
+      min-width: 185px;
+
+      &:not(.selected):hover {
+        cursor: pointer;
+
+        div:first-child {
+          color: $maroon;
+          transition: color 0.1s ease-in-out;
+        }
+      }
+
+      &.selected {
+        div:first-child {
+          color: $maroon;
+          transition: color 0.3s ease-in-out;
+        }
+
+        .underline {
+          background-position: 0 0;
+          transition: background-position 0.3s ease-in-out;
+        }
+      }
+
+      div:first-child {
+        width: 100%;
+        text-align: center;
+        font-size: 26px;
+        line-height: 29px;
+        font-weight: 300;
+        transition: color 0.1s ease-in-out;
+      }
+
+      .underline {
+        width: 100%;
+        height: 1px;
+        background-size: 201% 100%;
+        background-position: 100% 0;
+        background-image: linear-gradient(to right, $maroon 0, $maroon 50%, transparent 50%, transparent 100%);
+        transition: background-position 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .users {
+    width: 100%;
+    overflow: hidden;
+
+    .users-container {
+      width: 100%;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      margin-bottom: 112px;
+
+      .all-users, .banned-users {
+        width: 100%;
+        flex-shrink: 0;
+        display: grid;
+        grid-column-gap: 30px;
+        grid-row-gap: 15px;
+
+        @media screen and (max-width: 1631px) {
+          grid-template-columns: 1fr;
+        }
+
+        @media screen and (min-width: 1632px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .reported-users {
+        width: 100%;
+        flex-shrink: 0;
+        display: grid;
+        grid-column-gap: 30px;
+        grid-row-gap: 15px;
+
+        @media screen and (max-width: 957px) {
+          grid-template-columns: 1fr;
+        }
+
+        @media screen and (max-width: 1395px) and (min-width: 958px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (min-width: 1396px) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .user {
+        max-width: 946px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        padding: 15px;
+        background-color: rgba($black-light, 0.8);
+
+        & > div {
+          flex-shrink: 0;
+        }
+
+        .user-left-side {
+          width: 108px;
+          height: 108px;
+          margin-right: 20px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom: 4px;
+          }
+
+          .button + .button {
+            margin-top: 5px;
+          }
+
+          .skip-button:hover, .unban-button:hover {
+            cursor: pointer;
+            background-position: 0 0 !important;
+            transition: background-position 0.2s ease-in-out;
+
+            .text {
+              color: $gray-dark !important;
+              transition: color 0.2s ease-in-out;
+            }
+          }
+
+          .ban-button, .skip-button, .unban-button {
+            width: 108px;
+            margin: auto;
+            height: 26px;
+            overflow: visible;
+            position: relative;
+            background-size: 201% 100%;
+            background-image: linear-gradient(to right, $maroon 0, $maroon 50%, transparent 50%, transparent 100%);
+            transition: background-position 0.2s ease-in-out;
+
+            &.selectable {
+              &.selected {
+                .text:hover {
+                  cursor: pointer;
+                  color: $white-dark;
+                  transition: color 0.2s ease-in-out;
+                }
+              }
+
+              &:not(.selected) {
+                .text:hover {
+                  cursor: pointer;
+                  color: $maroon;
+                  transition: color 0.2s ease-in-out;
+                }
+              }
+            }
+
+            &.selected {
+              background-position: 0 0;
+              transition: background-position 0.2s ease-in-out;
+
+              .text {
+                color: $gray-dark;
+                transition: color 0.2s ease-in-out;
+              }
+            }
+
+            &:not(.selected) {
+              background-position: 100% 0;
+              transition: background-position 0.2s ease-in-out;
+
+              .text {
+                color: $white-dark;
+                transition: color 0.2s ease-in-out;
+              }
+            }
+
+            .text {
+              width: 100%;
+              text-align: center;
+              font-size: 20px;
+              line-height: 26px;
+              transition: color 0.2s ease-in-out;
+            }
+
+            .selection {
+              position: absolute;
+              left: 0;
+              top: 100%;
+              width: 100%;
+              height: 0;
+              overflow: hidden;
+              z-index: 2;
+              background-color: $black-light;
+
+              .ban + .ban {
+                margin-top: 3px;
+              }
+
+              .ban {
+                width: 100%;
+                font-size: 18px;
+                line-height: 18px;
+                text-align: center;
+
+                &:first-child {
+                  margin-top: 5px;
+                }
+
+                &:last-child {
+                  margin-bottom: 5px;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                  color: $maroon;
+                }
+              }
+            }
+
+          }
+        }
+
+        .user-right-side {
+          flex-grow: 1;
+          max-width: 788px;
+
+          .fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            width: 100%;
+            margin-bottom: 5px;
+
+            .field {
+              min-width: 235px;
+
+              & > div + div {
+                margin-top: 3px;
+              }
+
+              & > div {
+                font-size: 18px;
+                line-height: 18px;
+                font-weight: 300;
+              }
+
+              .title-2 {
+                font-weight: 500;
+                color: $maroon;
+              }
+            }
+          }
+        }
+      }
+
+      .all-users, .banned-users {
+        .user {
+          min-height: 168px;
+        }
+      }
+
+      .banned-users {
+        .user {
+          max-width: 945px !important;
+        }
+      }
+
+      .reported-users {
+        .user {
+          min-height: 199px;
+
+          .fields {
+            display: block !important;
+
+            .field + .field {
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

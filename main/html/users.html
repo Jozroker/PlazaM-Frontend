@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
+    <link href="../css/users.css" rel="stylesheet">
+</head>
+<body>
+<img alt="" id="back" src="../img/jpg/wide/hall.jpg">
+<div id="filter">
+    <div class="scroll">
+        <div class="content">
+            <div class="title">Filter</div>
+            <div class="subtitle">Role</div>
+            <div class="underline"></div>
+            <div class="roles">
+                <div class="role">admin</div>
+                <div class="role">worker</div>
+                <div class="role">user</div>
+            </div>
+            <div class="subtitle">Country</div>
+            <div class="underline"></div>
+            <div class="countries">
+                <div class="country">United Kingdom</div>
+                <div class="country">Ukraine</div>
+                <div class="country">Poland</div>
+            </div>
+            <div class="subtitle">Ban Status</div>
+            <div class="underline"></div>
+            <div class="ban-statuses">
+                <div class="ban-status">banned</div>
+                <div class="ban-status">not banned</div>
+            </div>
+            <div class="button">
+                <div class="apply-btn">Apply</div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow">
+        <div class="triangle triangle-wide"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="top">
+        <div class="top-bar">
+            <div class="title">Catalog of users</div>
+            <div class="search">
+                <div id="user-search">
+                    <div>
+                        <div>
+                            <input id="user-search-line" placeholder="Username or Real Name" type="text">
+                        </div>
+                        <div class="underline"></div>
+                    </div>
+                    <div id="user-search-icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="underline"></div>
+        <div class="sort">
+            <div class="title">Sort by</div>
+            <div class="categories">
+                <div class="category selected">Username</div>
+                <div class="category">Real Name</div>
+                <div class="category">Country</div>
+            </div>
+            <div class="underline"></div>
+        </div>
+    </div>
+    <div id="users">
+        <div class="navbar">
+            <div class="nav-item selected" id="all-users">
+                <div>All</div>
+                <div class="underline"></div>
+            </div>
+            <div class="nav-item" id="reported-users">
+                <div>Reported</div>
+                <div class="underline"></div>
+            </div>
+            <div class="nav-item" id="banned-users">
+                <div>Banned</div>
+                <div class="underline"></div>
+            </div>
+        </div>
+        <div class="users">
+            <div class="users-container">
+                <div class="all-users">
+                    <div class="user" identifier="idUser1">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="ban-button selectable">
+                                <div class="text">Ban</div>
+                                <div class="selection">
+                                    <div class="ban">1 Day</div>
+                                    <div class="ban">1 Week</div>
+                                    <div class="ban">1 Month</div>
+                                    <div class="ban">1 Year</div>
+                                    <div class="ban">Forever</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">1</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field first-name">
+                                    <div class="title-2">First Name</div>
+                                    <div class="value">Rostyslav</div>
+                                </div>
+                                <div class="field last-name">
+                                    <div class="title-2">Last Name</div>
+                                    <div class="value">Zadyraichuk</div>
+                                </div>
+                                <div class="field role">
+                                    <div class="title-2">Role</div>
+                                    <div class="value">Admin</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user" identifier="idUser2">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="ban-button selectable">
+                                <div class="text">Ban</div>
+                                <div class="selection">
+                                    <div class="ban">1 Day</div>
+                                    <div class="ban">1 Week</div>
+                                    <div class="ban">1 Month</div>
+                                    <div class="ban">1 Year</div>
+                                    <div class="ban">Forever</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">2</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field first-name">
+                                    <div class="title-2">First Name</div>
+                                    <div class="value">Rostyslav</div>
+                                </div>
+                                <div class="field last-name">
+                                    <div class="title-2">Last Name</div>
+                                    <div class="value">Zadyraichuk</div>
+                                </div>
+                                <div class="field role">
+                                    <div class="title-2">Role</div>
+                                    <div class="value">Admin</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user" identifier="idUser3">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="ban-button selectable">
+                                <div class="text">Ban</div>
+                                <div class="selection">
+                                    <div class="ban">1 Day</div>
+                                    <div class="ban">1 Week</div>
+                                    <div class="ban">1 Month</div>
+                                    <div class="ban">1 Year</div>
+                                    <div class="ban">Forever</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">3</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field first-name">
+                                    <div class="title-2">First Name</div>
+                                    <div class="value">Rostyslav</div>
+                                </div>
+                                <div class="field last-name">
+                                    <div class="title-2">Last Name</div>
+                                    <div class="value">Zadyraichuk</div>
+                                </div>
+                                <div class="field role">
+                                    <div class="title-2">Role</div>
+                                    <div class="value">Admin</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user" identifier="idUser4">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="button unban-button selectable">
+                                <div class="text">Unban</div>
+                                <!--                                todo remove user if he come in 1 year ago-->
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">4</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field first-name">
+                                    <div class="title-2">First Name</div>
+                                    <div class="value">Rostyslav</div>
+                                </div>
+                                <div class="field last-name">
+                                    <div class="title-2">Last Name</div>
+                                    <div class="value">Zadyraichuk</div>
+                                </div>
+                                <div class="field role">
+                                    <div class="title-2">Role</div>
+                                    <div class="value">Admin</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user" identifier="idUser5">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="button unban-button selectable">
+                                <div class="text">Unban</div>
+                                <!--                                todo remove user if he come in 1 year ago-->
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">5</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field first-name">
+                                    <div class="title-2">First Name</div>
+                                    <div class="value">Rostyslav</div>
+                                </div>
+                                <div class="field last-name">
+                                    <div class="title-2">Last Name</div>
+                                    <div class="value">Zadyraichuk</div>
+                                </div>
+                                <div class="field role">
+                                    <div class="title-2">Role</div>
+                                    <div class="value">Admin</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reported-users">
+                    <div class="user" identifier="idUser2">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="button ban-button selectable">
+                                <div class="text">Ban</div>
+                                <div class="selection">
+                                    <div class="ban">1 Day</div>
+                                    <div class="ban">1 Week</div>
+                                    <div class="ban">1 Month</div>
+                                    <div class="ban">1 Year</div>
+                                    <div class="ban">Forever</div>
+                                </div>
+                            </div>
+                            <div class="button skip-button">
+                                <div class="text">Skip</div>
+                                <!--                                    todo if 3 days left auto skip-->
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">2</div>
+                                </div>
+                                <div class="field comment" identifier="idComment1">
+                                    <div class="title-2">Comment</div>
+                                    <div class="value">comment text</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banned-users">
+                    <div class="user" identifier="idUser4">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="button unban-button selectable">
+                                <div class="text">Unban</div>
+                                <!--                                todo remove user if he come in 1 year ago-->
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">4</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                                <div class="field banned-to-date">
+                                    <div class="title-2">Banned To</div>
+                                    <div class="value">24.10.2021</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user" identifier="idUser5">
+                        <div class="user-left-side">
+                            <img alt="" src="../img/jpg/default_avatar.jpg">
+                            <div class="button unban-button selectable">
+                                <div class="text">Unban</div>
+                                <!--                                todo remove user if he come in 1 year ago-->
+                            </div>
+                        </div>
+                        <div class="user-right-side">
+                            <div class="fields">
+                                <div class="field username">
+                                    <div class="title-2">Username</div>
+                                    <div class="value">5</div>
+                                </div>
+                                <div class="field email">
+                                    <div class="title-2">Email</div>
+                                    <div class="value">rostykzadyraichuk010@gmail.com</div>
+                                </div>
+                                <div class="field phone">
+                                    <div class="title-2">Phone</div>
+                                    <div class="value">+38 (050) 669-37-93</div>
+                                </div>
+                                <div class="field banned-to-date">
+                                    <div class="title-2">Banned To</div>
+                                    <div class="value">24.10.2021</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="curtain"></div>
+    </div>
+    <div id="pages"></div>
+</div>
+</body>
+<script crossorigin="anonymous"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script src="../js/users.js"></script>
+</html>

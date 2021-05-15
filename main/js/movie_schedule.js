@@ -19,6 +19,7 @@ $(document).ready(function () {
     stringDate += "." + ((currentDate.getMonth() + 1) / 10 >= 1 ? currentDate.getMonth() + 1 : "0" + (currentDate.getMonth() + 1));
     stringDate += "." + (currentDate.getFullYear());
     let currentScrollPosition;
+    let commentsScroll;
 
 
     {
@@ -72,9 +73,18 @@ $(document).ready(function () {
     })
 
     $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
-            autoHide: false
-        });
+        if ($(this).hasClass("comments-scroll")) {
+            commentsScroll = new SimpleBar($(".scroll")[index], {
+                autoHide: false
+            });
+            console.log(commentsScroll)
+            // todo | if site links with comment id make autolink to comments section +
+            // todo | commentsScroll.getScrollElement().scrollTop = $("#idFromGETQuery").position().top;
+        } else {
+            new SimpleBar($(".scroll")[index], {
+                autoHide: false
+            });
+        }
     })
 
     // $(window).resize(function () {

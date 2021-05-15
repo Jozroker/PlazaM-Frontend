@@ -2,6 +2,7 @@ $(document).ready(function () {
     let scrollbar;
     let scrollbarPosition;
     let nextClickedElement = $();
+    let commentsScroll;
 
     let yearFromHidden = true;
     let yearToHidden = true;
@@ -25,6 +26,10 @@ $(document).ready(function () {
                     scrollbar.getScrollElement().scrollTop = scrollbarPosition;
                 }
             })
+        } else if ($(this).hasClass("comments-scroll")) {
+            commentsScroll = new SimpleBar($(".scroll")[index], {
+                autoHide: false
+            });
         } else {
             new SimpleBar($(".scroll")[index], {
                 autoHide: false

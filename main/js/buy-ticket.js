@@ -7,7 +7,8 @@ $(document).ready(function () {
     let monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let currentScrollPosition;
-    let selectedDate, selectedMonth, selectedYear, seanceDate, seanceTime, seanceHall, price, row, column, id;
+    let selectedDate, selectedMonth, selectedYear, seanceDate, seanceTime, seanceHall, price, row, column, id,
+        attribute;
 
     {
         $(".tickets-price .scroll").css("height", calculateTicketsScrollHeight(false) + "px");
@@ -378,8 +379,8 @@ $(document).ready(function () {
                     price = $(this).find(".price").text().trim().slice(0, -1);
                     row = $(this).find(".row").text().trim();
                     column = $(this).find(".column").text().trim();
-                    id = $(this).attr("id");
-                    let ticket = '<div class="ticket" id="' + id + '"><div class="ticket-info"><div class="info-items"><div class="info-item price-info">' +
+                    id = $(this).attr("identifier");
+                    let ticket = '<div class="ticket" identifier="' + id + '"><div class="ticket-info"><div class="info-items"><div class="info-item price-info">' +
                         '<span class="title">Price:</span><span class="space">_</span><span class="value">' + price + '</span>' +
                         '<span class="space"></span><span class="value">$</span></div><div class="info-item date-info">' +
                         '<span class="title">Date:</span><span class="space">_</span><span class="value">' + seanceDate +
@@ -617,7 +618,7 @@ $(document).ready(function () {
                 id += Math.floor(Math.random() * 10);
             }
 
-            let ticket = '<div class="ticket" id="' + id + '">' +
+            let ticket = '<div class="ticket" identifier="' + id + '">' +
                 '<div class="ticket-container">' +
                 '<div><span class="row">' + row +
                 '</span>row<span class="column">' +
@@ -647,7 +648,7 @@ $(document).ready(function () {
     }
 
     function ticketCrossClickFunction(crossElement) {
-        id = "#" + $(crossElement).parents(".ticket").first().attr("id");
+        attribute = ".ticket[identifier='" + $(crossElement).parents(".ticket").first().attr("identifier") + "']";
         $(".tickets-price .scroll").animate({
             "height": calculateTicketsScrollHeight(true) + "px"
         }, 200, "linear");
@@ -663,7 +664,7 @@ $(document).ready(function () {
                 }, 100, "linear");
             }
         });
-        $(".tickets-confirm").find(id).animate({
+        $(".tickets-confirm").find(attribute).animate({
             "height": "0"
         }, 300, "easeInOutQuint", function () {
             $(this).remove();

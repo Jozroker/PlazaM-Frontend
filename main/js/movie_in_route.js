@@ -17,6 +17,7 @@ $(document).ready(function () {
         "November", "December"];
     let stringDate = "";
     let currentScrollPosition;
+
     // let priceLoop = false;
     // let loop;
     // let speed = 200;
