@@ -33,7 +33,7 @@ $(document).ready(function () {
         pagesAnimation();
     })
 
-    $("#arrow-left").click(function () {
+    $("#pages-arrow-left").click(function () {
         if (page !== 1) {
             page--;
             url.searchParams.set("page", page);
@@ -42,7 +42,7 @@ $(document).ready(function () {
         }
     })
 
-    $("#arrow-right").click(function () {
+    $("#pages-arrow-right").click(function () {
         if (page !== lastPage) {
             page++;
             url.searchParams.set("page", page);
@@ -112,13 +112,13 @@ $(document).ready(function () {
     }
 
     function setPagesValues(lastPageNumber) {
-        let pagesElement = '<div class="pages-container"><div class="pages"><div id="arrow-left"></div><div class="first">' +
+        let pagesElement = '<div class="pages-container"><div class="pages"><div id="pages-arrow-left"></div><div class="first">' +
             '1</div><div class="first-dots">...</div>';
         for (let i = page - 2; i <= page + 2; i++) {
             pagesElement += '<div class="page' + ((i == page) ? ' selected' : '') + '">' + i + '</div>';
         }
         pagesElement += '<div class="last-dots">...</div><div class="last">' + lastPageNumber + '</div>' +
-            '<div id="arrow-right"></div></div><div class="line"><div class="underline"></div></div></div>';
+            '<div id="pages-arrow-right"></div></div><div class="line"><div class="underline"></div></div></div>';
         $("#pages").html(pagesElement);
     }
 })

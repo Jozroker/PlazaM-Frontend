@@ -3,6 +3,7 @@ let lastPage = 1;
 $(document).ready(function () {
     let scrollbar;
     let scrollbarPosition;
+    let currentScrollPosition;
     let nextClickedElement = $();
     // let commentsScroll;
 
@@ -179,6 +180,8 @@ $(document).ready(function () {
             filterAnimate = true;
 
             if (filterHidden) {
+                currentScrollPosition = window.scrollY;
+                window.addEventListener("scroll", noScroll);
                 $("#filter").animate({
                     "left": "0"
                 }, 400, "linear", function () {
@@ -190,6 +193,7 @@ $(document).ready(function () {
                 })
                 $(this).addClass("viewed");
             } else {
+                window.removeEventListener("scroll", noScroll);
                 $("#filter").animate({
                     "left": "-300px"
                 }, 400, "linear", function () {
@@ -213,6 +217,10 @@ $(document).ready(function () {
     $(".apply-btn").click(function () {
         $(".arrow").click();
     })
+
+    function noScroll() {
+        window.scrollTo(0, currentScrollPosition);
+    }
 
     function yearsGenerator(minYear, maxYear) {
         let yearsList = '<div class="year">Not Selected</div>';

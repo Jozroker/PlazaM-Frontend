@@ -2,6 +2,7 @@ let lastPage = 1;
 
 $(document).ready(function () {
     let nextClickedElement = $();
+    let currentScrollPosition;
 
     let filterHidden = true;
     let banListHidden = true;
@@ -57,23 +58,26 @@ $(document).ready(function () {
             filterAnimate = true;
 
             if (filterHidden) {
+                currentScrollPosition = window.scrollY;
+                window.addEventListener("scroll", noScroll);
                 $("#filter").animate({
                     "left": "0"
                 }, 400, "linear", function () {
                     filterAnimate = false;
                     filterHidden = false;
-                    $("body").css("overflow-y", "hidden");
+                    // $("body").css("overflow-y", "hidden");
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
                 $(this).addClass("viewed");
             } else {
+                window.removeEventListener("scroll", noScroll);
                 $("#filter").animate({
                     "left": "-300px"
                 }, 400, "linear", function () {
                     filterAnimate = false;
                     filterHidden = true;
-                    $("body").css("overflow-y", "auto");
+                    // $("body").css("overflow-y", "auto");
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -229,4 +233,8 @@ $(document).ready(function () {
             $("#users .all-users").find(query).find(".unban-button").remove();
         }
     })
+
+    function noScroll() {
+        window.scrollTo(0, currentScrollPosition);
+    }
 })

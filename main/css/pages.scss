@@ -1,50 +1,48 @@
 @import "default";
 @import "fonts";
 
-body {
-  background-color: $gray-dark;
-}
-
-.line {
-  margin: auto;
-}
-
-.pages {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 32px;
-  color: $gray-light;
-  margin: auto;
-  display: flex;
-
-  & > div {
-    width: 32px;
-    height: 32px;
-    display: inline-block;
-    text-align: center;
+#pages {
+  .line {
+    margin: auto;
   }
 
-  .selected {
-    font-size: 22px;
-    color: $maroon;
-  }
+  .pages {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    color: $gray-light;
+    margin: auto;
+    display: flex;
 
-  .page, .first, .last {
-    &:hover {
-      cursor: pointer;
+    & > div {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .selected {
+      font-size: 22px;
+      color: $maroon;
+    }
+
+    .page, .first, .last {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
+
+  .underline {
+    width: 32px;
+    height: 1px;
+    background-color: $maroon;
+    position: relative;
+    left: 0;
+  }
 }
 
-.underline {
-  width: 32px;
-  height: 1px;
-  background-color: $maroon;
-  position: relative;
-  left: 0;
-}
-
-#arrow-left, #arrow-right {
+#pages-arrow-left, #pages-arrow-right {
   margin: 0 15px;
   font-size: 14px;
 
@@ -54,12 +52,12 @@ body {
   }
 }
 
-#arrow-left::before {
+#pages-arrow-left::before {
   font-family: "icomoon" !important;
   content: "\f053";
 }
 
-#arrow-right::before {
+#pages-arrow-right::before {
   font-family: "icomoon" !important;
   content: "\f054";
 }
