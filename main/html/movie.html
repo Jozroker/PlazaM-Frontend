@@ -12,9 +12,14 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
           integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
           rel="stylesheet"/>
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/calendar.css" rel="stylesheet">
+    <link href="../css/schedule-creation.css" rel="stylesheet">
     <link href="../css/movie.css" rel="stylesheet">
 </head>
 <body>
+<div id="header-container"></div>
 <div id="movie">
     <div class="image">
         <img alt="" src="../img/jpg/wide/avenger_wide.jpg">
@@ -379,12 +384,43 @@
                                 iste mollitia nulla omnis porro possimus quasi tempore vero voluptatum!
                             </div>
                         </div>
+                        <div class="comment" id="idUUIDnumber5">
+                            <div class="user-info">
+                                <div class="avatar">
+                                    <img alt=""
+                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                </div>
+                                <div class="info">
+                                    <div class="user">
+                                        <div>
+                                            <div class="flag">
+                                                <img alt="" src="../img/png/ua.png">
+                                            </div>
+                                            <div class="username">Ivan Pavlov</div>
+                                        </div>
+                                        <div class="date">99.99.9999</div>
+                                    </div>
+                                    <div class="other">
+                                        <div class="user-rating">
+                                            <div>Not rated</div>
+                                        </div>
+                                        <div class="complain-btn">complain</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                adipisci amet deleniti distinctio dolores enim eum, excepturi explicabo illo incidunt
+                                iste mollitia nulla omnis porro possimus quasi tempore vero voluptatum!
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="comment-form">
                     <div class="add-comment">Add comment</div>
                     <div class="field">
-                        <textarea id="comment" placeholder="Comment" spellcheck="false" type="text"></textarea>
+                        <div class="scroll">
+                            <textarea id="comment" placeholder="Comment" spellcheck="false" type="text"></textarea>
+                        </div>
                     </div>
                     <div class="button">
                         <div class="comment-btn">Comment</div>
@@ -394,6 +430,7 @@
         </div>
     </div>
 </div>
+<div id="footer-container"></div>
 </body>
 <script crossorigin="anonymous"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -407,5 +444,13 @@
 <script crossorigin="anonymous"
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script async
+        crossorigin="anonymous" defer
+        src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/movie.js"></script>
 </html>

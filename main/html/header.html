@@ -40,19 +40,19 @@
                 </svg>
             </div>
             <div>
-                <div id="schedule" class="link">
+                <div class="link" id="schedule-link">
                     <div>
                         <a href="#">Schedule</a>
                     </div>
                     <div class="underline"></div>
                 </div>
-                <div id="movies" class="link">
+                <div class="link" id="movies-link">
                     <div>
                         <a href="#">Movies</a>
                     </div>
                     <div class="underline"></div>
                 </div>
-                <div id="coming-soon" class="link">
+                <div class="link" id="coming-soon-link">
                     <div>
                         <a href="#">Coming Soon</a>
                     </div>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="link">
-                <div id="location">
+                <div id="header-location">
                     <div id="current-cinema">
                         <div>
                             <a href="#">Lviv (Forum)</a>
@@ -247,6 +247,10 @@
             <div class="line-between"></div>
             <div class="menu-item waitlist-btn">
                 <a href="#">Wait List</a>
+            </div>
+            <div class="line-between"></div>
+            <div class="menu-item users-btn">
+                <a href="#">Users</a>
             </div>
         </nav>
         <div id="menu-bottom">
@@ -420,16 +424,20 @@
             <div class="scroll">
                 <div class="content">
                     <div class="password">
-                        <div class="title">Change Password</div>
+                        <div class="title"><span>Change Password</span><span class="error empty">*empty fields</span>
+                            <span class="error weak">*weak password</span><span class="error not-confirmed">*not confirmed</span>
+                        </div>
                         <div class="fields">
                             <div class="field">
-                                <input placeholder="old password" type="password">
+                                <input id="old-password" placeholder="old password" type="password">
                             </div>
                             <div class="field">
-                                <input placeholder="new password" type="password">
+                                <input id="new-password" placeholder="new password"
+                                       regex="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[_!#$%^&*-]).{8,}$"
+                                       type="password">
                             </div>
                             <div class="field">
-                                <input placeholder="confirm new password" type="password">
+                                <input id="new-password-confirm" placeholder="confirm new password" type="password">
                             </div>
                             <div class="button">
                                 <div>save</div>
@@ -437,12 +445,15 @@
                         </div>
                     </div>
                     <div class="email">
-                        <div class="title">Change Email</div>
+                        <div class="title"><span>Change Email</span><span class="error empty">*empty field</span>
+                            <span class="error not-email">*not email syntax</span></div>
                         <div class="fields">
-                            <div>Email:current@mail</div>
-                            <div>New email:</div>
+                            <div><span class="title-2">Email:</span><span class="space">_</span><span class="value">current@mail</span>
+                            </div>
+                            <div><span class="title-2">New email:</span></div>
                             <div class="field">
-                                <input placeholder="new email" type="email">
+                                <input id="new-email" placeholder="new email" regex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                                       type="email">
                             </div>
                             <div class="button">
                                 <div>save</div>
@@ -451,9 +462,13 @@
                     </div>
                     <div class="phone">
                         <!--                    todo    <div class="title">Change Phone</div>-->
-                        <div class="title">Add Phone</div>
+                        <div class="title"><span>Add Phone</span><span class="error empty">*empty field</span>
+                            <span class="error not-phone">*not phone syntax</span></div>
                         <div class="fields">
-                            <div>New phone:</div>
+                            <div class="current-phone"><span class="title-2">Current phone:</span><span
+                                    class="space">_</span>
+                                <span class="value">+38 (050) 669-37-93</span></div>
+                            <div><span class="title-2">New phone:</span></div>
                             <div class="phone-field">
                                 <div class="phone-code">
                                     <ul class="list">
@@ -467,7 +482,9 @@
                                     </ul>
                                 </div>
                                 <div class="field">
-                                    <input maxlength="10" placeholder="new phone" type="text">
+                                    <input id="new-phone" maxlength="15" placeholder="new phone"
+                                           regex="^\([0-9][0-9][0-9]\) [0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9]$"
+                                           type="text">
                                 </div>
                             </div>
                             <div class="button">
@@ -500,6 +517,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"
         integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
         crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script crossorigin="anonymous"
         src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/header.js"></script>

@@ -6,10 +6,19 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
           rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
     <link href="../css/calendar.css" rel="stylesheet">
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/pages.css" rel="stylesheet">
+    <link href="../css/filter.css" rel="stylesheet">
+    <link href="../css/movie_schedule.css" rel="stylesheet">
     <link href="../css/schedule.css" rel="stylesheet">
 </head>
 <body>
+<div id="header-container"></div>
 <div id="schedule-content">
     <div class="top">
         <div class="title">Select date</div>
@@ -25,14 +34,24 @@
     </div>
     <div id="filter"></div>
     <div id="schedules">
-        <!--10 items-->
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+
+        <div class="curtain"></div>
     </div>
-    <div id="page"></div>
+    <div id="pages"></div>
     <div class="background">
         <img alt="" src="../img/jpg/wide/hall.jpg">
     </div>
     <div class="border"></div>
 </div>
+<div id="footer-container"></div>
 </body>
 <script crossorigin="anonymous"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -40,6 +59,17 @@
 <script crossorigin="anonymous"
         integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script async
+        crossorigin="anonymous" defer
+        src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/calendar.js"></script>
 <script src="../js/schedule.js"></script>
 </html>

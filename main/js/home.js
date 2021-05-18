@@ -1,3 +1,5 @@
+let lastPage = 1;
+
 $(document).ready(function () {
     let selectedMovie = $("#movies-in-route .movie.selected").first();
     let selectedCircle = $("#movies-in-route .circle.selected").first();
@@ -9,7 +11,7 @@ $(document).ready(function () {
 
     {
         $("#movies-in-route .movie.selected").find(".name").css("left", "9.38%");
-        // loop(true);
+        loop(true);
         $("#coming-soon").slick({
             slidesToShow: 5,
             slidesToScroll: 1,
@@ -24,18 +26,30 @@ $(document).ready(function () {
             swipe: false,
             accessibility: false
         })
+
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        $("#filter").load("filter.html #filter > div", function () {
+            $.getScript("../js/filter.js");
+        });
+        $.getScript("../js/movie_schedule.js");
+        $.getScript("../js/pages.js");
     }
 
     $("#movies-in-route .circle").click(function () {
         if (!$(this).hasClass("selected")) {
             index = $("#movies-in-route .circle").index($(this));
-            // loop(false);
+            loop(false);
             slide(true, true);
         }
     })
 
     $("#movies-in-route .borders").click(function () {
-        // loop(false);
+        loop(false);
         slide(false, true);
     })
 
@@ -68,7 +82,7 @@ $(document).ready(function () {
                         nextClickedElement.click();
                         nextClickedElement = $();
                         if (userClick) {
-                            // loop(true);
+                            loop(true);
                         }
                     });
                 }, 1000);
@@ -86,7 +100,7 @@ $(document).ready(function () {
         if (repeat) {
             timer = setTimeout(function () {
                 slide(false, false);
-                // loop(true);
+                loop(true);
             }, 10000);
         } else {
             clearTimeout(timer);

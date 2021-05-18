@@ -1,7 +1,11 @@
 $(document).ready(function () {
     let columnIndex, rowIndex, columnEmpty = 0;
-    let listHidden = true;
-    let listAnimate = false;
+    let timeListHidden = true;
+    let timeListAnimate = false;
+    let hallListHidden = true;
+    let hallListAnimate = false;
+    let dateListHidden = true;
+    let dateListAnimate = false;
     let paymentMethodAnimate = false;
     let nextClickedElement = $();
     let monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -38,6 +42,14 @@ $(document).ready(function () {
             showMaskOnFocus: false,
             showMaskOnHover: false
         });
+
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        $.getScript("../js/calendar.js");
     }
 
     $(".scroll").each(function (index) {
@@ -85,16 +97,16 @@ $(document).ready(function () {
     })
 
     $("#date-select").mouseleave(function () {
-        if (!listHidden && !listAnimate) {
+        if (!dateListAnimate && !dateListHidden) {
             $(".choose-places .selected-date").click();
         }
     })
 
     $(".choose-places .selected-date").click(function () {
-        if (!listAnimate) {
-            listAnimate = true;
+        if (!dateListAnimate) {
+            dateListAnimate = true;
 
-            if (listHidden) {
+            if (dateListHidden) {
                 $(this).addClass("select");
                 selectedDate = new Date();
                 selectedDate.setFullYear($(this).attr("year"), parseInt(monthsShort.indexOf($(this).find(".month").text())),
@@ -103,8 +115,8 @@ $(document).ready(function () {
                 $(this).parent().find(".selection").animate({
                     "height": "186px"
                 }, 500, "easeInOutQuint", function () {
-                    listHidden = false;
-                    listAnimate = false;
+                    dateListHidden = false;
+                    dateListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -116,8 +128,8 @@ $(document).ready(function () {
                 $(this).parent().find(".selection").animate({
                     "height": "0"
                 }, 500, "easeInOutQuint", function () {
-                    listHidden = true;
-                    listAnimate = false;
+                    dateListHidden = true;
+                    dateListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -137,16 +149,16 @@ $(document).ready(function () {
     })
 
     $("#hall-select").mouseleave(function () {
-        if (!listHidden && !listAnimate) {
+        if (!hallListAnimate && !hallListHidden) {
             $(".choose-places .selected-hall").click();
         }
     })
 
     $(".choose-places .selected-hall").click(function () {
-        if (!listAnimate) {
-            listAnimate = true;
+        if (!hallListAnimate) {
+            hallListAnimate = true;
 
-            if (listHidden) {
+            if (hallListHidden) {
                 currentScrollPosition = window.scrollY;
                 window.addEventListener("scroll", noScroll);
                 $(this).addClass("select");
@@ -159,8 +171,8 @@ $(document).ready(function () {
                 $(this).parent().find(".selection").animate({
                     "height": "102px"
                 }, 500, "easeInOutQuint", function () {
-                    listHidden = false;
-                    listAnimate = false;
+                    hallListHidden = false;
+                    hallListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -174,8 +186,8 @@ $(document).ready(function () {
                     "height": "0"
                 }, 500, "easeInOutQuint", function () {
                     $(".choose-places .list .hall").removeClass("selected");
-                    listHidden = true;
-                    listAnimate = false;
+                    hallListHidden = true;
+                    hallListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -196,16 +208,16 @@ $(document).ready(function () {
     })
 
     $("#time-select").mouseleave(function () {
-        if (!listHidden && !listAnimate) {
+        if (!timeListAnimate && !timeListHidden) {
             $(".choose-places .selected-time").click();
         }
     })
 
     $(".choose-places .selected-time").click(function () {
-        if (!listAnimate) {
-            listAnimate = true;
+        if (!timeListAnimate) {
+            timeListAnimate = true;
 
-            if (listHidden) {
+            if (timeListHidden) {
                 currentScrollPosition = window.scrollY;
                 window.addEventListener("scroll", noScroll);
                 $(this).addClass("select");
@@ -218,8 +230,8 @@ $(document).ready(function () {
                 $(this).parent().find(".selection").animate({
                     "height": "102px"
                 }, 500, "easeInOutQuint", function () {
-                    listHidden = false;
-                    listAnimate = false;
+                    timeListHidden = false;
+                    timeListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -233,8 +245,8 @@ $(document).ready(function () {
                     "height": "0"
                 }, 500, "easeInOutQuint", function () {
                     $(".choose-places .list .time").removeClass("selected");
-                    listHidden = true;
-                    listAnimate = false;
+                    timeListHidden = true;
+                    timeListAnimate = false;
                     nextClickedElement.click();
                     nextClickedElement = $();
                 })
@@ -351,19 +363,19 @@ $(document).ready(function () {
             }, 500, "easeInOutQuint");
 
             if ($(this).attr("id") == "choose-places") {
-                $("#next-tile").css("display", "block");
+                $("#next-tile").text("Next");
                 $("#prev-tile").css("display", "none");
                 if ($("#choose-payment-method").hasClass("disabled")) {
                     $("#next-tile").addClass("disabled");
                 }
             } else if ($(this).attr("id") == "choose-payment-method") {
-                $("#next-tile").css("display", "block");
+                $("#next-tile").text("Next");
                 $("#prev-tile").css("display", "block");
                 if ($("#confirm").hasClass("disabled")) {
                     $("#next-tile").addClass("disabled");
                 }
             } else {
-                $("#next-tile").css("display", "none");
+                $("#next-tile").text("Confirm");
                 $("#prev-tile").css("display", "block");
             }
 

@@ -34,12 +34,12 @@ $(document).ready(function () {
             "rightAlign": false,
             "allowMinus": false
         });
-        $("#price").get()[0].inputmask.setValue("0.00");
+        $("#price").get(0).inputmask.setValue("0.00");
         $("#date-from .value, #date-to .value").text(stringDate);
     }
 
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#schedule-creation .scroll").each(function (index) {
+        new SimpleBar($("#schedule-creation .scroll")[index], {
             autoHide: false
         });
     })
@@ -79,6 +79,7 @@ $(document).ready(function () {
     })
 
     $("#date-from .title").click(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if (!dateFromAnimate) {
             dateFromAnimate = true;
             let parent = $($(this).parent()[0]);
@@ -140,6 +141,7 @@ $(document).ready(function () {
     })
 
     $("#date-to .title").click(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if (!dateToAnimate) {
             dateToAnimate = true;
             let parent = $($(this).parent()[0]);
@@ -201,6 +203,7 @@ $(document).ready(function () {
     })
 
     $(".checkbox").click(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if ($($(this).parents(".day")[0]).hasClass("checked")) {
             $($(this).parents(".day")[0]).removeClass("checked");
         } else {
@@ -209,6 +212,7 @@ $(document).ready(function () {
     })
 
     $("#plus").mousedown(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         $("#price").val(parseFloat($("#price").val()) + 0.01);
         priceLoop = true;
         loopPrice(0.01);
@@ -237,6 +241,7 @@ $(document).ready(function () {
     })
 
     $("#minus").mousedown(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if ($("#price").val() != "0.00") {
             $("#price").val(parseFloat($("#price").val()) - 0.01);
             priceLoop = true;
@@ -267,12 +272,13 @@ $(document).ready(function () {
     })
 
     $("#schedule-creation").mouseleave(function () {
-        if (!scheduleCreationHidden) {
+        if ((!scheduleCreationAnimate && !scheduleCreationHidden) || (scheduleCreationAnimate && scheduleCreationHidden)) {
             $("#add-schedule").click();
         }
     })
 
     $(".hall-select .selected").click(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if (!scheduleCreationHidden) {
             if (!hallSelectAnimate) {
                 hallSelectAnimate = true;
@@ -285,7 +291,7 @@ $(document).ready(function () {
                     }, 250, "easeInOutQuint", function () {
                         $(this).find(".triangle").addClass("triangle-0");
                         $(this).animate({
-                            "height": "150px"
+                            "height": "100%"
                         }, 250, "easeInOutQuint", function () {
                             hallSelectHidden = false;
                             hallSelectAnimate = false;
@@ -323,6 +329,7 @@ $(document).ready(function () {
     })
 
     $(".cinema-select .selected").click(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
         if (!scheduleCreationHidden) {
             if (!cinemaSelectAnimate) {
                 cinemaSelectAnimate = true;
@@ -335,7 +342,7 @@ $(document).ready(function () {
                     }, 250, "easeInOutQuint", function () {
                         $(this).find(".triangle").addClass("triangle-0");
                         $(this).animate({
-                            "height": "150px"
+                            "height": "100%"
                         }, 250, "easeInOutQuint", function () {
                             cinemaSelectHidden = false;
                             cinemaSelectAnimate = false;
@@ -431,8 +438,51 @@ $(document).ready(function () {
         }
     })
 
+    $("#schedule-creation input").focusin(function () {
+        $(this).parents(".input").first().prev().css("color", "#D7D7D7");
+    })
+
     $(".button .create-btn").click(function () {
-        if (!scheduleCreationHidden) {
+        let validation = true;
+        let dateFrom = new Date($("#date-from .value").text().slice(-4) + "-" + $("#date-from .value").text().slice(3, 5) +
+            "-" + $("#date-from .value").text().slice(0, 3));
+        let dateTo = new Date($("#date-to .value").text().slice(-4) + "-" + $("#date-to .value").text().slice(3, 5) +
+            "-" + $("#date-to .value").text().slice(0, 3));
+        let current = new Date();
+        current.setDate(current.getDate() - 1);
+        if ($("#movie-search-line").val() == "") {
+            validation = false;
+            $("#movie-search-line").parents(".input").first().prev().css("color", "#AF2341");
+        }
+        if ($("#timepicker").val() == "") {
+            validation = false;
+            $("#timepicker").parents(".input").first().prev().css("color", "#AF2341");
+        }
+        if ($("#price").val() == "0.00") {
+            validation = false;
+            $("#price").parents(".input").first().prev().css("color", "#AF2341");
+        }
+        if ($(".hall-select .selected").text().trim() == $(".hall-select .hall").first().text().trim()) {
+            validation = false;
+            $(".hall-select .selected").parents(".input").first().prev().css("color", "#AF2341");
+        }
+        if ($(".cinema-select .selected").text().trim() == $(".cinema-select .cinema").first().text().trim()) {
+            validation = false;
+            $(".cinema-select .selected").parents(".input").first().prev().css("color", "#AF2341");
+        }
+        if (dateFrom < current) {
+            validation = false;
+            $("#date-from").parent().prev().css("color", "#AF2341");
+        }
+        if (dateTo < current) {
+            validation = false;
+            $("#date-to").parent().prev().css("color", "#AF2341");
+        }
+        if ($(".days-select .day.checked").length == 0) {
+            validation = false;
+            $(".days-select").find(".title-2").css("color", "#AF2341");
+        }
+        if (validation && !scheduleCreationHidden && !scheduleCreationAnimate) {
             $("#add-schedule").click();
         }
     })

@@ -46,11 +46,33 @@ $(document).ready(function () {
         //     showSeconds: false,
         //     showMeridian: false
         // });
+
+        $("#schedule-creation").load("schedule-creation.html #schedule-creation > div", function () {
+            $.getScript("../js/calendar.js");
+            $.getScript("../js/schedule-creation.js");
+        });
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        // $("#schedule").load("movie_schedule.html .movie-schedule", function () {
+        $.getScript("../js/movie_schedule.js");
+        // })
     }
 
+    $("#movie .scroll").each(function (index) {
+        new SimpleBar($("#movie .scroll")[index], {
+            autoHide: false
+        });
+    })
+
     $(window).resize(function () {
-        $(".actors .scroll").css("height", $(".description .text").css("height"));
-        $(".comments .scroll").css("height", $(".gallery .slider").css("height"));
+        setTimeout(function () {
+            $(".actors .scroll").css("height", $(".description .text").css("height"));
+            $(".comments .scroll").css("height", $(".gallery .slider").css("height"));
+        }, 100);
     })
 
     $(".like").click(function () {

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let locationHidden = true;
+    let headerLocationHidden = true;
     let localHidden = true;
     let messagesHidden = true;
     let menuHidden = true;
@@ -11,9 +11,10 @@ $(document).ready(function () {
     let languageHidden = true;
     let phoneCodeHidden = true;
     let ticketsHidden = true;
+    let comingSoonHidden = true;
 
     let searchLineAnimate = false;
-    let locationAnimate = false;
+    let headerLocationAnimate = false;
     let localAnimate = false;
     let messagesAnimate = false;
     let menuAnimate = false;
@@ -24,20 +25,42 @@ $(document).ready(function () {
     let phoneCodeAnimate = false;
     let settingsMenuAnimate = false;
     let ticketsAnimate = false;
+    let comingSoonAnimate = false;
 
     let scrollBar;
+    let currentScrollPosition;
     let settingsPosition = "-808px";
+    // let settingsPosition = "-858px";
     let nextClickedElement = $();
 
     {
         $("#menu-btn").css("position", "absolute")
             .parent().css("width", $("#menu-btn").width());
-
+        if ($("#menu-top .menu-item").length == 7) {
+            $("#menu-top").css("margin-bottom", "369px");
+        } else {
+            $("#menu-top").css("margin-bottom", "420px");
+        }
+        $("#new-phone").inputmask({
+            mask: "(999) 999-99-99",
+            placeholder: "(***) ***-**-**",
+            showMaskOnFocus: false,
+            showMaskOnHover: false
+        });
         $(".sex, .country, .language-settings").find(".list .selected").each(function () {
             let width = $(this).find("div").first().width();
             $(this).css("width", 26 + width + "px");
         })
     }
+
+    $(document).on("mouseenter", "#header .scroll", function () {
+        currentScrollPosition = window.scrollY;
+        window.addEventListener("scroll", noScroll);
+    })
+
+    $(document).on("mouseleave", "#header .scroll", function () {
+        window.removeEventListener("scroll", noScroll);
+    })
 
     $(window).resize(function () {
         if ($(window).width() < 1770) {
@@ -47,9 +70,17 @@ $(document).ready(function () {
         }
 
         if (window.innerHeight === window.screen.height) {
-            $("#menu-top").css("margin-bottom", "489px");
+            if ($("#menu-top .menu-item").length == 7) {
+                $("#menu-top").css("margin-bottom", "438px");
+            } else {
+                $("#menu-top").css("margin-bottom", "489px");
+            }
         } else {
-            $("#menu-top").css("margin-bottom", "420px");
+            if ($("#menu-top .menu-item").length == 7) {
+                $("#menu-top").css("margin-bottom", "369px");
+            } else {
+                $("#menu-top").css("margin-bottom", "420px");
+            }
         }
 
         if ($(window).width() >= 1440) {
@@ -76,9 +107,116 @@ $(document).ready(function () {
     })
 
     $(document).mousemove(function () {
-        if (!$("#menu").is(":hover") && !menuHidden && settingsHidden && !$("#menu-btn").is(":hover") &&
+        if (!$("#menu").is(":hover") && !menuHidden && !menuAnimate && settingsHidden && !$("#menu-btn").is(":hover") &&
             !$("#settings-bar").is(":hover") && !$("#tickets").is(":hover") && ticketsHidden) {
             $($(".link")[6]).click();
+        }
+    })
+
+    $("#movies-link, #schedule-link").click(function () {
+        if ($(this).hasClass("select")) {
+            $(this).removeClass("select");
+        } else {
+            $(this).parent().find(".select").removeClass("select");
+            $(this).addClass("select");
+        }
+        $("#coming-soon").animate({
+            "top": "-52.6vw"
+        }, 500, "easeInOutQuint");
+        $("#coming-soon").slick("slickPause");
+    })
+
+    $("#coming-soon").mouseleave(function () {
+        if (((comingSoonHidden && comingSoonAnimate) || (!comingSoonHidden && !comingSoonAnimate)) && !$("#header").is(":hover")) {
+            $("#coming-soon-link").click();
+        }
+    })
+
+    $("#coming-soon-link").click(function () {
+        if ($(this).hasClass("select")) {
+            $(this).removeClass("select");
+        } else {
+            $(this).parent().find(".select").removeClass("select");
+            $(this).addClass("select");
+        }
+        if ($("#coming-soon").length != 0) {
+            if (!comingSoonAnimate) {
+                comingSoonAnimate = true;
+
+                if (comingSoonHidden) {
+                    $("#coming-soon").animate({
+                        "top": "0"
+                    }, 1000, "easeInOutQuint", function () {
+                        comingSoonAnimate = false;
+                        comingSoonHidden = false;
+                        nextClickedElement.click();
+                        nextClickedElement = $();
+                    });
+                    $("#coming-soon").slick("slickPlay");
+                } else {
+                    $("#coming-soon").animate({
+                        "top": "-52.6vw"
+                    }, 1000, "easeInOutQuint", function () {
+                        $("#coming-soon").slick("slickPause");
+                        comingSoonAnimate = false;
+                        comingSoonHidden = true;
+                        nextClickedElement.click();
+                        nextClickedElement = $();
+                    });
+                }
+            } else {
+                nextClickedElement = $("#coming-soon-link");
+            }
+
+        } else {
+            //todo go to home page
+        }
+    })
+
+    $("#old-password, #new-password, #new-password-confirm, #new-phone, #new-email").focusin(function () {
+        $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#D7D7D7");
+        $(this).parents(".fields").first().prev().find("span:not(:first-child)").css("display", "none");
+    })
+
+    $("#security .password .button").click(function () {
+        let regex = new RegExp($("#new-password").attr("regex"));
+        if ($("#old-password").val() == "" || $("#new-password").val() == "" || $("#new-password-confirm").val() == "") {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".empty").css("display", "inline");
+        } else if (!regex.test($("#new-password").val())) {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".weak").css("display", "inline");
+        } else if ($("#new-password").val() != $("#new-password-confirm").val()) {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".not-confirmed").css("display", "inline");
+        } else {
+            //todo change operation
+        }
+    })
+
+    $("#security .email .button").click(function () {
+        let regex = new RegExp($("#new-email").attr("regex"));
+        if ($("#new-email").val() == "") {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".empty").css("display", "inline");
+        } else if (!regex.test($("#new-email").val())) {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".not-email").css("display", "inline");
+        } else {
+            //todo change operation
+        }
+    })
+
+    $("#security .phone .button").click(function () {
+        let regex = new RegExp($("#new-phone").attr("regex"));
+        if ($("#new-phone").val() == "") {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".empty").css("display", "inline");
+        } else if (!regex.test($("#new-phone").val())) {
+            $(this).parents(".fields").first().prev().find("span:first-child").css("color", "#AF2341");
+            $(this).parents(".fields").first().prev().find(".not-phone").css("display", "inline");
+        } else {
+            //todo change operation
         }
     })
 
@@ -94,48 +232,7 @@ $(document).ready(function () {
         if (!ticketsAnimate && !messagesAnimate && !settingsAnimate && !menuAnimate) {
             ticketsAnimate = true;
 
-            if (ticketsHidden) {
-                $("#tickets .scroll .simplebar-content").remove(".ticket");
-
-                createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
-                    "../img/jpg/wide/avenger_wide.jpg");
-                createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
-                    "../img/jpg/wide/avenger_wide.jpg");
-
-                $(this).animate({
-                    "font-size": "36px",
-                    "line-height": "36px",
-                    "margin": "6px 0"
-                }, 500, "easeInOutQuint");
-                $("#tickets").animate({
-                    "top": "0"
-                }, 1000, "easeInOutQuint");
-                $("#background").animate({
-                    "top": "0"
-                }, 1000, "easeInOutQuint", function () {
-                    ticketsAnimate = false;
-                    ticketsHidden = false;
-                    nextClickedElement.click();
-                    nextClickedElement = $();
-                });
-            } else {
-                $(this).animate({
-                    "font-size": "30px",
-                    "line-height": "30px",
-                    "margin": "10px 0"
-                }, 500, "easeInOutQuint");
-                $("#tickets").animate({
-                    "top": "100vh"
-                }, 1000, "easeInOutQuint");
-                $("#background").animate({
-                    "top": "100vh"
-                }, 1000, "easeInOutQuint", function () {
-                    ticketsAnimate = false;
-                    ticketsHidden = true;
-                    nextClickedElement.click();
-                    nextClickedElement = $();
-                });
-            }
+            ticketsFunction();
         } else {
             nextClickedElement = $(this);
         }
@@ -188,9 +285,9 @@ $(document).ready(function () {
         }
     })
 
-    $(".scroll").each(function (index) {
+    $("#header .scroll").each(function (index) {
         if ($(this).attr("id") === "menu") {
-            scrollBar = new SimpleBar($(".scroll")[index], {
+            scrollBar = new SimpleBar($("#header .scroll")[index], {
                 autoHide: false
             });
             scrollBar.getScrollElement().addEventListener("scroll", function () {
@@ -225,7 +322,7 @@ $(document).ready(function () {
                 }
             })
         } else {
-            new SimpleBar($(".scroll")[index], {
+            new SimpleBar($("#header .scroll")[index], {
                 autoHide: false
             });
         }
@@ -266,6 +363,9 @@ $(document).ready(function () {
             scrollUserHidden = false;
 
             if (menuHidden) {
+                currentScrollPosition = window.scrollY;
+                window.addEventListener("scroll", noScroll);
+
                 let leftPosition = $(window).width() >= 1770 ? 40 : 20;
 
                 $(".simplebar-track").css("opacity", "1");
@@ -327,6 +427,11 @@ $(document).ready(function () {
                 $("#menu-btn .triangle").css("transform", "rotate(90deg)");
 
             } else {
+                window.removeEventListener("scroll", noScroll);
+
+                if (!ticketsHidden) {
+                    ticketsFunction();
+                }
 
                 $("#menu").css("background-color", "rgba(13, 14, 13, 0.95)");
 
@@ -413,12 +518,14 @@ $(document).ready(function () {
 
                 $("#menu-btn .triangle").css("transform", "rotate(-90deg)");
             }
+        } else {
+            nextClickedElement = $(this);
         }
     })
 
     $("#search-icon").click(function () {
         if (!searchLineAnimate) {
-            searchLineAnimate = !searchLineAnimate;
+            searchLineAnimate = true;
             let elem = $("#search-line");
             let visible = elem.css("opacity");
             if (visible == 0) {
@@ -447,7 +554,7 @@ $(document).ready(function () {
                 }).css("pointer-events", "none");
             }
             setTimeout(function () {
-                searchLineAnimate = !searchLineAnimate;
+                searchLineAnimate = false;
                 nextClickedElement.click();
                 nextClickedElement = $();
             }, 1000);
@@ -457,10 +564,10 @@ $(document).ready(function () {
     })
 
     $("#current-cinema").click(function () {
-        if (!locationAnimate) {
-            locationAnimate = true;
-            if (!locationHidden) {
-                locationHidden = true;
+        if (!headerLocationAnimate) {
+            headerLocationAnimate = true;
+            if (!headerLocationHidden) {
+                headerLocationHidden = true;
                 $($("#current-cinema .triangle")[0]).removeClass("triangle-0");
                 $($(".link")[4]).animate({
                     "height": $(this).height() + 16 + "px"
@@ -477,8 +584,8 @@ $(document).ready(function () {
                     })
                 }, 500);
             } else {
-                locationHidden = false;
-                let newHeight = 16 + $("#location").outerHeight(true);
+                headerLocationHidden = false;
+                let newHeight = 16 + $("#header-location").outerHeight(true);
                 $($("#current-cinema .triangle")[0]).addClass("triangle-0");
                 $($(".link")[4]).find(".background").animate({
                     "height": "100%"
@@ -491,7 +598,7 @@ $(document).ready(function () {
                 });
             }
             setTimeout(function () {
-                locationAnimate = false;
+                headerLocationAnimate = false;
                 nextClickedElement.click();
                 nextClickedElement = $();
             }, 500);
@@ -501,8 +608,8 @@ $(document).ready(function () {
     })
 
     $($(".link")[4]).mouseleave(function () {
-        locationHidden = true;
-        locationAnimate = true;
+        headerLocationHidden = true;
+        headerLocationAnimate = true;
         let newHeight = $("#current-cinema").height() <= 18 ? 32 : 54;
         $($("#current-cinema .triangle")[0]).removeClass("triangle-0");
         $($(".link")[4]).animate({
@@ -511,7 +618,7 @@ $(document).ready(function () {
             $($(".link")[4]).find(".background").animate({
                 "height": "0"
             }, 100, "linear", function () {
-                locationAnimate = false;
+                headerLocationAnimate = false;
             });
         });
         setTimeout(function () {
@@ -524,7 +631,7 @@ $(document).ready(function () {
     })
 
     $(".cinema-list a").click(function () {
-        locationHidden = false;
+        headerLocationHidden = false;
         $("#current-cinema a").text($(this).text());
         let newHeight = $("#current-cinema").height() <= 18 ? 32 : 54;
         let newPosition = $("#current-cinema").height() <= 18 ? 0 : -10;
@@ -541,7 +648,7 @@ $(document).ready(function () {
                 $(".city").css("width", "100%");
                 $(".city-line").css("width", "100%");
             })
-            locationHidden = true;
+            headerLocationHidden = true;
         }, 500);
     })
 
@@ -1280,5 +1387,54 @@ $(document).ready(function () {
             lineColor: "#0D0E0D",
             margin: 0
         })
+    }
+
+    function noScroll() {
+        window.scrollTo(0, currentScrollPosition);
+    }
+
+    function ticketsFunction() {
+        if (ticketsHidden) {
+            $("#tickets .scroll .simplebar-content").remove(".ticket");
+
+            createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
+                "../img/jpg/wide/avenger_wide.jpg");
+            createTicket("99.99.9999", "99:99", "3D", "15", "3", "20", "identifier",
+                "../img/jpg/wide/avenger_wide.jpg");
+
+            $(".tickets-btn").animate({
+                "font-size": "36px",
+                "line-height": "36px",
+                "margin": "6px 0"
+            }, 500, "easeInOutQuint");
+            $("#tickets").animate({
+                "top": "0"
+            }, 1000, "easeInOutQuint");
+            $("#background").animate({
+                "top": "0"
+            }, 1000, "easeInOutQuint", function () {
+                ticketsAnimate = false;
+                ticketsHidden = false;
+                nextClickedElement.click();
+                nextClickedElement = $();
+            });
+        } else {
+            $(".tickets-btn").animate({
+                "font-size": "30px",
+                "line-height": "30px",
+                "margin": "10px 0"
+            }, 500, "easeInOutQuint");
+            $("#tickets").animate({
+                "top": "100vh"
+            }, 1000, "easeInOutQuint");
+            $("#background").animate({
+                "top": "100vh"
+            }, 1000, "easeInOutQuint", function () {
+                ticketsAnimate = false;
+                ticketsHidden = true;
+                nextClickedElement.click();
+                nextClickedElement = $();
+            });
+        }
     }
 })

@@ -1,8 +1,10 @@
+let lastPage = 1;
+
 $(document).ready(function () {
     let scrollbar;
     let scrollbarPosition;
     let nextClickedElement = $();
-    let commentsScroll;
+    // let commentsScroll;
 
     let yearFromHidden = true;
     let yearToHidden = true;
@@ -14,11 +16,21 @@ $(document).ready(function () {
 
     {
         $(".sort .underline").css("width", $(".category.selected").first().width() + 14 + "px");
+        yearsGenerator(2018, 2021);
+        genresGenerator(["action", "fantasy", "horror"]);
+
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        $.getScript("../js/pages.js");
     }
 
-    $(".scroll").each(function (index) {
+    $("#filter .scroll").each(function (index) {
         if (index === 0) {
-            scrollbar = new SimpleBar($(".scroll")[index], {
+            scrollbar = new SimpleBar($("#filter .scroll")[index], {
                 autoHide: false
             });
             scrollbar.getScrollElement().addEventListener("scroll", function () {
@@ -26,12 +38,14 @@ $(document).ready(function () {
                     scrollbar.getScrollElement().scrollTop = scrollbarPosition;
                 }
             })
-        } else if ($(this).hasClass("comments-scroll")) {
-            commentsScroll = new SimpleBar($(".scroll")[index], {
-                autoHide: false
-            });
-        } else {
-            new SimpleBar($(".scroll")[index], {
+        }
+            // else if ($(this).hasClass("comments-scroll")) {
+            //     commentsScroll = new SimpleBar($("#filter .scroll")[index], {
+            //         autoHide: false
+            //     });
+        // }
+        else {
+            new SimpleBar($("#filter .scroll")[index], {
                 autoHide: false
             });
         }
@@ -143,13 +157,13 @@ $(document).ready(function () {
     })
 
     $(".year-from").mouseleave(function () {
-        if (!yearFromHidden) {
+        if ((!yearFromHidden && !yearFromAnimate) || (yearFromHidden && yearFromAnimate)) {
             $(this).find(".selected").click();
         }
     })
 
     $(".year-to").mouseleave(function () {
-        if (!yearToHidden) {
+        if ((!yearToHidden && !yearToAnimate) || (yearToHidden && yearToAnimate)) {
             $(this).find(".selected").click();
         }
     })
@@ -191,16 +205,43 @@ $(document).ready(function () {
     })
 
     $("#filter").mouseleave(function () {
-        if (!filterHidden) {
+        if ((!filterHidden && !filterAnimate) || (filterHidden && filterAnimate)) {
             $(".arrow").click();
         }
     })
-})
 
-function compareYears() {
-    if ($(".year-from .selected > div").first().text() > $(".year-to .selected > div").first().text()) {
-        let temp = $(".year-from .selected > div").first().text();
-        $(".year-from .selected > div").first().text($(".year-to .selected > div").first().text());
-        $(".year-to .selected > div").first().text(temp);
+    $(".apply-btn").click(function () {
+        $(".arrow").click();
+    })
+
+    function yearsGenerator(minYear, maxYear) {
+        let yearsList = '<div class="year">Not Selected</div>';
+        for (let i = maxYear; i >= minYear; i--) {
+            yearsList += '<div class="year">' + i + '</div>';
+        }
+        $(".years-container").html(yearsList);
     }
-}
+
+    function compareYears() {
+        if ($(".year-from .selected > div").first().text() > $(".year-to .selected > div").first().text()) {
+            let temp = $(".year-from .selected > div").first().text();
+            $(".year-from .selected > div").first().text($(".year-to .selected > div").first().text());
+            $(".year-to .selected > div").first().text(temp);
+        }
+    }
+
+    function genresGenerator(genresList) {
+        let genres = "";
+        for (const genre of genresList) {
+            genres += '<div><div class="genre">' + genre + '</div></div>';
+        }
+        $(".genres").html(genres);
+    }
+
+    function moviesGenerator(moviesList) {
+        let movies = "";
+        for (const movie of moviesList) {
+
+        }
+    }
+})

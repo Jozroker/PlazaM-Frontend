@@ -2,7 +2,7 @@
 @import "fonts";
 
 #schedule-content {
-  margin: 345px auto 0 auto;
+  margin: 240px auto 0 auto;
   width: 95.31vw;
 
   .background, .border {
@@ -48,6 +48,7 @@
       width: 155px;
       height: 34px;
       position: relative;
+      z-index: 4;
 
       .content {
         width: 155px;
@@ -97,6 +98,78 @@
 }
 
 #schedules {
-  margin: 25px 0 120px 0;
-  padding: 0 4.17vw;
+  margin: 25px 0 60px 0;
+  //padding: 0 4.17vw;
+
+  .schedule-container + .schedule-container {
+    margin-top: 55px;
+  }
+
+  .schedule-container {
+    .top {
+      & > div:nth-child(2) {
+        position: relative !important;
+
+        @media screen and (max-width: 985px) {
+          top: -33px !important;
+        }
+      }
+
+      img {
+        width: 135px !important;
+        height: 200px !important;
+      }
+    }
+
+    .lines {
+      padding-left: 169px !important;
+    }
+
+    .hours {
+      padding-left: 155px !important;
+    }
+
+    .halls .name {
+      width: 135px;
+    }
+
+    .hall-button {
+      margin-left: 155px !important;
+    }
+
+    .hall-button, .time-button {
+      @media screen and (max-width: 985px) {
+        top: -46px !important;
+      }
+    }
+
+    .time-button {
+      @media screen and (max-width: 677px) {
+        top: -5px !important;
+        margin-left: 155px !important;
+      }
+
+      @media screen and (min-width: 677px) {
+        margin-left: 345px !important;
+      }
+    }
+
+    .buy-button {
+      min-width: 377px;
+
+      .button {
+        @media screen and (max-width: 677px) {
+          top: -33px !important;
+        }
+
+        @media screen and (max-width: 985px) and (min-width: 678px) {
+          top: -74px !important;
+        }
+      }
+    }
+
+    .schedule {
+      top: -53px !important;
+    }
+  }
 }

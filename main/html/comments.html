@@ -9,11 +9,15 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
           integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
           rel="stylesheet"/>
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/pages.css" rel="stylesheet">
     <link href="../css/comments.css" rel="stylesheet">
 </head>
 <body>
+<div id="header-container"></div>
 <img alt="" id="back" src="../img/jpg/wide/hall.jpg">
-<div class="container">
+<div id="comments-container">
     <div class="top">
         <div class="title">My Comments</div>
         <div class="underline"></div>
@@ -35,8 +39,8 @@
                 <div class="info">
                     <div class="title">
                         <a href="movieLink">
-                            <div class="first">Avengers</div>
-                            <div class="last">Part 1</div>
+                            <div class="first-name">Avengers</div>
+                            <div class="last-name">Part 1</div>
                         </a>
                     </div>
                     <div class="date">
@@ -82,8 +86,8 @@
                 <div class="info">
                     <div class="title">
                         <a href="movieLink">
-                            <div class="first">Avengers</div>
-                            <div class="last">Part 1</div>
+                            <div class="first-name">Avengers</div>
+                            <div class="last-name">Part 1</div>
                         </a>
                     </div>
                     <div class="date">
@@ -129,8 +133,8 @@
                 <div class="info">
                     <div class="title">
                         <a href="movieLink">
-                            <div class="first">Avengers</div>
-                            <div class="last">Part 1</div>
+                            <div class="first-name">Avengers</div>
+                            <div class="last-name">Part 1</div>
                         </a>
                     </div>
                     <div class="date">
@@ -173,6 +177,7 @@
     </div>
     <div id="pages"></div>
 </div>
+<div id="footer-container"></div>
 </body>
 <script crossorigin="anonymous"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -183,5 +188,13 @@
 <script crossorigin="anonymous"
         integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
         src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script async
+        crossorigin="anonymous" defer
+        src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/comments.js"></script>
 </html>

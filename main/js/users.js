@@ -1,3 +1,5 @@
+let lastPage = 1;
+
 $(document).ready(function () {
     let nextClickedElement = $();
 
@@ -9,10 +11,24 @@ $(document).ready(function () {
 
     {
         $(".sort .underline").css("width", $(".category.selected").first().width() + 14 + "px");
+
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        $.getScript("../js/pages.js");
     }
 
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#filter .scroll").each(function (index) {
+        new SimpleBar($("#filter .scroll")[index], {
+            autoHide: false
+        });
+    })
+
+    $(".users-page-container .scroll").each(function (index) {
+        new SimpleBar($(".users-page-container .scroll")[index], {
             autoHide: false
         });
     })
@@ -67,9 +83,13 @@ $(document).ready(function () {
     })
 
     $("#filter").mouseleave(function () {
-        if (!filterHidden) {
+        if ((!filterHidden && !filterAnimate) || (filterHidden && filterAnimate)) {
             $(".arrow").click();
         }
+    })
+
+    $(".apply-btn").click(function () {
+        $(".arrow").click();
     })
 
     $("#users .nav-item").click(function () {

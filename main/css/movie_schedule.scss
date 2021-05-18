@@ -75,7 +75,7 @@
     }
 
     .content {
-      height: 104px;
+      max-height: 104px;
 
       .simplebar-content > div:not(.line-between) {
         display: flex;
@@ -429,6 +429,7 @@
       .lines {
         position: relative;
         padding-left: 214px;
+        white-space: nowrap;
 
         .line {
           display: inline-block;
@@ -437,22 +438,23 @@
         }
 
         .line + .line {
-          margin-left: 1.46vw;
+          margin-left: 1.46vw !important;
         }
 
         .hour-line {
-          width: 2px;
-          height: 25px;
+          width: 2px !important;
+          height: 25px !important;
         }
 
         .half-hour-line {
-          width: 1px;
-          height: 15px;
+          width: 1px !important;
+          height: 15px !important;
         }
       }
 
       .hours {
         padding-left: 200px;
+        white-space: nowrap;
 
         .hour {
           display: inline-block;
@@ -464,7 +466,7 @@
         }
 
         .hour + .hour {
-          margin-left: 6 * 1.46vw;
+          margin-left: 6 * 1.46vw !important;
         }
       }
     }
@@ -491,7 +493,7 @@
                 rgba($maroon, 0));
       }
 
-      .hall {
+      .hall-container {
         position: relative;
         height: 40px;
         width: 100%;

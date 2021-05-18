@@ -6,128 +6,138 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
           rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
           integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
           rel="stylesheet"/>
+    <link href="../css/calendar.css" rel="stylesheet">
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/pages.css" rel="stylesheet">
+    <link href="../css/filter.css" rel="stylesheet">
+    <link href="../css/movie_schedule.css" rel="stylesheet">
     <link href="../css/home.css" rel="stylesheet">
 </head>
 <body>
+<div id="header-container"></div>
 <div id="home-content">
     <div id="slider">
-        <!--                <div id="coming-soon">-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.8</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 8 September</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Avengers</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second">First Part</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/avenger_poster.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.2</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 2 April</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Kingsman</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second">The Secret Service</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/kingsman_poster.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.8</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 1 August</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Forsage</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second">Hobbs & Shaw</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/forsage_poster.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.8</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 7 July</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Spiderman</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second">The Homecoming</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/spiderman_poster.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">R</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>3.2</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 7 October</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Venom</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second"></div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/venom_poster.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.8</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 11 December</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">Free Guy</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second"></div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/free_guy.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div>-->
-        <!--                        <div class="movie-coming">-->
-        <!--                            <div class="pg-rating">PG-13</div>-->
-        <!--                            <div class="user-rating">-->
-        <!--                                <div>-->
-        <!--                                    <div>4.8</div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            <div class="start-date">from 27 Februar</div>-->
-        <!--                            &lt;!&ndash;                        <div class="name">&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="first">The Spiral</div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                            <div class="second"></div>&ndash;&gt;-->
-        <!--                            &lt;!&ndash;                        </div>&ndash;&gt;-->
-        <!--                            <img alt="" src="../img/jpg/posters/spiral.jpg">-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
+        <div id="coming-soon">
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.8</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 8 September</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Avengers</div>-->
+                    <!--                            <div class="movie-second-name">First Part</div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/avenger_poster.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.2</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 2 April</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Kingsman</div>-->
+                    <!--                            <div class="movie-second-name">The Secret Service</div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/kingsman_poster.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.8</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 1 August</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Forsage</div>-->
+                    <!--                            <div class="movie-second-name">Hobbs & Shaw</div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/forsage_poster.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.8</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 7 July</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Spiderman</div>-->
+                    <!--                            <div class="movie-second-name">The Homecoming</div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/spiderman_poster.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">R</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>3.2</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 7 October</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Venom</div>-->
+                    <!--                            <div class="movie-second-name"></div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/venom_poster.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.8</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 11 December</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">Free Guy</div>-->
+                    <!--                            <div class="movie-second-name"></div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/free_guy.jpg">
+                </div>
+            </div>
+            <div>
+                <div class="movie-coming">
+                    <div class="pg-rating">PG-13</div>
+                    <div class="user-rating">
+                        <div>
+                            <div>4.8</div>
+                        </div>
+                    </div>
+                    <div class="start-date">from 27 Februar</div>
+                    <!--                        <div class="name">-->
+                    <!--                            <div class="movie-first-name">The Spiral</div>-->
+                    <!--                            <div class="movie-second-name"></div>-->
+                    <!--                        </div>-->
+                    <img alt="" src="../img/jpg/posters/spiral.jpg">
+                </div>
+            </div>
+        </div>
         <div id="movies-in-route">
             <div class="slider">
                 <div class="content">
@@ -147,36 +157,36 @@
             <div class="movie">
                 <img alt="" src="../img/jpg/wide/avenger_wide.jpg">
                 <div class="name">
-                    <div class="first">Avengers</div>
-                    <div class="second">First Part</div>
+                    <div class="movie-first-name">Avengers</div>
+                    <div class="movie-second-name">First Part</div>
                 </div>
             </div>
             <div class="movie">
                 <img alt="" src="../img/jpg/wide/forsage_wide.jpg">
                 <div class="name">
-                    <div class="first">Forsage</div>
-                    <div class="second">Hobbs & Shaw</div>
+                    <div class="movie-first-name">Forsage</div>
+                    <div class="movie-second-name">Hobbs & Shaw</div>
                 </div>
             </div>
             <div class="movie selected">
                 <img alt="" src="../img/jpg/wide/kingsman_wide.jpg">
                 <div class="name">
-                    <div class="first">Kingsman</div>
-                    <div class="second">The Secret Service</div>
+                    <div class="movie-first-name">Kingsman</div>
+                    <div class="movie-second-name">The Secret Service</div>
                 </div>
             </div>
             <div class="movie">
                 <img alt="" src="../img/jpg/wide/spiderman_wide.jpg">
                 <div class="name">
-                    <div class="first">Spider-Man</div>
-                    <div class="second">Homecoming</div>
+                    <div class="movie-first-name">Spider-Man</div>
+                    <div class="movie-second-name">Homecoming</div>
                 </div>
             </div>
             <div class="movie">
                 <img alt="" src="../img/jpg/wide/venom_wide.jpg">
                 <div class="name">
-                    <div class="first">Venom</div>
-                    <div class="second"></div>
+                    <div class="movie-first-name">Venom</div>
+                    <div class="movie-second-name"></div>
                 </div>
             </div>
         </div>
@@ -188,20 +198,21 @@
         </div>
         <div id="filter"></div>
     </div>
-    <div id="seances">
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
-        <div class="seance"></div>
+    <div id="home-schedules-containers">
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
+        <div class="schedule-container"></div>
 
         <div class="curtain"></div>
     </div>
-    <div class="pages"></div>
+    <div id="pages"></div>
 </div>
+<div id="footer-container"></div>
 </body>
 <script crossorigin="anonymous"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -212,5 +223,16 @@
 <script crossorigin="anonymous"
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script async
+        crossorigin="anonymous" defer
+        src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/home.js"></script>
 </html>

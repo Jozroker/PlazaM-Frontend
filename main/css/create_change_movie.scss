@@ -1,8 +1,8 @@
 @import "default";
 @import "fonts";
 
-body {
-  margin-top: 145px;
+#movie {
+  margin-top: 200px;
   padding: 0 7vw;
 
   & > div {
@@ -1096,7 +1096,7 @@ body {
 }
 
 #search-actor {
-  height: 32px;
+  height: 32px !important;
   background-color: rgba($gray-dark, 0.4);
   display: flex;
   justify-content: flex-start;
@@ -1161,8 +1161,8 @@ body {
   height: 35px;
   margin: 90px auto 115px auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
   font-size: 24px;
   line-height: 35px;
   background-size: 201% 100%;

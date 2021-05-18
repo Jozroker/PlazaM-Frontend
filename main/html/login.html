@@ -6,9 +6,14 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
           rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css"
+          integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q=="
+          rel="stylesheet"/>
+    <link href="../css/header.css" rel="stylesheet">
     <link href="../css/login.css" rel="stylesheet">
 </head>
 <body>
+<div id="header-container"></div>
 <img alt="" id="back" src="../img/jpg/wide/hall.jpg">
 <div id="sign-in-panel">
     <div id="sign-in">
@@ -22,18 +27,18 @@
         </div>
         <div class="fields">
             <div class="email-username">
-                <div class="title">Email or Username</div>
+                <div class="title"><span>Email or Username</span><span class="error empty">*empty field</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="example@gmail.com" type="text">
+                        <input id="email-or-username" placeholder="example@gmail.com" type="text">
                     </div>
                 </div>
             </div>
             <div class="password">
-                <div class="title">Password</div>
+                <div class="title"><span>Password</span><span class="error empty">*empty field</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="********" type="password">
+                        <input id="password-login" placeholder="********" type="password">
                     </div>
                 </div>
             </div>
@@ -55,10 +60,10 @@
         </div>
         <div class="fields">
             <div class="username">
-                <div class="title">Username<span class="required">*</span></div>
+                <div class="title"><span>Username</span><span class="error required">*required</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="user1234" type="text">
+                        <input id="username" placeholder="User1234" type="text">
                     </div>
                 </div>
             </div>
@@ -79,26 +84,32 @@
                 </div>
             </div>
             <div class="email">
-                <div class="title">Email<span class="required">*</span></div>
+                <div class="title"><span>Email</span><span class="error required">*required</span>
+                    <span class="error not-email">*not email syntax</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="example@gmail.com" type="email">
+                        <input id="email" placeholder="example@gmail.com" regex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                               type="email">
                     </div>
                 </div>
             </div>
             <div class="password">
-                <div class="title">Password<span class="required">*</span></div>
+                <div class="title"><span>Password</span><span class="error required">*required</span>
+                    <span class="error weak">*weak password</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="********" type="password">
+                        <input id="password-register" placeholder="********"
+                               regex="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[_!#$%^&*-]).{8,}$"
+                               type="password">
                     </div>
                 </div>
             </div>
             <div class="password-confirm">
-                <div class="title">Confirm Password</div>
+                <div class="title"><span>Confirm Password</span><span class="error required">*required</span>
+                    <span class="error not-confirmed">*not confirmed</span></div>
                 <div class="field">
                     <div>
-                        <input placeholder="********" type="password">
+                        <input id="password-confirm" placeholder="********" type="password">
                     </div>
                 </div>
             </div>
@@ -115,9 +126,18 @@
 <script crossorigin="anonymous"
         integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<!--<script crossorigin="anonymous"-->
-<!--        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="-->
-<!--        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>-->
-<!--^(\S+)$   \d-->
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-AS9rZZDdb+y4W2lcmkNGwf4swm6607XJYpNST1mkNBUfBBka8btA6mgRmhoFQ9Umy8Nj/fg5444+SglLHbowuA=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js"></script>
+<script async
+        crossorigin="anonymous"
+        defer
+        integrity="sha512-sR3EKGp4SG8zs7B0MEUxDeq8rw9wsuGVYNfbbO/GLCJ59LBE4baEfQBVsP2Y/h2n8M19YV1mujFANO1yA3ko7Q=="
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+<script async
+        crossorigin="anonymous" defer
+        src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.4/dist/barcodes/JsBarcode.code128.min.js"></script>
 <script src="../js/login.js"></script>
 </html>

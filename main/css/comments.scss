@@ -1,7 +1,7 @@
 @import "default";
 @import "fonts";
 
-.container {
+#comments-container {
   width: 100%;
   padding: 162px 67px 0 67px;
 
@@ -80,7 +80,7 @@
 
 #pages {
   width: 100%;
-  margin: 85px auto 100px auto;
+  margin-top: 50px;
 }
 
 #comments {
@@ -102,7 +102,7 @@
   }
 
   .comment + .comment {
-    margin-top: 33px;
+    margin-top: 20px;
   }
 
   .comment {
@@ -127,10 +127,10 @@
       }
 
       .picture {
-        width: 198px;
+        width: 210px;
         flex-shrink: 0;
 
-        @media screen and (max-width: 523px) {
+        @media screen and (max-width: 535px) {
           flex-grow: 1;
         }
 
@@ -159,12 +159,12 @@
             transition: color 0.1s ease-in-out;
           }
 
-          .first {
+          .first-name {
             font-size: 24px;
             line-height: 24px;
           }
 
-          .last {
+          .last-name {
             font-size: 20px;
             line-height: 20px;
           }

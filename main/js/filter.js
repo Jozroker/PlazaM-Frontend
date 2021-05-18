@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#filter .scroll").each(function (index) {
+        new SimpleBar($("#filter .scroll")[index], {
             autoHide: false
         });
     })

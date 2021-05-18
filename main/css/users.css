@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    user-select: none;
 }
 
 body {
@@ -33,6 +34,20 @@ body {
     }
 }
 
+#header-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+#footer-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -57,13 +72,12 @@ a, a:hover, a:visited, a:active {
 
 @font-face {
     font-family: "icomoon";
-    src: url("../fonts/icomoon.eot?m2ajbg");
-    src: url("../fonts/icomoon.eot?m2ajbg#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?m2ajbg") format("truetype"), url("../fonts/icomoon.woff?m2ajbg") format("woff"), url("../fonts/icomoon.svg?m2ajbg#icomoon") format("svg");
+    src: url("../fonts/icomoon.eot?2bhjyi");
+    src: url("../fonts/icomoon.eot?2bhjyi#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?2bhjyi") format("truetype"), url("../fonts/icomoon.woff?2bhjyi") format("woff"), url("../fonts/icomoon.svg?2bhjyi#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light Bold"), local("BauhausC-Demibold"), url("../fonts/BauhausC-Demibold.woff2") format("woff2"), url("../fonts/BauhausC-Demibold.woff") format("woff"), url("../fonts/BauhausC-Demibold.ttf") format("truetype");
@@ -71,7 +85,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Light"), local("BauhausC-Light"), url("../fonts/BauhausC-Light.woff2") format("woff2"), url("../fonts/BauhausC-Light.woff") format("woff"), url("../fonts/BauhausC-Light.ttf") format("truetype");
@@ -79,7 +92,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium Bold"), local("BauhausC-Bold"), url("../fonts/BauhausC-Bold.woff2") format("woff2"), url("../fonts/BauhausC-Bold.woff") format("woff"), url("../fonts/BauhausC-Bold.ttf") format("truetype");
@@ -87,7 +99,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: "BauhausC";
     src: local("BauhausC Medium"), local("BauhausC-Medium"), url("../fonts/BauhausC-Medium.woff2") format("woff2"), url("../fonts/BauhausC-Medium.woff") format("woff"), url("../fonts/BauhausC-Medium.ttf") format("truetype");
@@ -95,7 +106,6 @@ a, a:hover, a:visited, a:active {
     font-style: normal;
     font-display: swap;
 }
-
 [class^=icon-], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: "icomoon" !important;
@@ -112,6 +122,10 @@ a, a:hover, a:visited, a:active {
 
 .icon-googleplay:before {
     content: "";
+}
+
+.icon-user:before {
+    content: "";
 }
 
 .icon-search:before {
@@ -254,24 +268,24 @@ a, a:hover, a:visited, a:active {
     content: "";
 }
 
-.container {
+.users-page-container {
     width: 100%;
     padding: 162px 67px 0 67px;
 }
 
-.container .top {
+.users-page-container .top {
     color: #A3A3A3;
     transition: color 0.2s linear;
 }
 
-.container .top .top-bar {
+.users-page-container .top .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.container .top .top-bar .title {
+.users-page-container .top .top-bar .title {
     padding-left: 7px;
     font-size: 38px;
     line-height: 38px;
@@ -280,7 +294,7 @@ a, a:hover, a:visited, a:active {
     margin-right: 20px;
 }
 
-.container .top .top-bar .search {
+.users-page-container .top .top-bar .search {
     flex-grow: 1;
     flex-shrink: 0;
     min-width: 150px;
@@ -293,7 +307,7 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, rgba(13, 14, 13, 0), rgba(13, 14, 13, 0) 50%, rgba(13, 14, 13, 0.2) 50%, rgba(13, 14, 13, 0.2));
 }
 
-.container .top .top-bar .search .underline {
+.users-page-container .top .top-bar .search .underline {
     width: 100%;
     margin: 0;
     height: 1px;
@@ -303,43 +317,43 @@ a, a:hover, a:visited, a:active {
     right: 0;
 }
 
-.container .top .underline {
+.users-page-container .top .underline {
     width: 100%;
     height: 2px;
     margin: 7px 0 17px 0;
     background-image: linear-gradient(to right, #AF2341 0, rgba(175, 35, 65, 0) 100%);
 }
 
-.container .top .sort .title {
+.users-page-container .top .sort .title {
     font-size: 28px;
     line-height: 28px;
     margin-bottom: 6px;
 }
 
-.container .top .sort .categories {
+.users-page-container .top .sort .categories {
     font-size: 20px;
     line-height: 20px;
     position: relative;
     margin-bottom: 1px;
 }
 
-.container .top .sort .categories > div {
+.users-page-container .top .sort .categories > div {
     display: inline-block;
     padding: 0 7px;
 }
 
-.container .top .sort .categories > div.selected {
+.users-page-container .top .sort .categories > div.selected {
     color: #AF2341;
     font-weight: 400;
     transition: color 0.2s linear;
 }
 
-.container .top .sort .categories > div:not(.selected):hover {
+.users-page-container .top .sort .categories > div:not(.selected):hover {
     cursor: pointer;
     color: #AF2341;
 }
 
-.container .top .sort .underline {
+.users-page-container .top .sort .underline {
     position: relative;
     left: 0;
     margin: 0;
@@ -351,7 +365,6 @@ a, a:hover, a:visited, a:active {
 .simplebar-scrollbar:hover {
     cursor: pointer;
 }
-
 .simplebar-scrollbar::before {
     background-color: #AF2341;
     width: 6px;
@@ -386,11 +399,9 @@ a, a:hover, a:visited, a:active {
     padding-right: 32px;
     height: 32px;
 }
-
 #user-search > div {
     display: inline-block;
 }
-
 #user-search > div:first-child {
     width: 100%;
     position: relative;
@@ -404,7 +415,6 @@ a, a:hover, a:visited, a:active {
     right: 0;
     margin: 0 7px;
 }
-
 #user-search-icon::after {
     font-family: "icomoon";
     content: "";
@@ -427,11 +437,9 @@ a, a:hover, a:visited, a:active {
         line-height: 30px;
     }
 }
-
 #user-search-icon:hover {
     cursor: pointer;
 }
-
 #user-search-icon:hover:after {
     color: #AF2341;
     cursor: pointer;
@@ -449,11 +457,9 @@ a, a:hover, a:visited, a:active {
     color: #D7D7D7;
     padding-left: 6px;
 }
-
 #user-search-line:focus {
     outline: none;
 }
-
 #user-search-line:focus::placeholder {
     color: transparent;
 }
@@ -474,17 +480,14 @@ a, a:hover, a:visited, a:active {
     opacity: 0.95;
     z-index: 3;
 }
-
 #filter > div {
     display: inline-flex;
     height: 100%;
 }
-
 #filter > div.scroll {
     background-color: #0D0E0D;
     width: 300px;
 }
-
 #filter > div.scroll .content {
     height: 100vh;
     min-height: 977px;
@@ -494,11 +497,9 @@ a, a:hover, a:visited, a:active {
     left: -10px;
     padding: 20px;
 }
-
 #filter > div.scroll .content > div {
     width: 100%;
 }
-
 #filter > div.scroll .content .title {
     font-weight: 400;
     font-size: 40px;
@@ -507,7 +508,6 @@ a, a:hover, a:visited, a:active {
     margin-top: 78px;
     text-align: center;
 }
-
 #filter > div.scroll .content .subtitle {
     margin-top: 19px;
     padding-left: 22px;
@@ -516,21 +516,17 @@ a, a:hover, a:visited, a:active {
     font-size: 30px;
     line-height: 30px;
 }
-
 #filter > div.scroll .content .underline {
     height: 1px;
     background-image: linear-gradient(to right, rgba(175, 35, 65, 0) 0, #AF2341 10%, #AF2341 90%, rgba(175, 35, 65, 0) 100%);
     margin-bottom: 10px;
 }
-
 #filter > div.scroll .content .roles, #filter > div.scroll .content .countries, #filter > div.scroll .content .ban-statuses {
     width: 100%;
 }
-
 #filter > div.scroll .content .roles .role + .role, #filter > div.scroll .content .roles .country + .country, #filter > div.scroll .content .roles .ban-status + .ban-status, #filter > div.scroll .content .countries .role + .role, #filter > div.scroll .content .countries .country + .country, #filter > div.scroll .content .countries .ban-status + .ban-status, #filter > div.scroll .content .ban-statuses .role + .role, #filter > div.scroll .content .ban-statuses .country + .country, #filter > div.scroll .content .ban-statuses .ban-status + .ban-status {
     margin-top: 5px;
 }
-
 #filter > div.scroll .content .roles .role, #filter > div.scroll .content .roles .country, #filter > div.scroll .content .roles .ban-status, #filter > div.scroll .content .countries .role, #filter > div.scroll .content .countries .country, #filter > div.scroll .content .countries .ban-status, #filter > div.scroll .content .ban-statuses .role, #filter > div.scroll .content .ban-statuses .country, #filter > div.scroll .content .ban-statuses .ban-status {
     width: 100%;
     height: 26px;
@@ -541,23 +537,19 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
     transition: background-position 0.3s ease-in-out;
 }
-
 #filter > div.scroll .content .roles .role:not(.selected):hover, #filter > div.scroll .content .roles .country:not(.selected):hover, #filter > div.scroll .content .roles .ban-status:not(.selected):hover, #filter > div.scroll .content .countries .role:not(.selected):hover, #filter > div.scroll .content .countries .country:not(.selected):hover, #filter > div.scroll .content .countries .ban-status:not(.selected):hover, #filter > div.scroll .content .ban-statuses .role:not(.selected):hover, #filter > div.scroll .content .ban-statuses .country:not(.selected):hover, #filter > div.scroll .content .ban-statuses .ban-status:not(.selected):hover {
     cursor: pointer;
     color: #AF2341;
 }
-
 #filter > div.scroll .content .roles .role.selected, #filter > div.scroll .content .roles .country.selected, #filter > div.scroll .content .roles .ban-status.selected, #filter > div.scroll .content .countries .role.selected, #filter > div.scroll .content .countries .country.selected, #filter > div.scroll .content .countries .ban-status.selected, #filter > div.scroll .content .ban-statuses .role.selected, #filter > div.scroll .content .ban-statuses .country.selected, #filter > div.scroll .content .ban-statuses .ban-status.selected {
     color: #0D0E0D;
     background-position: 0 0;
     transition: background-position 0.3s ease-in-out;
 }
-
 #filter > div.scroll .content .roles .role.selected:hover, #filter > div.scroll .content .roles .country.selected:hover, #filter > div.scroll .content .roles .ban-status.selected:hover, #filter > div.scroll .content .countries .role.selected:hover, #filter > div.scroll .content .countries .country.selected:hover, #filter > div.scroll .content .countries .ban-status.selected:hover, #filter > div.scroll .content .ban-statuses .role.selected:hover, #filter > div.scroll .content .ban-statuses .country.selected:hover, #filter > div.scroll .content .ban-statuses .ban-status.selected:hover {
     cursor: pointer;
     color: #D7D7D7;
 }
-
 #filter > div.scroll .content .button {
     position: absolute;
     width: 100%;
@@ -565,7 +557,6 @@ a, a:hover, a:visited, a:active {
     left: 0;
     bottom: 85px;
 }
-
 #filter > div.scroll .content .button .apply-btn {
     height: 34px;
     width: 140px;
@@ -578,14 +569,12 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, rgba(175, 35, 65, 0) 50%, rgba(175, 35, 65, 0) 100%);
     transition: all 0.3s ease-in-out;
 }
-
 #filter > div.scroll .content .button .apply-btn:hover {
     cursor: pointer;
     color: #0D0E0D;
     background-position: 0 0;
     transition: all 0.3s ease-in-out;
 }
-
 #filter > div.arrow {
     display: flex;
     justify-content: center;
@@ -596,7 +585,6 @@ a, a:hover, a:visited, a:active {
     z-index: 3;
     transition: background-color 0.1s linear, height 0.5s ease-in-out;
 }
-
 #filter > div.arrow .triangle {
     width: 0;
     height: 0;
@@ -610,46 +598,38 @@ a, a:hover, a:visited, a:active {
     transform: rotate(90deg);
     transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 #filter > div.arrow .triangle-0 {
     transform: rotate(0deg) !important;
     transition: transform 0.5s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 #filter > div.arrow .triangle-wide {
     border-left: 10px solid transparent !important;
     border-right: 10px solid transparent !important;
     transition: transform 0s ease-in-out, border-bottom-color 0.1s ease-in-out !important;
 }
-
 #filter > div.arrow.viewed {
     height: 100%;
     background-color: rgba(163, 163, 163, 0.7);
     transition: background-color 0.1s linear, height 0.5s ease-in-out;
 }
-
 #filter > div.arrow.viewed .triangle {
     transform: rotate(-90deg);
     transition: transform 0.5s ease-in-out;
 }
-
 #filter > div.arrow.viewed:hover {
     cursor: pointer;
     background-color: rgba(163, 163, 163, 0.95);
     transition: background-color 0.1s linear, height 0.5s ease-in-out;
 }
-
 #filter > div.arrow.viewed:hover .triangle {
     border-bottom-color: #AF2341;
     transition: border-bottom-color 0.1s ease-in-out;
 }
-
 #filter > div.arrow:not(.viewed):hover {
     cursor: pointer;
     background-color: rgba(163, 163, 163, 0.95);
     transition: background-color 0.1s linear, height 0.5s ease-in-out;
 }
-
 #filter > div.arrow:not(.viewed):hover .triangle {
     border-bottom-color: #AF2341;
     transition: border-bottom-color 0.1s ease-in-out;
@@ -665,7 +645,6 @@ a, a:hover, a:visited, a:active {
     width: 100%;
     position: relative;
 }
-
 #users .curtain {
     position: absolute;
     left: 0;
@@ -677,7 +656,6 @@ a, a:hover, a:visited, a:active {
     opacity: 0.7;
     display: none;
 }
-
 #users .navbar {
     display: flex;
     width: 100%;
@@ -700,7 +678,6 @@ a, a:hover, a:visited, a:active {
         height: 30px;
     }
 }
-
 #users .navbar .nav-item {
     flex-grow: 1;
     width: 100%;
@@ -708,26 +685,21 @@ a, a:hover, a:visited, a:active {
     margin-bottom: 5px;
     min-width: 185px;
 }
-
 #users .navbar .nav-item:not(.selected):hover {
     cursor: pointer;
 }
-
 #users .navbar .nav-item:not(.selected):hover div:first-child {
     color: #AF2341;
     transition: color 0.1s ease-in-out;
 }
-
 #users .navbar .nav-item.selected div:first-child {
     color: #AF2341;
     transition: color 0.3s ease-in-out;
 }
-
 #users .navbar .nav-item.selected .underline {
     background-position: 0 0;
     transition: background-position 0.3s ease-in-out;
 }
-
 #users .navbar .nav-item div:first-child {
     width: 100%;
     text-align: center;
@@ -736,7 +708,6 @@ a, a:hover, a:visited, a:active {
     font-weight: 300;
     transition: color 0.1s ease-in-out;
 }
-
 #users .navbar .nav-item .underline {
     width: 100%;
     height: 1px;
@@ -745,12 +716,10 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, transparent 50%, transparent 100%);
     transition: background-position 0.3s ease-in-out;
 }
-
 #users .users {
     width: 100%;
     overflow: hidden;
 }
-
 #users .users .users-container {
     width: 100%;
     position: relative;
@@ -761,7 +730,6 @@ a, a:hover, a:visited, a:active {
     flex-wrap: nowrap;
     margin-bottom: 112px;
 }
-
 #users .users .users-container .all-users, #users .users .users-container .banned-users {
     width: 100%;
     flex-shrink: 0;
@@ -781,7 +749,6 @@ a, a:hover, a:visited, a:active {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 #users .users .users-container .reported-users {
     width: 100%;
     flex-shrink: 0;
@@ -807,7 +774,6 @@ a, a:hover, a:visited, a:active {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 #users .users .users-container .user {
     max-width: 946px;
     display: flex;
@@ -817,39 +783,32 @@ a, a:hover, a:visited, a:active {
     padding: 15px;
     background-color: rgba(10, 11, 11, 0.8);
 }
-
 #users .users .users-container .user > div {
     flex-shrink: 0;
 }
-
 #users .users .users-container .user .user-left-side {
     width: 108px;
     height: 108px;
     margin-right: 20px;
 }
-
 #users .users .users-container .user .user-left-side img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     margin-bottom: 4px;
 }
-
 #users .users .users-container .user .user-left-side .button + .button {
     margin-top: 5px;
 }
-
 #users .users .users-container .user .user-left-side .skip-button:hover, #users .users .users-container .user .user-left-side .unban-button:hover {
     cursor: pointer;
     background-position: 0 0 !important;
     transition: background-position 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .skip-button:hover .text, #users .users .users-container .user .user-left-side .unban-button:hover .text {
     color: #0D0E0D !important;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button, #users .users .users-container .user .user-left-side .skip-button, #users .users .users-container .user .user-left-side .unban-button {
     width: 108px;
     margin: auto;
@@ -860,39 +819,32 @@ a, a:hover, a:visited, a:active {
     background-image: linear-gradient(to right, #AF2341 0, #AF2341 50%, transparent 50%, transparent 100%);
     transition: background-position 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button.selectable.selected .text:hover, #users .users .users-container .user .user-left-side .skip-button.selectable.selected .text:hover, #users .users .users-container .user .user-left-side .unban-button.selectable.selected .text:hover {
     cursor: pointer;
     color: #D7D7D7;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button.selectable:not(.selected) .text:hover, #users .users .users-container .user .user-left-side .skip-button.selectable:not(.selected) .text:hover, #users .users .users-container .user .user-left-side .unban-button.selectable:not(.selected) .text:hover {
     cursor: pointer;
     color: #AF2341;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button.selected, #users .users .users-container .user .user-left-side .skip-button.selected, #users .users .users-container .user .user-left-side .unban-button.selected {
     background-position: 0 0;
     transition: background-position 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button.selected .text, #users .users .users-container .user .user-left-side .skip-button.selected .text, #users .users .users-container .user .user-left-side .unban-button.selected .text {
     color: #0D0E0D;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button:not(.selected), #users .users .users-container .user .user-left-side .skip-button:not(.selected), #users .users .users-container .user .user-left-side .unban-button:not(.selected) {
     background-position: 100% 0;
     transition: background-position 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button:not(.selected) .text, #users .users .users-container .user .user-left-side .skip-button:not(.selected) .text, #users .users .users-container .user .user-left-side .unban-button:not(.selected) .text {
     color: #D7D7D7;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .text, #users .users .users-container .user .user-left-side .skip-button .text, #users .users .users-container .user .user-left-side .unban-button .text {
     width: 100%;
     text-align: center;
@@ -900,7 +852,6 @@ a, a:hover, a:visited, a:active {
     line-height: 26px;
     transition: color 0.2s ease-in-out;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection, #users .users .users-container .user .user-left-side .skip-button .selection, #users .users .users-container .user .user-left-side .unban-button .selection {
     position: absolute;
     left: 0;
@@ -911,36 +862,29 @@ a, a:hover, a:visited, a:active {
     z-index: 2;
     background-color: #0A0B0B;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection .ban + .ban, #users .users .users-container .user .user-left-side .skip-button .selection .ban + .ban, #users .users .users-container .user .user-left-side .unban-button .selection .ban + .ban {
     margin-top: 3px;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection .ban, #users .users .users-container .user .user-left-side .skip-button .selection .ban, #users .users .users-container .user .user-left-side .unban-button .selection .ban {
     width: 100%;
     font-size: 18px;
     line-height: 18px;
     text-align: center;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection .ban:first-child, #users .users .users-container .user .user-left-side .skip-button .selection .ban:first-child, #users .users .users-container .user .user-left-side .unban-button .selection .ban:first-child {
     margin-top: 5px;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection .ban:last-child, #users .users .users-container .user .user-left-side .skip-button .selection .ban:last-child, #users .users .users-container .user .user-left-side .unban-button .selection .ban:last-child {
     margin-bottom: 5px;
 }
-
 #users .users .users-container .user .user-left-side .ban-button .selection .ban:hover, #users .users .users-container .user .user-left-side .skip-button .selection .ban:hover, #users .users .users-container .user .user-left-side .unban-button .selection .ban:hover {
     cursor: pointer;
     color: #AF2341;
 }
-
 #users .users .users-container .user .user-right-side {
     flex-grow: 1;
     max-width: 788px;
 }
-
 #users .users .users-container .user .user-right-side .fields {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
@@ -949,42 +893,33 @@ a, a:hover, a:visited, a:active {
     width: 100%;
     margin-bottom: 5px;
 }
-
 #users .users .users-container .user .user-right-side .fields .field {
     min-width: 235px;
 }
-
 #users .users .users-container .user .user-right-side .fields .field > div + div {
     margin-top: 3px;
 }
-
 #users .users .users-container .user .user-right-side .fields .field > div {
     font-size: 18px;
     line-height: 18px;
     font-weight: 300;
 }
-
 #users .users .users-container .user .user-right-side .fields .field .title-2 {
     font-weight: 500;
     color: #AF2341;
 }
-
 #users .users .users-container .all-users .user, #users .users .users-container .banned-users .user {
     min-height: 168px;
 }
-
 #users .users .users-container .banned-users .user {
     max-width: 945px !important;
 }
-
 #users .users .users-container .reported-users .user {
     min-height: 199px;
 }
-
 #users .users .users-container .reported-users .user .fields {
     display: block !important;
 }
-
 #users .users .users-container .reported-users .user .fields .field + .field {
     margin-top: 20px;
 }

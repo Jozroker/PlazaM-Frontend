@@ -29,14 +29,21 @@ $(document).ready(function () {
         $("#month").val(date.getMonth() + 1);
         $("#year").val(date.getFullYear());
         emptyGenres();
+
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
     }
 
     $(window).resize(function () {
         emptyGenres();
     })
 
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#movie .scroll").each(function (index) {
+        new SimpleBar($("#movie .scroll")[index], {
             autoHide: false
         });
     })
@@ -283,6 +290,39 @@ $(document).ready(function () {
             $(this).get(0).scrollHeight + "px");
     })
 
+    $("#imdb-rating").focusout(function () {
+        if (parseFloat($(this).val()) > 10) {
+            $(this).val(10);
+        } else if (parseFloat($(this).val()) <= 0) {
+            $(this).val(0.1);
+        }
+    })
+
+    $("#year").focusout(function () {
+        if (parseInt($(this).val()) > 9999) {
+            $(this).val(9999);
+        } else if (parseInt($(this).val()) < 2020) {
+            $(this).val(2020);
+        }
+    })
+
+    $("#month").focusout(function () {
+        if (parseInt($(this).val()) > 12) {
+            $(this).val(12);
+        } else if (parseInt($(this).val()) < 1) {
+            $(this).val(1);
+        }
+    })
+
+    $("#day").focusout(function () {
+        let date = new Date(parseInt($("#year").val()), parseInt($("#month").val()), 0);
+        if (parseInt($(this).val()) > date.getDate()) {
+            $(this).val(date.getDate());
+        } else if (parseInt($(this).val()) < 1) {
+            $(this).val(1);
+        }
+    })
+
     $(".genre").click(function () {
         if ($(this).hasClass("selected")) {
             $(this).removeClass("selected").animate({
@@ -480,6 +520,8 @@ $(document).ready(function () {
         speed = 200;
         clearTimeout(loop);
     })
+
+    //todo create validators for fields by creation event
 
     function loopInputValue(value) {
         loop = setTimeout(function () {

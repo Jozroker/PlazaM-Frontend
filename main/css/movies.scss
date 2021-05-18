@@ -91,7 +91,6 @@
 
 .simplebar-vertical {
   position: absolute;
-  left: 4px;
   width: 8px;
 }
 
@@ -120,7 +119,11 @@
   color: $gray-light;
   transition: color 0.3s ease-in-out;
   opacity: 0.95;
-  z-index: 3;
+  z-index: 30;
+
+  .simplebar-vertical {
+    left: 4px;
+  }
 
   & > div {
     display: inline-flex;
@@ -591,25 +594,25 @@
         font-weight: 700;
 
         &:hover {
-          .first {
+          .first-name {
             color: $maroon;
             transition: color 0.1s linear;
           }
 
-          .second {
+          .second-name {
             color: #85172E;
             transition: color 0.1s linear;
           }
         }
 
-        .first {
+        .first-name {
           color: $white-dark;
           font-size: 28px;
           line-height: 28px;
           transition: color 0.1s linear;
         }
 
-        .second {
+        .second-name {
           color: $gray-light;
           font-size: 20px;
           line-height: 20px;

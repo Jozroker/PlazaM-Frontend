@@ -1,11 +1,21 @@
+let lastPage = 1;
+
 $(document).ready(function () {
 
     {
-        $(".sort .underline").css("width", $(".category.selected").first().width() + 14 + "px");
+        $("#comments-container .sort .underline").css("width", $("#comments-container .category.selected")
+            .first().width() + 14 + "px");
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
+        $.getScript("../js/pages.js");
     }
 
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#comments-container .scroll").each(function (index) {
+        new SimpleBar($("#comments-container .scroll")[index], {
             autoHide: false
         });
     })

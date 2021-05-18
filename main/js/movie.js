@@ -16,24 +16,35 @@ $(document).ready(function () {
         })
 
         $(".actors .scroll").css("height", $(".description .text").css("height"));
-        $(".comments .scroll").css("height", $(".gallery .slider").css("height"));
-        // $("#timepicker").timepicker({
-        //     template: false,
-        //     minuteStep: 5,
-        //     showSeconds: false,
-        //     showMeridian: false
-        // });
+        $(".comments .scroll").first().css("height", $(".gallery .slider").css("height"));
+        $("#schedule-creation").load("schedule-creation.html #schedule-creation > div", function () {
+            $.getScript("../js/schedule-creation.js");
+            $.getScript("../js/calendar.js");
+        });
+        $("#footer-container").load("footer.html #footer", function () {
+            $.getScript("../js/footer.js");
+        });
+        $("#header-container").load("header.html #header", function () {
+            $.getScript("../js/header.js");
+        });
     }
 
-    $(".scroll").each(function (index) {
-        new SimpleBar($(".scroll")[index], {
+    $("#movie .scroll").each(function (index) {
+        new SimpleBar($("#movie .scroll")[index], {
             autoHide: false
         });
     })
 
+    $("textarea").on("input", function () {
+        $(this).css("height", "auto").delay(10).css("height",
+            $(this).get(0).scrollHeight + "px");
+    })
+
     $(window).resize(function () {
-        $(".actors .scroll").css("height", $(".description .text").css("height"));
-        $(".comments .scroll").css("height", $(".gallery .slider").css("height"));
+        setTimeout(function () {
+            $(".actors .scroll").css("height", $(".description .text").css("height"));
+            $(".comments .scroll").first().css("height", $(".gallery .slider").css("height"));
+        }, 100);
     })
 
     $(".like").click(function () {

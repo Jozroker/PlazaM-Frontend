@@ -12,7 +12,8 @@
 
   header {
     cursor: default;
-    height: 30px;
+    height: 30px !important;
+    min-height: 0 !important;
     position: relative;
     font-weight: bold;
 
@@ -94,8 +95,8 @@
       width: 22px;
       margin: auto;
       display: block;
-      background-size: 202% 100%;
-      background-position: 101% 0;
+      background-size: 201% 100%;
+      background-position: 100% 0;
       background-image: linear-gradient(to right, $maroon 0%, $maroon 50%, rgba($maroon, 0) 50%, rgba($maroon, 0) 100%);
       transition: background-position 0.3s linear;
       cursor: pointer;

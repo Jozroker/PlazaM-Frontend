@@ -39,6 +39,7 @@ $maroon-light: #CB3F5D;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  user-select: none;
 }
 
 body {
@@ -62,6 +63,20 @@ body {
   @media screen and (max-width: 1920px) {
     width: 100vw;
   }
+}
+
+#header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+#footer-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 ul, ol {

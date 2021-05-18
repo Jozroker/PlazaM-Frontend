@@ -177,12 +177,24 @@
             }
           }
 
+          .scroll {
+            height: 121px;
+            padding-right: 10px;
+
+            .simplebar-vertical {
+              width: 8px;
+
+              .simplebar-scrollbar::before {
+                background-color: $maroon;
+              }
+            }
+          }
+
           textarea {
             background-color: $black-light;
             width: 100%;
-            //min-width: 130px;
-            height: 122px;
-            padding: 5px 13px;
+            min-height: 121px;
+            height: 18px;
             font-size: 18px;
             line-height: 18px;
             font-weight: 300;
