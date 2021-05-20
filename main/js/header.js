@@ -108,7 +108,8 @@ $(document).ready(function () {
 
     $(document).mousemove(function () {
         if (!$("#menu").is(":hover") && !menuHidden && !menuAnimate && settingsHidden && !$("#menu-btn").is(":hover") &&
-            !$("#settings-bar").is(":hover") && !$("#tickets").is(":hover") && ticketsHidden) {
+            !$("#settings-bar").is(":hover") && !$("#tickets").is(":hover") && ticketsHidden && !settingsMenuAnimate &&
+            !ticketsAnimate && !settingsAnimate) {
             $($(".link")[6]).click();
         }
     })

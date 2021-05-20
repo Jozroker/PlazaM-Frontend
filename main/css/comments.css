@@ -1,10 +1,10 @@
 @charset "UTF-8";
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  user-select: none;
 }
 
 body {
@@ -21,40 +21,41 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
+
 @media screen and (min-width: 1920px) {
-    body {
-        width: 1920px;
-    }
+  body {
+    width: 1920px;
+  }
 }
 
 @media screen and (max-width: 1920px) {
-    body {
-        width: 100vw;
-    }
+  body {
+    width: 100vw;
+  }
 }
 
 #header-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 
 #footer-container {
-    position: absolute;
-    left: 0;
-    width: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 ul, ol {
-    list-style: none;
+  list-style: none;
 }
 
 a, a:hover, a:visited, a:active {
-    text-decoration: none;
-    color: inherit;
-    outline: none;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 
 .ua-flag {
@@ -70,12 +71,12 @@ a, a:hover, a:visited, a:active {
 }
 
 @font-face {
-    font-family: "icomoon";
-    src: url("../fonts/icomoon.eot?2bhjyi");
-    src: url("../fonts/icomoon.eot?2bhjyi#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?2bhjyi") format("truetype"), url("../fonts/icomoon.woff?2bhjyi") format("woff"), url("../fonts/icomoon.svg?2bhjyi#icomoon") format("svg");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?2bhjyi");
+  src: url("../fonts/icomoon.eot?2bhjyi#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?2bhjyi") format("truetype"), url("../fonts/icomoon.woff?2bhjyi") format("woff"), url("../fonts/icomoon.svg?2bhjyi#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 @font-face {
   font-family: "BauhausC";
@@ -113,26 +114,26 @@ a, a:hover, a:visited, a:active {
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-googleplay:before {
-    content: "";
+  content: "";
 }
 
 .icon-user:before {
-    content: "";
+  content: "";
 }
 
 .icon-search:before {
-    content: "";
+  content: "";
 }
 
 .icon-edit:before {
-    content: "";
+  content: "";
 }
 
 .icon-ticket:before {
@@ -268,67 +269,58 @@ a, a:hover, a:visited, a:active {
 }
 
 #comments-container {
-    width: 100%;
-    padding: 162px 67px 0 67px;
+  width: 100%;
+  padding: 162px 67px 0 67px;
 }
-
 #comments-container .top {
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: 300;
-    color: #A3A3A3;
-    transition: color 0.2s linear;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #A3A3A3;
+  transition: color 0.2s linear;
 }
-
 #comments-container .top .title {
-    padding-left: 7px;
-    font-size: 38px;
-    line-height: 38px;
-    font-weight: 500;
-    color: #D7D7D7;
+  padding-left: 7px;
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 500;
+  color: #D7D7D7;
 }
-
 #comments-container .top .underline {
-    width: 100%;
-    height: 2px;
-    margin: 7px 0 17px 0;
-    background-image: linear-gradient(to right, #AF2341 0, rgba(175, 35, 65, 0) 100%);
+  width: 100%;
+  height: 2px;
+  margin: 7px 0 17px 0;
+  background-image: linear-gradient(to right, #AF2341 0, rgba(175, 35, 65, 0) 100%);
 }
-
 #comments-container .top .sort .title {
-    font-size: 28px;
-    line-height: 28px;
-    margin-bottom: 6px;
+  font-size: 28px;
+  line-height: 28px;
+  margin-bottom: 6px;
 }
-
 #comments-container .top .sort .categories {
-    position: relative;
-    margin-bottom: 1px;
+  position: relative;
+  margin-bottom: 1px;
 }
-
 #comments-container .top .sort .categories > div {
-    display: inline-block;
-    padding: 0 7px;
+  display: inline-block;
+  padding: 0 7px;
 }
-
 #comments-container .top .sort .categories > div.selected {
-    color: #AF2341;
-    font-weight: 400;
-    transition: color 0.2s linear;
+  color: #AF2341;
+  font-weight: 400;
+  transition: color 0.2s linear;
 }
-
 #comments-container .top .sort .categories > div:not(.selected):hover {
-    cursor: pointer;
-    color: #AF2341;
+  cursor: pointer;
+  color: #AF2341;
 }
-
 #comments-container .top .sort .underline {
-    position: relative;
-    left: 0;
-    margin: 0;
-    width: 80px;
-    height: 1px;
-    background-color: #AF2341;
+  position: relative;
+  left: 0;
+  margin: 0;
+  width: 80px;
+  height: 1px;
+  background-color: #AF2341;
 }
 
 #back {
@@ -343,8 +335,8 @@ a, a:hover, a:visited, a:active {
 }
 
 #pages {
-    width: 100%;
-    margin-top: 50px;
+  width: 100%;
+  margin-top: 50px;
 }
 
 #comments {
@@ -354,17 +346,17 @@ a, a:hover, a:visited, a:active {
 }
 #comments .curtain {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
+  left: -2%;
+  top: -2%;
+  width: 104%;
+  height: 104%;
+  z-index: 10;
   background-color: #0D0E0D;
-  opacity: 0.7;
+  opacity: 0.8;
   display: none;
 }
 #comments .comment + .comment {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 #comments .comment {
   width: 100%;
@@ -389,14 +381,14 @@ a, a:hover, a:visited, a:active {
   }
 }
 #comments .comment .comment-left-side .picture {
-    width: 210px;
-    flex-shrink: 0;
+  width: 210px;
+  flex-shrink: 0;
 }
 
 @media screen and (max-width: 535px) {
-    #comments .comment .comment-left-side .picture {
-        flex-grow: 1;
-    }
+  #comments .comment .comment-left-side .picture {
+    flex-grow: 1;
+  }
 }
 #comments .comment .comment-left-side .picture img {
   width: 100%;
@@ -415,25 +407,21 @@ a, a:hover, a:visited, a:active {
   color: #AF2341;
   transition: color 0.1s ease-in-out;
 }
-
 #comments .comment .comment-left-side .info .title:hover {
-    cursor: pointer;
-    color: #CB3F5D;
-    transition: color 0.1s ease-in-out;
+  cursor: pointer;
+  color: #CB3F5D;
+  transition: color 0.1s ease-in-out;
 }
-
 #comments .comment .comment-left-side .info .title .first-name {
-    font-size: 24px;
-    line-height: 24px;
+  font-size: 24px;
+  line-height: 24px;
 }
-
 #comments .comment .comment-left-side .info .title .last-name {
-    font-size: 20px;
-    line-height: 20px;
+  font-size: 20px;
+  line-height: 20px;
 }
-
 #comments .comment .comment-left-side .info .date, #comments .comment .comment-left-side .info .time {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 #comments .comment .comment-left-side .info .date .space, #comments .comment .comment-left-side .info .time .space {
   color: transparent;

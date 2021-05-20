@@ -12,21 +12,21 @@ $(document).ready(function () {
         pagesAnimation();
     }
 
-    $(".page").not(".selected").click(function () {
+    $("#pages .page").not(".selected").click(function () {
         url.searchParams.set("page", parseInt($(this).text()));
         page = parseInt($(this).text());
         window.history.replaceState("", "", url);
         pagesAnimation();
     })
 
-    $(".first").click(function () {
+    $("#pages .first").click(function () {
         url.searchParams.set("page", 1);
         page = 1;
         window.history.replaceState("", "", url);
         pagesAnimation();
     })
 
-    $(".last").click(function () {
+    $("#pages .last").click(function () {
         url.searchParams.set("page", lastPage);
         page = lastPage;
         window.history.replaceState("", "", url);
@@ -51,48 +51,48 @@ $(document).ready(function () {
         }
     })
 
-    $(".page, .first, .last").mouseover(function () {
-        let newPos = parseInt($(".pages").find("div:visible").index($(this))) - 1;
-        $(".line").find(".underline").css("left", newPos * 32 + "px");
+    $("#pages .page, #pages .first, #pages .last").mouseover(function () {
+        let newPos = parseInt($("#pages .pages").find("div:visible").index($(this))) - 1;
+        $("#pages .line").find(".underline").css("left", newPos * 32 + "px");
     })
 
-    $(".pages").mouseleave(function () {
-        $(".line").find(".underline").css("left", position * 32 + "px");
+    $("#pages .pages").mouseleave(function () {
+        $("#pages .line").find(".underline").css("left", position * 32 + "px");
     })
 
     function pagesAnimation() {
         if (page <= 4) {
             if (page <= 3) {
-                $(".first").css("display", "none");
-                $(".page").last().css("display", "none");
+                $("#pages .first").css("display", "none");
+                $("#pages .page").last().css("display", "none");
             } else {
-                $(".first").css("display", "inline-block");
-                $(".page").last().css("display", "inline-block");
+                $("#pages .first").css("display", "inline-block");
+                $("#pages .page").last().css("display", "inline-block");
             }
-            $(".first-dots").css("display", "none");
+            $("#pages .first-dots").css("display", "none");
         } else {
-            $(".first").css("display", "inline-block");
-            $(".page").last().css("display", "inline-block");
-            $(".first-dots").css("display", "inline-block");
+            $("#pages .first").css("display", "inline-block");
+            $("#pages .page").last().css("display", "inline-block");
+            $("#pages .first-dots").css("display", "inline-block");
         }
 
         if (page > lastPage - 4) {
             if (page > lastPage - 3) {
-                $(".last").css("display", "none");
-                $(".page").first().css("display", "none");
+                $("#pages .last").css("display", "none");
+                $("#pages .page").first().css("display", "none");
             } else {
-                $(".last").css("display", "inline-block");
-                $(".page").first().css("display", "inline-block");
+                $("#pages .last").css("display", "inline-block");
+                $("#pages .page").first().css("display", "inline-block");
             }
-            $(".last-dots").css("display", "none");
+            $("#pages .last-dots").css("display", "none");
         } else {
-            $(".last").css("display", "inline-block");
-            $(".page").first().css("display", "inline-block");
-            $(".last-dots").css("display", "inline-block");
+            $("#pages .last").css("display", "inline-block");
+            $("#pages .page").first().css("display", "inline-block");
+            $("#pages .last-dots").css("display", "inline-block");
         }
 
         let pages = page - 2;
-        $(".pages").find(".page").each(function () {
+        $("#pages .pages").find(".page").each(function () {
             if (pages <= 0 || pages > lastPage) {
                 $(this).css("display", "none");
             } else {
@@ -102,12 +102,12 @@ $(document).ready(function () {
             $(this).text(pages++);
         })
 
-        $(".pages").css("width", (($(".pages").find("div:visible").length - 2) * 32 + 124) + "px");
-        $(".line").css("width", (($(".pages").find("div:visible").length - 2) * 32) + "px");
-        position = parseInt($(".pages").find("div:visible").index($(".pages").find(".selected"))) - 1;
-        $(".line").find(".underline").css("left", position * 32 + "px");
+        $("#pages .pages").css("width", (($("#pages .pages").find("div:visible").length - 2) * 32 + 124) + "px");
+        $("#pages .line").css("width", (($("#pages .pages").find("div:visible").length - 2) * 32) + "px");
+        position = parseInt($("#pages .pages").find("div:visible").index($("#pages .pages").find(".selected"))) - 1;
+        $("#pages .line").find(".underline").css("left", position * 32 + "px");
         setTimeout(function () {
-            $(".line").find(".underline").css("transition", "left 0.3s ease-in-out");
+            $("#pages .line").find(".underline").css("transition", "left 0.3s ease-in-out");
         }, 100)
     }
 

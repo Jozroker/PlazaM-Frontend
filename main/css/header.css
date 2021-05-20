@@ -21,6 +21,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
+
 @media screen and (min-width: 1920px) {
     body {
         width: 1920px;
@@ -106,13 +107,13 @@ a, a:hover, a:visited, a:active {
   font-display: swap;
 }
 [class^=icon-], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
     line-height: 1;
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
@@ -394,17 +395,14 @@ header .flag {
     width: 100%;
     height: 100vh;
 }
-
 #settings-bar .page .scroll, #tickets .page .scroll {
     width: 100%;
     height: 100%;
     padding-right: 30px;
 }
-
 #settings-bar .page .scroll .simplebar-content-wrapper, #tickets .page .scroll .simplebar-content-wrapper {
     padding-right: 0;
 }
-
 #settings-bar .page .scroll .simplebar-vertical, #tickets .page .scroll .simplebar-vertical {
     width: 10px;
     right: 20px;
@@ -631,12 +629,13 @@ header .flag {
         padding-left: 40px;
     }
 }
+
 @media screen and (max-width: 960px) {
-  #left-side {
-    font-size: 20px;
-    margin-right: 35px;
-    padding-left: 35px;
-  }
+    #left-side {
+        font-size: 20px;
+        margin-right: 35px;
+        padding-left: 35px;
+    }
 }
 #left-side .underline {
   width: 0;
@@ -676,46 +675,37 @@ header .flag {
         margin-top: 2px;
     }
 }
-
 #left-side .links > div + div {
     margin-left: 3.13vw;
 }
-
 #left-side .links .link:not(.select) {
     color: #D7D7D7;
     transition: color 0.2s ease-in-out;
 }
-
 #left-side .links .link:not(.select) .underline {
     width: 0;
     transition: width 0.3s ease-in-out;
 }
-
 #left-side .links .link:not(.select):hover {
     cursor: pointer;
 }
-
 #left-side .links .link:not(.select):hover .underline {
     width: 100% !important;
     transition: width 0.3s ease-in-out;
 }
-
 #left-side .links .link.select {
     color: #AF2341;
     transition: color 0.2s ease-in-out;
 }
-
 #left-side .links .link.select .underline {
     width: 100%;
     transition: width 0.3s ease-in-out;
 }
-
 #left-side .links .link.select:hover {
     cursor: pointer;
     color: #D7D7D7 !important;
     transition: color 0.2s ease-in-out;
 }
-
 #left-side svg {
     min-width: 50px;
     max-width: 59px;
@@ -726,19 +716,51 @@ header .flag {
 }
 
 #left-side .link {
-  vertical-align: top;
-  margin-top: 15px;
+    vertical-align: top;
+    margin-top: 15px;
+}
+
+#loader {
+    height: 2px;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+@keyframes loader-animation {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+#loader .bar {
+    position: relative;
+    display: none;
+    height: 2px;
+    width: 100%;
+    background-image: linear-gradient(to right, transparent 0, #AF2341 20%, #AF2341 80%, transparent 100%);
+    animation-name: loader-animation;
+    animation-duration: 2s;
+    animation-iteration-count: 0;
+    animation-timing-function: ease-in-out;
 }
 
 #right-side {
-  padding-top: 32px;
-  flex-grow: 1;
+    padding-top: 32px;
+    flex-grow: 1;
 }
+
 @media screen and (min-width: 1440px) {
-  #right-side {
-    font-size: 18px;
-    line-height: 18px;
-    padding-right: 45px;
+    #right-side {
+        font-size: 18px;
+        line-height: 18px;
+        padding-right: 45px;
   }
 }
 @media screen and (min-width: 960px) and (max-width: 1440px) {
@@ -1022,21 +1044,18 @@ header .flag {
 #menu-top .messages-btn {
   width: 100%;
 }
-
 #menu-top .messages-btn::before {
     font-family: "icomoon" !important;
     font-size: 18px;
     content: "";
     color: #D7D7D7;
 }
-
 #menu-top .users-btn::before {
     font-family: "icomoon" !important;
     font-size: 18px;
     content: "";
     color: #D7D7D7;
 }
-
 #menu-top .favour-btn::before {
     font-family: "icomoon" !important;
     font-size: 18px;
@@ -1355,7 +1374,7 @@ header .flag {
 }
 @media screen and (max-width: 960px) {
   #menu {
-    font-size: 26px;
+      font-size: 26px;
       line-height: 26px;
   }
 }
@@ -1364,21 +1383,17 @@ header .flag {
     position: relative;
     padding: 200px 0 19vh 7.5vw;
 }
-
 #personal-settings .scroll, #site-settings .scroll, #security .scroll {
     height: 100%;
     padding-right: 20px;
 }
-
 #personal-settings .scroll .simplebar-content-wrapper, #site-settings .scroll .simplebar-content-wrapper, #security .scroll .simplebar-content-wrapper {
     padding-right: 0;
 }
-
 #personal-settings .scroll .simplebar-vertical, #site-settings .scroll .simplebar-vertical, #security .scroll .simplebar-vertical {
     width: 10px;
     right: 20px;
 }
-
 #personal-settings .list, #site-settings .list, #security .list {
     width: 100%;
     position: absolute;
@@ -1388,10 +1403,10 @@ header .flag {
     left: 0;
     font-size: 20px;
     line-height: 25px;
-  font-weight: 400;
-  background-size: 201% 100%;
-  background-position: 199% 0;
-  background-image: linear-gradient(to right, rgba(10, 11, 11, 0), rgba(10, 11, 11, 0) 50%, rgba(10, 11, 11, 0.95) 50%, rgba(10, 11, 11, 0.95) 100%);
+    font-weight: 400;
+    background-size: 201% 100%;
+    background-position: 199% 0;
+    background-image: linear-gradient(to right, rgba(10, 11, 11, 0), rgba(10, 11, 11, 0) 50%, rgba(10, 11, 11, 0.95) 50%, rgba(10, 11, 11, 0.95) 100%);
 }
 #personal-settings .list li, #site-settings .list li, #security .list li {
   display: flex;
@@ -1450,24 +1465,20 @@ header .flag {
 #security .scroll .simplebar-horizontal {
     display: none;
 }
-
 #security .content {
     font-size: 16px;
     line-height: 16px;
     font-weight: 300;
     color: #A3A3A3;
 }
-
 #security .content > div {
     width: 20.4vw;
     min-width: 255px;
     margin-bottom: 28px;
 }
-
 #security .content > div .title {
     width: 100%;
 }
-
 #security .content > div .title .error {
     font-size: 15px;
     line-height: 15px;
@@ -1475,7 +1486,6 @@ header .flag {
     color: #AF2341;
     display: none;
 }
-
 #security .content > div .title span:first-child {
     font-size: 24px;
     line-height: 27px;
@@ -1484,7 +1494,6 @@ header .flag {
     display: inline;
     margin-right: 5px;
 }
-
 #security .content > div .fields {
     width: 100%;
     position: relative;
@@ -1492,29 +1501,23 @@ header .flag {
     background-color: #0A0B0B;
     padding: 0.64vw 0.68vw;
 }
-
 #security .content > div .fields .title-2 {
     font-weight: 400;
     color: #D7D7D7;
 }
-
 #security .content > div .fields .space {
     color: transparent;
 }
-
 #security .content > div .fields .current-phone {
     display: none;
 }
-
 #security .content > div .fields > div {
     margin-bottom: 5px;
 }
-
 #security .content > div .fields .field {
     border-bottom: 1px solid #AF2341;
     min-width: 100px;
 }
-
 #security .content > div .fields .field > div + div {
     margin-bottom: 5px;
 }

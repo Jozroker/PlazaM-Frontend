@@ -499,6 +499,37 @@ header {
 
 }
 
+#loader {
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  @keyframes loader-animation {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .bar {
+    position: relative;
+    display: none;
+    height: 2px;
+    width: 100%;
+    background-image: linear-gradient(to right, transparent 0, $maroon 20%, $maroon 80%, transparent 100%);
+    animation-name: loader-animation;
+    animation-duration: 2s;
+    animation-iteration-count: 0;
+    animation-timing-function: ease-in-out;
+  }
+}
+
 #right-side {
   padding-top: 32px;
   flex-grow: 1;

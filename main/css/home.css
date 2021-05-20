@@ -276,13 +276,13 @@ a, a:hover, a:visited, a:active {
 }
 #home-content .curtain {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    left: -2%;
+    top: -2%;
+    width: 104%;
+    height: 104%;
+    z-index: 10;
     background-color: #0D0E0D;
-    opacity: 0.7;
+    opacity: 0.8;
     display: none;
 }
 
@@ -354,6 +354,28 @@ a, a:hover, a:visited, a:active {
 
 #home-schedules-containers .schedule-container + .schedule-container {
     margin-top: 50px;
+}
+
+#home-schedules-containers .schedule-container .top > div:nth-child(2) {
+    position: relative;
+}
+
+@media screen and (min-width: 986px) {
+    #home-schedules-containers .schedule-container .top > div:nth-child(2) {
+        top: 95px;
+    }
+}
+
+@media screen and (max-width: 985px) {
+    #home-schedules-containers .schedule-container .top > div:nth-child(2) {
+        top: 60px;
+    }
+}
+
+@media screen and (min-width: 986px) {
+    #home-schedules-containers .schedule-container .schedule {
+        top: -40px;
+    }
 }
 
 #pages {
@@ -585,18 +607,15 @@ a, a:hover, a:visited, a:active {
     background-color: rgba(13, 14, 13, 0.8);
     box-shadow: 0 0 2px 0 rgba(13, 14, 13, 0.8);
 }
-
 #coming-soon .movie-coming .name .movie-first-name {
     font-size: 2.29vw;
     line-height: 2.29vw;
     font-weight: 700;
 }
-
 #coming-soon .movie-coming .name .movie-second-name {
     font-size: 1.67vw;
     line-height: 1.67vw;
 }
-
 #coming-soon .slick-slide {
     display: flex !important;
     align-items: center;
@@ -673,13 +692,11 @@ a, a:hover, a:visited, a:active {
     color: #D7D7D7;
     z-index: 1;
 }
-
 #movies-in-route .movie .name:hover {
     color: #AF2341;
     cursor: pointer;
     text-shadow: 0 0 8px #D7D7D7;
 }
-
 #movies-in-route .movie .name .movie-first-name {
     font-weight: 700;
     text-shadow: 0 0 8px black;
@@ -705,7 +722,6 @@ a, a:hover, a:visited, a:active {
         line-height: 80px;
     }
 }
-
 #movies-in-route .movie .name .movie-second-name {
     text-shadow: 0 0 4px black;
 }

@@ -80,7 +80,6 @@
       & > div {
         height: 22px;
         padding-left: 4px;
-        border-bottom: 1px solid $maroon;
 
         input {
           width: 100%;
@@ -94,6 +93,7 @@
 
           &::placeholder {
             color: $gray-light;
+            font-weight: 500;
           }
 
           &:focus {
@@ -333,7 +333,7 @@
         }
       }
 
-      .duration, .announcement, .imdb-rating {
+      .duration, .release-date, .imdb-rating {
         .sign {
           width: 22px;
           height: 22px;
@@ -399,7 +399,7 @@
         }
       }
 
-      .announcement {
+      .release-date {
         .field {
           & > div {
             & > div:nth-child(2) {
