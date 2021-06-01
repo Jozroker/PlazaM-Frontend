@@ -51,6 +51,7 @@ $(document).ready(function () {
         //         $(this).find(".button.date .value, #date-from .value, #date-to .value").text(stringDate);
         //     })
         // } else {
+        //todo uncomment
         $(".schedule-container").each(function () {
             $(this).html(generateManyMovieSeances("movieId1", "imageData", "Avengers", "The First Part",
                 "4.33", "PG-13", "8.9", 153, last, mapOfSeances));
@@ -348,6 +349,7 @@ $(document).ready(function () {
     function calculateSeancesPosition(parent) {
         durationInMinutes = $(parent).find(".duration").first().text().trim().slice(0, $(this).find(".duration")
             .first().text().trim().indexOf(" "));
+        //todo set hour and minute values to span because can be troubled with h/m - год/хв...
         spaceBetweenLines = parseFloat($($(parent).find(".movie-schedule .line")[1]).css("margin-left").slice(0, -2));
         durationRemainder = (spaceBetweenLines * (durationInMinutes % 30)) / 30;
         $(parent).find(".seance").each(function () {

@@ -180,6 +180,7 @@ $(document).ready(function () {
                 let frameItem = $('<td>').appendTo(frameRow);
                 if (typeof item !== "undefined" && item !== "") {
                     frameItem.html("<span class='date'>" + item + "</span>");
+                    console.log(item)
                 } else {
                     frameItem.addClass("disabled");
                 }

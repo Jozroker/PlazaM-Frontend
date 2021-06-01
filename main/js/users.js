@@ -1,4 +1,4 @@
-let lastPage = 1;
+let lastPage = 5;
 
 $(document).ready(function () {
     let nextClickedElement = $();
@@ -45,7 +45,26 @@ $(document).ready(function () {
         }
     })
 
-    $(".country, .ban-status, .role").click(function () {
+    $(".selected-role").click(function () {
+        if ($(this).parent().css("height") == "18px") {
+            $(this).parent().find(".triangle").addClass("triangle-0");
+            $(this).parent().css("background-color", "rgba(85, 85, 85, 0.2)").animate({
+                "height": "75px"
+            }, 300, "linear");
+        } else {
+            $(this).parent().find(".triangle").removeClass("triangle-0");
+            $(this).parent().css("background-color", "transparent").animate({
+                "height": "18px"
+            }, 300, "linear");
+        }
+    })
+
+    $(".user-right-side .role li:not(.selected-role)").click(function () {
+        $(this).parent().find(".selected-role > div:first-child").text($(this).text().trim());
+        $(this).parent().find(".selected-role").click();
+    })
+
+    $("#filter .country, #filter .ban-status, #filter .role").click(function () {
         if ($(this).hasClass("selected")) {
             $(this).removeClass("selected");
         } else {

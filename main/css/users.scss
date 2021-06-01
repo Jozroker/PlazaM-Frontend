@@ -667,6 +667,55 @@
             width: 100%;
             margin-bottom: 5px;
 
+            .role {
+              position: relative;
+
+              ul {
+                padding: 3px 1% 0 1%;
+                position: absolute;
+                left: -1%;
+                width: 102%;
+                height: 18px;
+                overflow: hidden;
+                background-color: transparent;
+                transition: background-color 0.3s ease-in-out;
+                z-index: 5;
+
+                li {
+                  height: 18px;
+                  font-size: 18px;
+                  line-height: 18px;
+                  font-weight: 300;
+                  color: $gray-light;
+                  transition: color 0.2s ease-in-out;
+
+                  &.selected-role {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: nowrap;
+
+                    @include triangle(4px, $white-dark, 180deg, 0.2s);
+
+                    .triangle {
+                      margin-left: 4px;
+                    }
+                  }
+
+                  &:hover {
+                    cursor: pointer;
+                    color: $maroon;
+                    transition: color 0.2s ease-in-out;
+
+                    .triangle {
+                      border-bottom-color: $maroon;
+                      transition: border-bottom-color 0.2s ease-in-out;
+                    }
+                  }
+                }
+              }
+            }
+
             .field {
               min-width: 235px;
 

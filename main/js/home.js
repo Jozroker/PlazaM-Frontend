@@ -79,8 +79,8 @@ $(document).ready(function () {
                         selectedMovie = $("#movies-in-route .movie.selected").first();
                         selectedCircle = $("#movies-in-route .circle.selected").first();
                         movieRouteAnimate = false;
-                        nextClickedElement.click();
-                        nextClickedElement = $();
+                        // nextClickedElement.click();
+                        // nextClickedElement = $();
                         if (userClick) {
                             loop(true);
                         }
@@ -88,11 +88,12 @@ $(document).ready(function () {
                 }, 1000);
             })
         } else {
-            if (circleSelected) {
-                nextClickedElement = $($("#movies-in-route .circle")[index]);
-            } else {
-                nextClickedElement = $("#movies-in-route .borders");
-            }
+            // if (circleSelected) {
+            //     nextClickedElement = $($("#movies-in-route .circle")[index]);
+            // } else {
+            //     nextClickedElement = $("#movies-in-route .borders");
+            // }
+            //todo fix this trouble
         }
     }
 
